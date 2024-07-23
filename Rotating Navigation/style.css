@@ -5,7 +5,7 @@
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
   background: #333;
   color: #222;
   margin: 0;
@@ -38,6 +38,10 @@ body {
 
   position: relative;
   transition: transform 0.5s linear;
+}
+
+.container.snow-nav .circle {
+  transform: rotate(-70deg);
 }
 
 .circle button {
@@ -89,8 +93,6 @@ nav ul li {
   margin: 40px 0;
   transform: translateX(-100%);
   transition: transform 0.4s ease-in;
-
-  background: #ff7979;
 }
 
 nav ul li i {
@@ -101,15 +103,11 @@ nav ul li i {
 nav ul li + li {
   margin-left: 15px;
   transform: translateX(-150%);
-
-  background: cadetblue;
 }
 
 nav ul li + li + li {
   margin-left: 30px;
   transform: translateX(-200%);
-
-  background: crimson;
 }
 
 .content img {
