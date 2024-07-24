@@ -71,6 +71,9 @@ function bottom() {
 }
 bottom();
 
+console.log(
+  '%cJavaScript is beautiful 🌈',
+  'color: pink; font-weight: bold; background: black; padding: .75rem'
+);
 
-
-//  ❌   18  19 20  23  25  26  27  
+//  ❌   18,19,20,23,25,26,27,28
