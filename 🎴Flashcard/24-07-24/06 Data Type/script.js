@@ -37,3 +37,7 @@ console.log(Number.MIN_VALUE);
 console.log(typeof 1n);
 
 console.log(1_000_560_000_000n);
+
+// String
+let name = 'Sakib';
+let upperCaseName = name.toUpperCase(); // SAKIB
