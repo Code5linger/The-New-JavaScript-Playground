@@ -41,3 +41,9 @@ console.log(1_000_560_000_000n);
 // String
 let name = 'Sakib';
 let upperCaseName = name.toUpperCase(); // SAKIB
+console.log(name.length);
+
+let x = 5,
+  y = 2;
+
+let result = x * y ** 2;
