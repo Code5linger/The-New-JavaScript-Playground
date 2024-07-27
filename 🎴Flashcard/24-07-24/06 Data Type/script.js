@@ -47,3 +47,5 @@ let x = 5,
   y = 2;
 
 let result = x * y ** 2;
+
+console.log(result); // 20
