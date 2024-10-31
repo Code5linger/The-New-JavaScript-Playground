@@ -14,21 +14,45 @@
 //   typeof obj
 // );
 
-console.groupCollapsed('🔻');
-console.error('Error');
+// console.groupCollapsed('🔻');
+// console.error('Error');
 
-let x = 100;
-console.log(x);
+// let x = 100;
+// console.log(x);
 
-console.warn('Warn');
-console.warn('Warn');
-console.warn('Warn');
-console.warn('Warn');
-console.warn('Warn');
+// console.warn('Warn');
+// console.warn('Warn');
+// console.warn('Warn');
+// console.warn('Warn');
+// console.warn('Warn');
 
-console.groupEnd('🔼');
-console.table({ firstName: 'Elrick', lastName: 'Ashford' });
+// console.groupEnd('🔼');
+// console.table({ firstName: 'Elrick', lastName: 'Ashford' });
 
-const style = 'background: crimson; padding: 10px; border: 2px solid white';
+// const style = 'background: crimson; padding: 10px; border: 2px solid white';
 
-console.log('%cHello World!', style);
+// console.log('%cHello World!', style);
+
+let box = {};
+
+console.log(box);
+
+box['material'] = 'cardboard';
+
+console.log(box);
+
+box[('material', 'width')] = ('cardboard', '3');
+
+console.log(box);
+console.log(box.material);
+console.log(box.width);
+
+box.width = 69;
+console.log(box.width);
+
+let key = 'material';
+console.log(key);
+
+key = box.material;
+
+console.log(key);
