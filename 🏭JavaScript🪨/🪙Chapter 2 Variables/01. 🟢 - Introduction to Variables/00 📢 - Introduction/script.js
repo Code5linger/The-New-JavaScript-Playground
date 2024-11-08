@@ -235,3 +235,30 @@ console.log(
   upper`Hello ${name2} (@${x2}), Wellcome to ${topic}!` ===
     'Hello SAKIB (@CODESLINGER), Wellcome to JAVASCRIPT!'
 );
+
+const str = `Hello World`;
+
+console.log(str.match(/(l.)/g));
+console.log(str.match(/(l.)$/g));
+console.log(str.match(/(l.)(?=o)/g));
+console.log(str.match(/(l.)(?!o)/g));
+
+const notNum = NaN;
+
+console.log(notNum);
+console.log(notNum === notNum);
+console.log(NaN === NaN);
+console.log(Number('0o46'));
+
+console.log(Number.isNaN(notNum));
+
+const negZero = -0;
+console.log(negZero == -0);
+console.log(negZero === -0);
+
+negZero.toString();
+console.log(negZero.toString());
+console.log(negZero === 0);
+
+console.log(Object.is(negZero, -0));
+console.log(Object.is(negZero, 0));
