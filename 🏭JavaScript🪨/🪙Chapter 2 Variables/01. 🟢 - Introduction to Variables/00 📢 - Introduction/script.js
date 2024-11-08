@@ -125,3 +125,113 @@ const _myName = `Sakib`,
 
 const intro = `Hi! I am ${_myName}. My mail is ${email}. I am a ${myTitle}`;
 console.log(intro);
+
+function formatCurrency(strings, ...values) {
+  let str = ``;
+  for (let i = 0; i < strings.length; i++) {
+    if (i > 0) {
+      if (typeof values[i - 1] == `number`) {
+        // str += `$${values[i - 1].toFixed(4)}`;
+        console.log((str += `%`));
+      } else {
+        // str += values[i - 1];
+      }
+    }
+    str += strings[i];
+  }
+  return str;
+}
+
+// function formatCurrency() {}
+
+const ammount = 69.42;
+
+const msg = formatCurrency`Total ${ammount}`;
+
+console.log(msg);
+
+function emphasize(strings, ...values) {
+  let result = ``;
+
+  for (let i = 0; i < strings.length; i++) {
+    result += strings[i];
+    if (i < values.length) {
+      result += `<strong>${values[i]}</strong>`;
+    }
+  }
+
+  return result;
+}
+
+// Using the tagged template literal
+const testName = 'Alice';
+const action = 'coding';
+
+const sentence = emphasize`Hello, ${testName}! I see you're busy with ${action}.`;
+console.log(sentence);
+
+function display(str) {
+  document.querySelector('p').innerHTML = str;
+}
+
+display(sentence);
+
+// const v = 42,
+//   o = { a: 1, b: [2, 3, 4] };
+
+// logger`Test ${v} and ${o}`;
+
+// try {
+//   nothing();
+// } catch (err) {
+//   logger`Caught: ${err}`;
+// }
+
+// Define the logger function as a tagged template literal
+function logger(strings, ...values) {
+  let result = ``;
+
+  for (let i = 0; i < strings.length; i++) {
+    result += strings[i];
+    if (i < values.length) {
+      const value = values[i];
+      // Format objects as JSON, otherwise keep the value as-is
+      result += typeof value === 'object' ? JSON.stringify(value) : value;
+    }
+  }
+
+  console.log(result);
+}
+
+// Test data
+const v = 42;
+const o = { a: 1, b: [2, 3, 4] };
+
+// Use the logger tagged template
+logger`Test ${v} and ${o}`;
+
+try {
+  nothing(); // This function is undefined and will throw an error
+} catch (err) {
+  logger`Caught: ${err}`;
+}
+
+function upper(strings, ...values) {
+  let ret = ``;
+  for (let i = 0; i < strings.length; i++) {
+    if (i > 0) {
+      ret += String(values[i - 1]).toUpperCase();
+    }
+    ret += strings[i];
+  }
+  return ret;
+}
+
+const name2 = `Sakib`,
+  x2 = `codeslinger`,
+  topic = `JavaScript`;
+
+console.log(
+  upper`Hello ${name2} (@${x2}), Wellcome to ${topic}!` ===
+    'Hello SAKIB (@CODESLINGER), Wellcome to JAVASCRIPT!'
+);
