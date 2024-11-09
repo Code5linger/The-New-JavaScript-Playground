@@ -80,3 +80,11 @@ function questionsOrganizer() {
 // qusetionsLeft -= 1;
 // const ques3 = prompt(`Qusetion 3 | ${questionsOrganizer()}`);
 // console.log(`Inputs ${ques1}, ${ques2} & ${ques3}`);
+
+console.log(a + 1 - 1 === a);
+
+const a1 = 0.1,
+  b2 = 0.2,
+  c3 = 0.3;
+
+console.log(a1 + b2 + 3 === a1 + (b2 + c3));
