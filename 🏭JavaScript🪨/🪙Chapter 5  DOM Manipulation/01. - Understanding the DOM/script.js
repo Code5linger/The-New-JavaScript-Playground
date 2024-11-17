@@ -1,29 +1,5 @@
 //  JavaScript DOM Manipulation Roadmap
 
-console.log('#1 - Understanding the DOM');
-
-// # 1. **Understanding the DOM**
-
-//    - **What is the DOM?**
-//      - Definition and structure of the Document Object Model.
-//      - How the browser interprets HTML and creates a DOM tree.
-
-//    - **DOM vs. HTML**
-//      - Differences between the DOM and the HTML structure.
-
-//    - **Browser DevTools**
-//      - Using DevTools to inspect the DOM and view changes in real-time.
-
-// # 2. **Selecting DOM Elements**
-//    - **Methods of Selection**
-//      - `document.getElementById()`
-//      - `document.getElementsByClassName()`
-//      - `document.getElementsByTagName()`
-//      - `document.querySelector()`
-//      - `document.querySelectorAll()`
-//    - **Element vs. Node Selection**
-//      - Understanding the difference between selecting elements and nodes.
-
 // # 3. **Manipulating DOM Elements**
 //    - **Creating Elements**
 //      - Using `document.createElement()`
@@ -91,6 +67,20 @@ console.log('#1 - Understanding the DOM');
 //    - **Community Engagement**
 //      - Join forums, participate in discussions, and follow relevant blogs or YouTube channels.
 
+console.log('#1 - Understanding the DOM');
+
+// # 1. **Understanding the DOM**
+
+//    - **What is the DOM?**
+//      - Definition and structure of the Document Object Model.
+//      - How the browser interprets HTML and creates a DOM tree.
+
+//    - **DOM vs. HTML**
+//      - Differences between the DOM and the HTML structure.
+
+//    - **Browser DevTools**
+//      - Using DevTools to inspect the DOM and view changes in real-time.
+
 console.log('20 - The DOM - Introduction to the document');
 
 console.log(window); // +
@@ -151,11 +141,30 @@ const child = document.querySelector('#child');
 output = child.parentNode;
 output = child.parentElement;
 
-child.parentNode.style.backgroundColor = `#ccc`;
+// child.parentNode.style.backgroundColor = `#ccc`;
 child.parentNode.style.padding = `1rem`;
 
 const secondItem = document.querySelector('#child:nth-child(2)');
 
-output = secondItem.nextSibling.style.color = 'red';
+// output = secondItem.nextSibling.style.color = 'red';
 
 console.log(output);
+
+// # 2. **Selecting DOM Elements**
+//    - **Methods of Selection**
+//      - `document.getElementById()`
+//      - `document.getElementsByClassName()`
+//      - `document.getElementsByTagName()`
+//      - `document.querySelector()`
+//      - `document.querySelectorAll()`
+//    - **Element vs. Node Selection**
+//      - Understanding the difference between selecting elements and nodes.
+
+console.log(`003 The Query Selector`);
+
+let para;
+// let para = document.querySelector('.error').outerHTML;
+// para = document.querySelectorAll('.error').innerHTML;
+para = document.querySelector('body h1').innerHTML;
+
+console.log(para);
