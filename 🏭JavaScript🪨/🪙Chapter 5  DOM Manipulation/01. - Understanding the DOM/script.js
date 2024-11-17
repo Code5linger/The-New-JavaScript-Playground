@@ -1,69 +1,108 @@
-// console.log('Test');
+//  JavaScript DOM Manipulation Roadmap
 
-// console.log(window.document);
+console.log('#1 - Understanding the DOM');
 
-// console.log(document);
+// # 1. **Understanding the DOM**
 
-// console.log(document.body);
+//    - **What is the DOM?**
+//      - Definition and structure of the Document Object Model.
+//      - How the browser interprets HTML and creates a DOM tree.
 
-// // console.log(document.body.innerHTML);
+//    - **DOM vs. HTML**
+//      - Differences between the DOM and the HTML structure.
 
-// // console.log(document.body.innerText);
+//    - **Browser DevTools**
+//      - Using DevTools to inspect the DOM and view changes in real-time.
 
-// console.log(document.links);
+// # 2. **Selecting DOM Elements**
+//    - **Methods of Selection**
+//      - `document.getElementById()`
+//      - `document.getElementsByClassName()`
+//      - `document.getElementsByTagName()`
+//      - `document.querySelector()`
+//      - `document.querySelectorAll()`
+//    - **Element vs. Node Selection**
+//      - Understanding the difference between selecting elements and nodes.
 
-// console.log(document.links[0]);
+// # 3. **Manipulating DOM Elements**
+//    - **Creating Elements**
+//      - Using `document.createElement()`
+//      - Setting attributes with `setAttribute()`
+//      - Inserting elements using `appendChild()`, `insertBefore()`, and `replaceChild()`
+//    - **Modifying Elements**
+//      - Changing text content: `textContent`, `innerText`, and `innerHTML`
+//      - Modifying styles: `style` property and `classList` methods (`add()`, `remove()`, `toggle()`)
+//    - **Removing Elements**
+//      - Using `remove()` and `parentNode.removeChild()`
 
-// // console.log(document.body.innerHTML.h1);
-// document.body.innerHTML = '<h1>Test</h1>';
+// # 4. **Event Handling**
+//    - **Understanding Events**
+//      - What are events? Bubbling vs. capturing.
+//    - **Adding Event Listeners**
+//      - Using `addEventListener()` and `removeEventListener()`
+//      - Event delegation: how to manage events on dynamically added elements.
+//    - **Common Events**
+//      - Click, change, input, focus, blur, and more.
 
-// document.write('Hello');
+// # 5. **Advanced Manipulation Techniques**
+//    - **Animations and Transitions**
+//      - Basic CSS transitions and animations.
+//      - Using JavaScript to manipulate CSS properties for animations.
+//    - **Using Libraries**
+//      - Overview of libraries like jQuery for simplified DOM manipulation.
+//      - Introduction to modern frameworks (React, Vue, Angular) and how they manage the DOM.
+//    - **Performance Optimization**
+//      - Understanding reflow and repaint.
+//      - Techniques for optimizing DOM manipulation (batch updates, virtual DOM concepts).
 
-// // console.log(document.getElementById(#main));
+// # 6. **Dynamic Content Manipulation**
+//    - **Working with JSON and APIs**
+//      - Fetching data with `fetch()` and manipulating the DOM with the fetched data.
+//    - **Creating Dynamic Forms**
+//      - Building forms that add/remove fields dynamically.
+//      - Validating input in real-time.
 
-// // document.getElementById('main').innerHTML = 'Hello World';
+// # 7. **Best Practices and Patterns**
+//    - **Separation of Concerns**
+//      - Keeping HTML, CSS, and JavaScript separate.
+//    - **Modular Code**
+//      - Organizing code into functions or modules for better maintainability.
+//    - **Accessibility Considerations**
+//      - Ensuring your manipulations are accessible (ARIA roles, focus management).
 
-// const main = document.getElementById('main');
-// main.innerHTML = '<h1>Test Test</h1>';
+// # 8. **Testing and Debugging**
+//    - **Unit Testing**
+//      - Introduction to testing frameworks (Jest, Mocha).
+//      - Writing tests for DOM manipulation functions.
+//    - **Debugging Techniques**
+//      - Using breakpoints, logging, and error handling for debugging DOM manipulations.
 
-// document.getElementById('demo').innerHTML = 'Hello World';
+// # 9. **Project Ideas for Practice**
+//    - **To-Do List App**
+//      - Create, update, and delete tasks with DOM manipulation.
+//    - **Interactive Form**
+//      - Build a multi-step form with dynamic field additions.
+//    - **Image Gallery**
+//      - Implement an image gallery that fetches data from an API and displays it dynamically.
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   const main = document.getElementById('main');
-//   main.innerHTML = '<h1>Test Test</h1>';
+// # 10. **Keeping Up-to-Date**
+//    - **Follow Updates in JavaScript**
+//      - Keep track of new features in JavaScript and the DOM API.
+//    - **Community Engagement**
+//      - Join forums, participate in discussions, and follow relevant blogs or YouTube channels.
 
-//   document.getElementById('demo').innerHTML = 'Hello World';
-// });
+console.log('20 - The DOM - Introduction to the document');
 
-// console.log(document.getElementById('main'));
-// const main = document.getElementById('main');
-// main.innerHTML = '<h1>Main says hello!</h1>';
+console.log(window);
+console.log(window.location); // +
+console.log(location);
+console.log(innerHeight);
+console.log(innerWidth);
+console.log(document);
+console.log(navigator);
 
-// console.log((document.querySelector('#main h1').innerHTML = '<p>Test</p>'));
+console.log('002 The DOM Explained');
 
-// document.querySelector('#main h1').innerHTML;
-
-// console.log(document.querySelector('.main'));
-
-let output;
-
-const parent = document.querySelector('.main');
-
-output = parent.childNodes;
-console.log(output);
-output = parent.childNodes[0].nodeName;
-output = parent.childNodes[5].innerText;
-parent.childNodes[5].innerText = 'Papi Chulu';
-
-parent.childNodes[5].style.color = 'red';
-parent.childNodes[5].style.background = 'Black';
-parent.childNodes[5].style.padding = '2rem';
-
-output = parent.firstChild;
-
-parent.firstChild.textContent = 'Test';
-parent.lastChild.textContent = 'Test';
-
-child.parentNode.style.backgroundColor = 'Yellow';
-
-console.log(output);
+console.log(document.URL);
+console.log(document.getElementById('demo'));
+console.log('DOM Tree Map, Root Node & Text Node');
