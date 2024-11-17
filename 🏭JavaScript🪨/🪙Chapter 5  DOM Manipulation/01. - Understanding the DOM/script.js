@@ -93,16 +93,69 @@ console.log('#1 - Understanding the DOM');
 
 console.log('20 - The DOM - Introduction to the document');
 
-console.log(window);
+console.log(window); // +
 console.log(window.location); // +
 console.log(location);
 console.log(innerHeight);
 console.log(innerWidth);
-console.log(document);
+console.log(window.document);
+console.log(document); // +
 console.log(navigator);
 
 console.log('002 The DOM Explained');
 
 console.log(document.URL);
 console.log(document.getElementById('demo'));
-console.log('DOM Tree Map, Root Node & Text Node');
+console.log(
+  'DOM Visualization,  DOM Tree Structure, Root Node & Text Node, Attribute'
+); // +
+
+console.log(`0069_Intro_To_The_DOM `);
+
+console.log(window.document);
+console.dir(window.document);
+console.log(document.body);
+console.log(document.body.innerHTML);
+console.log(document.body.innerText);
+console.log(document.links);
+console.log(document.links[0]);
+console.log(document.links[1]);
+
+// document.body.innerHTML = '<h1>Hello World!</h1>';
+// document.write('Hello from JS');
+console.log(document.getElementById('main'));
+const main = document.getElementById('main');
+// main.innerHTML = `<h1>Main say Hello</h1>`;
+
+document.querySelector(`#main p`).innerHTML = `Sup!`;
+
+console.log(`0074_Traversing_The_DOM_All_Nodes `);
+let outpu;
+
+const parent = document.querySelector('.parent');
+
+// outpu = parent.childNodes;
+// outpu = parent.childNodes[1].textContent;
+// outpu = parent.childNodes[1].nodeName;
+// outpu = parent.childNodes[3].textContent;
+// outpu = parent.childNodes[3].innerHTML;
+// outpu = parent.childNodes[3].outerHTML;
+// outpu = parent.childNodes[3].innerText = 'OnE';
+// outpu = parent.childNodes[5].style.color = 'red';
+
+output = parent.firstChild;
+output = parent.lastChild = `HeLlO`;
+
+const child = document.querySelector('#child');
+
+output = child.parentNode;
+output = child.parentElement;
+
+child.parentNode.style.backgroundColor = `#ccc`;
+child.parentNode.style.padding = `1rem`;
+
+const secondItem = document.querySelector('#child:nth-child(2)');
+
+output = secondItem.nextSibling.style.color = 'red';
+
+console.log(output);
