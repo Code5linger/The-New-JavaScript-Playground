@@ -208,3 +208,116 @@ parag.forEach((paras) => {
 });
 
 console.log(`0070_Document_Element_Properties `);
+
+let output;
+
+// output = document.all;
+output = document.all[11];
+output = document.all.length;
+
+output = document.documentElement;
+
+output = document.head;
+output = document.body;
+output = document.head.children;
+output = document.body.children;
+output = document.doctype;
+output = document.domain;
+output = document.URL;
+output = document.characterSet;
+output = document.contentType;
+output = document.forms;
+output = document.forms[0].id;
+output = document.forms[0].method;
+output = document.forms[0].action;
+
+document.forms[0].id = 'new-id';
+output = document.links[0];
+output = document.links[0].href;
+output = document.links[0].href = 'facebook.com';
+output = document.links[0].id = 'google-link';
+output = document.links[0].className = 'google-class';
+output = document.links[0].classList = 'google-classlist';
+output = document.links[0].classList;
+
+output = document.images;
+output = document.images[0];
+output = document.images[0].src;
+
+console.log(output);
+
+// output.forEach((out) => {
+//   console.log(out);
+// });
+
+const forms = Array.from(document.forms);
+
+// console.log(typeof output);
+// HTML Collection
+// console.log(forms);
+
+forms.forEach((form) => {
+  console.log(form);
+});
+
+console.log(`0071_DOM_Selectors_Single_Elements `);
+
+console.log(document.getElementById(`app-id`));
+console.log(document.getElementById(`app-id`).id);
+console.log(document.getElementById(`app-id`).className);
+console.log(document.getElementById(`app-id`).getAttribute(`id`));
+
+// Set Attributes
+
+document.getElementById(`app-id`).id = `new-id`;
+document.getElementById(`new-id`).title = `New List`;
+document.getElementById(`new-id`).innerText = `New List`;
+console.log(document.getElementById(`new-id`).title);
+
+document.getElementById(`new-id`).setAttribute('class', 'o_O');
+
+const title = document.getElementById(`new-id`);
+console.log(title);
+console.log(title.textContent);
+title.textContent = 'O_O';
+title.innerText = `Hello Again!`;
+title.innerHTML = `<strong>Sup!</strong>`;
+
+// CHange Stype
+
+title.style.color = `crimson`;
+title.style.background = `black`;
+title.style.padding = `1rem `;
+title.style.border = `.25rem solid crimson`;
+title.style.borderRadius = `1rem`;
+
+// querySelector
+console.log(document.querySelector(`h1`));
+console.log(document.querySelector(`#new-id`));
+console.log(document.querySelector(`.container`));
+console.log(document.querySelector(`input[type='text']`));
+console.log(document.querySelector(`li:nth-child(2)`));
+
+const secondItem = document.querySelector(`li:nth-child(2)`);
+secondItem.innerText = 'Apple Juice';
+secondItem.style.color = `Green`;
+
+// USe
+
+const list = document.querySelector(`ul`);
+console.log(list);
+
+const firstItem = list.querySelector(`li`);
+firstItem.style.color = `blue`;
+
+const thirdItem = list.querySelector(`li:nth-child(3)`);
+thirdItem.style.color = `white`;
+
+// const listArray = Array.from(list);
+
+// listArray.forEach((item) => {
+//   // item.style.background = `black`;
+//   console.log(item);
+// });
+
+console.log(`005 Adding & Changing Page Content`);
