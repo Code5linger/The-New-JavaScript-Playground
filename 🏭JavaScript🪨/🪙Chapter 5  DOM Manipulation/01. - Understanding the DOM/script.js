@@ -165,6 +165,46 @@ console.log(`003 The Query Selector`);
 let para;
 // let para = document.querySelector('.error').outerHTML;
 // para = document.querySelectorAll('.error').innerHTML;
-para = document.querySelector('body h1').innerHTML;
+// para = document.querySelector('p').innerHTML;
+// para = document.querySelector('.error-2').innerHTML;
+// para = document.querySelector('div.error').innerHTML;
+// para = document.querySelector('#test').innerHTML;
+para = document.querySelectorAll('p');
+
+// console.log(para[0].innerHTML);
+
+para.forEach((par) => {
+  console.log(par);
+});
+
+para = document.querySelectorAll('.error');
 
 console.log(para);
+
+para.forEach((par) => {
+  console.log(par);
+});
+
+console.log(`004 Other Ways to Query the DOM`);
+
+// Get an element by ID
+const title = document.getElementById('title');
+console.log(title.innerText);
+
+let errors = document.getElementsByClassName('error');
+console.log(errors[1]);
+
+errors = document.querySelectorAll('.error');
+
+errors.forEach((err) => {
+  console.log(err);
+});
+
+let parag = document.getElementsByTagName(`p`);
+console.log(parag);
+
+parag.forEach((paras) => {
+  console.log(paras);
+});
+
+console.log(`0070_Document_Element_Properties `);
