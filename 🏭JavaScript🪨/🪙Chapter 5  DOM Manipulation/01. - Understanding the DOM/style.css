@@ -1,0 +1,22 @@
+body {
+  background: black;
+}
+
+.output {
+  padding: 10px;
+  border: 1px solid white;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.error {
+  color: crimson;
+  border: 1px solid crimson;
+}
+
+.success {
+  color: limegreen;
+  border: 1px solid limegreen;
+}
