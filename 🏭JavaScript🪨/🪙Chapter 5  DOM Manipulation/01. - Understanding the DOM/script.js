@@ -427,3 +427,41 @@ titleAlt.classList.toggle(`O_o`);
 titleAlt.classList.toggle(`O_o`);
 
 console.log(titleAlt);
+
+console.log(`009 Parents, Children & Siblings`);
+
+const article = document.querySelector(`article`);
+
+// console.log(article.children);
+
+// console.log(Array.from(article.children));
+
+// console.log(article.children);
+
+// Array.from(article.children).forEach((item) => {
+//   item.classList.add(`article-element`);
+// });
+
+// const titleX9 = document.querySelector(`h2`);
+
+// console.log(titleX9.parentElement);
+// console.log(titleX9.parentElement.parentElement);
+// console.log(titleX9.nextElementSibling);
+// console.log(titleX9.previousElementSibling);
+
+// console.log(titleX9.nextElementSibling.parentElement.children);
+
+console.log(`011 Creating & Removing Elements`);
+
+// const ul = document.querySelector(`ul`);
+
+// console.log(ul);
+// ul.remove();
+
+const items = document.querySelectorAll(`li`);
+
+items.forEach((item) => {
+  item.addEventListener(`click`, (event) => {
+    event.target.style.textDecoration = `line-through`;
+  });
+});
