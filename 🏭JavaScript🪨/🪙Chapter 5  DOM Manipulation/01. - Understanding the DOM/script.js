@@ -493,4 +493,3 @@ console.log(`0072_DOM_Selectors_Multiple_Elements `);
 //     // item.innerHTML
 //   }
 // });
-
