@@ -455,13 +455,42 @@ console.log(`011 Creating & Removing Elements`);
 
 // const ul = document.querySelector(`ul`);
 
-// console.log(ul);
-// ul.remove();
+// // console.log(ul);
+// // ul.remove();
 
-const items = document.querySelectorAll(`li`);
+// const items = document.querySelectorAll(`li`);
 
-items.forEach((item) => {
-  item.addEventListener(`click`, (event) => {
-    event.target.style.textDecoration = `line-through`;
-  });
-});
+// items.forEach((item) => {
+//   item.addEventListener(`click`, (event) => {
+//     // event.target.style.textDecoration = `line-through`;
+//     event.target.remove();
+//   });
+// });
+
+// const button = document.querySelector(`button`);
+
+// button.addEventListener(`click`, () => {
+//   // ul.innerHTML += `<li>New Item</li>`;
+//   const li = document.createElement(`li`);
+//   li.textContent = `new**`;
+//   // ul.append(li);
+//   ul.prepend(li);
+// });
+
+console.log(`0072_DOM_Selectors_Multiple_Elements `);
+
+// const listItem = document.querySelectorAll(`.item`);
+
+// console.log(listItem);
+
+// listItem.forEach((item, index) => {
+//   if (index % 2 === 0) {
+//     item.style.background = `crimson`;
+//   }
+
+//   if (index === 0) {
+//     // item.innerText += ` teal`;
+//     // item.innerHTML
+//   }
+// });
+

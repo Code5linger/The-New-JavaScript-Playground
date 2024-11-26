@@ -21,3 +21,15 @@ body {
   color: limegreen;
   border: 1px solid limegreen;
 }
+
+ul {
+  list-style: none;
+}
+
+li {
+  background: gray;
+  max-width: 10rem;
+  margin: 0.5rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
