@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "file-system": "^2.2.2"
+  }
+  
+}
+{
+
+    "type": "module",
+}

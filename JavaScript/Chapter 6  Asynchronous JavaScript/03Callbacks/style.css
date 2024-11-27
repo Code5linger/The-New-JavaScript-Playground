@@ -1,0 +1,14 @@
+button {
+    padding: .75rem;
+    margin: 1rem;
+    background: black;
+    color: whitesmoke;
+    border-radius: .5rem;
+    /* outline: black; */
+    border: none;
+    cursor: pointer;
+}
+
+.danger {
+    background: crimson;
+}
