@@ -43,6 +43,63 @@ console.log(document)
 // Previously using console.log we got the HTML elements. Now just print the properties and methods     3️⃣
 console.dir(document)
 
+// Print all the elements of documents as HTMLCollection using all property   7️⃣
+console.log(document.all)
+
+// Print an element using document.all    7️⃣
+console.log(document.all[11])
+
+// Print the length of document.all element   7️⃣
+console.log(document.all.length)
+
+
+// Print the HTML content using documentElement   7️⃣
+console.log(document.documentElement)
+
+// Print just the header content  7️⃣
+console.log(document.head)
+
+// Print the children of the head element 7️⃣
+console.log(document.head.children)
+
+// Print just the body content  7️⃣
+console.log(document.body)
+
+// Fond out the doctype   7️⃣
+console.log(document.doctype)
+
+// Fint out the domain    7️⃣
+console.log(document.domain)
+
+// Print the children of the body element   7️⃣
+console.log(document.body.children)
+
+// Find out the charecter set   7️⃣
+console.log(document.characterSet)
+
+// Find out the content type    7️⃣
+console.log(document.contentType)
+
+// Print out all the forms    7️⃣
+console.log(document.forms) 
+
+// Print out the 2nd form   7️⃣
+console.log(document.forms[0]) 
+
+// Print out the id of the 2nd form   7️⃣
+console.log(document.forms[0].id) 
+
+// Change the id of the form    7️⃣
+document.forms[0].id = `new-id`
+console.log(document.forms[0].id) 
+
+// Print the method used in the form    7️⃣
+console.log(document.forms[0].method) 
+
+// Print the action used in the form    7️⃣
+console.log(document.forms[0].action) 
+
+
 // Get Location in console using window object    1️⃣2️⃣
 console.log(window.location)
 
@@ -78,6 +135,25 @@ console.log(document.links)
 
 // Print the 1st link inside the HTML    3️⃣
 console.log(document.links[0])
+
+console.log(document.links[0].href)   
+
+document.links[0].href = `being.com`
+console.log()
+
+document.links[0].id = `search-engine-alt`
+console.log()
+
+console.log(document.links[0].classList)
+
+// Introducing DOMTokenList
+
+
+console.log(document.images)
+
+console.log(document.images[0])
+
+console.log(document.images[0].src)
 
 // Replace all the content inside the HTML  3️⃣
 // document.body.innerHTML = `<h1>Hello World!</h1>`
@@ -117,22 +193,36 @@ SOURCES
    - **Element vs. Node Selection**
      - Understanding the difference between selecting elements and nodes.
 */
-// Print a HTML element node's text inside console using getElementById method     1️⃣3️⃣5️⃣
+// Print a HTML element node's text inside console using getElementById method     1️⃣3️⃣5️⃣8️⃣
 console.log(document.getElementById('intro-text'))
 
-// Print a HTML text node's text inside console using getElementById method     1️⃣3️⃣5️⃣
+// Print a HTML text node's text inside console using getElementById method     1️⃣3️⃣5️⃣8️⃣
 console.log(document.getElementById('intro-text').innerText)
 
-// Put a HTML text node element inside a variable. Using the variable change the HTML using innerHTML     1️⃣3️⃣5️⃣
+console.log(document.getElementById('intro-text').id)
+
+document.getElementById('intro-text').id = `New ID`
+console.log()
+
+document.getElementById('intro-text').title = `Shopping🛒`
+console.log()
+
+document.getElementById('intro-text').setAttribute(`class`, `title`)
+console.log()
+
+
+
+console.log(document.getElementById('intro-text').className)
+
+console.log(document.getElementById('intro-text').getAttribute(`id`))
+
+// Put a HTML text node element inside a variable. Using the variable change the HTML using innerHTML     1️⃣3️⃣5️⃣8️⃣
 const introText = document.getElementById(`intro-text`)
 introText.innerHTML = `<h1>XD</h1>`
 
 // Put all the p tags with same attribute inside a variable as HTMLCollection using getElementsByClassName    5️⃣
 const errorClass = document.getElementsByClassName(`error`)
 console.log(errorClass)
-
-
-
 
 // Change a p tag's text inside using querySelector method     1️⃣3️⃣
 document.querySelector(`p`).innerText = `:'(`
@@ -144,6 +234,18 @@ firstParagraph.innerText = `💥💥💥`
 // Imagine you have same attribute in a divnode. Put a div tag node element inside a variable. Select all nodes with same attribute using querySelector. Using the variable change the HTML using innerHTML       4️⃣6️⃣
 const nextParagraph = document.querySelector(`div.error`)
 nextParagraph.innerText = `🔥🔥🔥`
+
+document.querySelector('#intro-text')
+
+document.querySelector(`input[type='text']`)
+
+document.querySelector(`li:nth-child(2)`)
+
+// const secondItem = document.querySelector(`li:nth-child(2)`).innerText
+
+// secondItem.innerText = `🍎`
+
+// secondItem.style.color = `red`
 
 // In console print all the p tags using querySelectorAll as a Nodelist 4️⃣
 const all_P_Tags = document.querySelectorAll(`p`)
@@ -170,6 +272,8 @@ console.log(converter)
 converter.forEach(item => {
   console.log(item.innerText)
 })
+
+
 
 // what is the difference between getElementById and getElementsByClassName 5️⃣
 // - **`getElementById`**: Selects a single element with a specific ID. Returns the element or `null` if not found.
@@ -200,6 +304,8 @@ SOURCES
 4️⃣   003 The Query Selector
 5️⃣   004 Other Ways to Query the DOM
 6️⃣   21 - The DOM - Selecting Elements
+7️⃣   0070_Document_Element_Properties 
+8️⃣   0071_DOM_Selectors_Single_Elements 
 */
 
 // From AI
@@ -228,6 +334,21 @@ SOURCES
    - **Removing Elements**
      - Using `remove()` and `parentNode.removeChild()`
 */
+
+const title = document.getElementById(`intro-text`)
+title.textContent = `😆`
+console.log(title.textContent)
+
+
+title.innerText = `😂`
+
+title.innerHTML = `<strong>Intro ot DOM</strong>`
+
+title.style.color = `crimson`
+title.style.backgroundColor = `White`
+title.style.padding = `2rem`
+
+
 
 // From AI
 /*

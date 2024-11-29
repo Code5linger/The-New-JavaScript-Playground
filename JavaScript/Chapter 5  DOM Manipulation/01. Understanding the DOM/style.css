@@ -12,8 +12,29 @@ h1 {
     text-align: center;
 }
 
-a {
+#search-engine {
     text-decoration: none;
     font-size: 2rem;
     color: teal;
+}
+
+#search-engine-alt {
+    text-decoration: none;
+    font-size: 2rem;
+    color: black;
+    background: white;
+    padding: 1rem;
+    border-radius: .25rem;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+img {
+    max-width: 64px;
+    height: auto;
+    display: block;
 }
