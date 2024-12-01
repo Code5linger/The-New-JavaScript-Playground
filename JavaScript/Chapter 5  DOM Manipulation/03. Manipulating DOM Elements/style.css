@@ -1,0 +1,13 @@
+.error {
+    display: block;
+    color: crimson;
+    border: 1px solid crimson;
+    padding: 1rem;
+}
+
+.success {
+    display: block;
+    color: teal;
+    border: 1px solid teal;
+    padding: 1rem;
+}
