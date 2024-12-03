@@ -11,3 +11,14 @@
     border: 1px solid teal;
     padding: 1rem;
 }
+
+img {
+    width: 50%;
+    transition: all 1s;
+}
+
+.rounded {
+    border-radius: 100%;
+    transform: rotate(1turn);
+    transition: all 1s;
+} 

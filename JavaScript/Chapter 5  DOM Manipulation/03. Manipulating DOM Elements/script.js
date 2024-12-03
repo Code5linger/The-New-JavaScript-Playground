@@ -120,3 +120,94 @@ console.log(titleH2.previousElementSibling)
 
 // chaining
 console.log(titleH2.nextElementSibling.parentElement.children)
+
+const inner = document.querySelector('.innerVscontent')
+
+console.log(inner.innerText)
+console.log(inner.textContent)
+
+const pizzaList = document.querySelector('.pizza')
+console.log(pizzaList.textContent)
+
+// pizzaList.textContent +=  '🍕'
+pizzaList.insertAdjacentText('afterend', '🍕')
+pizzaList.insertAdjacentText('beforebegin', '🍕')
+pizzaList.insertAdjacentText('beforeend', '🍕')
+
+const pic = document.querySelector('img')
+// pic.classList.add('rounded')
+// pic.classList.remove('rounded')
+// pic.classList.toggle('rounded')
+// pic.classList.toggle('rounded')
+
+pic.addEventListener('click', () => {
+    pic.classList.toggle('rounded')
+})
+
+pic.alt = 'Earth ASEAN Side'        // setter
+console.log(pic.alt)                // getter
+console.log(pic.naturalWidth)       // getter
+
+
+const picApi = document.querySelector('.imgAPI');
+console.log(picApi)
+console.log(picApi.src)
+console.log(picApi.alt)
+console.log(picApi.naturalWidth)    // Problem: Output 0
+
+window.addEventListener('load', () => {     // Solution: Add a Loader function
+    console.log(picApi.naturalWidth)
+})
+
+console.log(picApi.getAttribute('alt'))
+console.log(picApi.setAttribute('alt', '💛'))
+console.log(picApi.getAttribute('alt'))
+
+picApi.setAttribute('o_O', 'O-O')           // Custom Attribute
+console.log(picApi.getAttribute('o_O'))
+
+const custom = document.querySelector('#custom')
+console.log(custom)
+console.log(custom.dataset)
+
+custom.addEventListener('click', () => {
+    alert(`Welcome ${custom.dataset.last}. & ${custom.dataset.name}`)
+})
+
+const myParagraph = document.createElement('p')
+myParagraph.textContent = 'This is a paragraph'
+myParagraph.classList.add('special')
+console.log(myParagraph)
+
+const myImage = document.createElement('img')
+myImage.src = `https://picsum.photos/200`
+myImage.alt = 'Image from API'
+console.log(myImage)
+
+const myDiv = document.createElement('div')
+myDiv.classList.add('wrapper')
+console.log(myDiv)
+
+const body = document.querySelector('body')
+myDiv.appendChild(myImage)
+myDiv.appendChild(myParagraph)
+document.body.appendChild(myDiv)            // Keep the hiarerchi dom at last
+
+const heading = document.createElement('h2')
+heading.textContent = `The Last of US`
+
+// myDiv.appendChild(heading)
+myDiv.insertAdjacentElement('beforebegin', heading)     // appendChild is ok, but insertAdjacentElement is better
+
+// Challenge
+const list = document.createElement('ul')
+const listItem = document.createElement('li')
+
+listItem.textContent = '3'
+// list.insertAdjacentElement('afterend', listItem)
+list.appendChild(listItem)
+listItem.textContent = '2'
+
+// body.appendChild(list)
+
+body.insertAdjacentElement('afterbegin', list)
