@@ -204,10 +204,13 @@ const list = document.createElement('ul')
 const listItem = document.createElement('li')
 
 listItem.textContent = '3'
-// list.insertAdjacentElement('afterend', listItem)
-list.appendChild(listItem)
+console.log(list)
+list.insertAdjacentElement('afterend', listItem)
+console.log(list)
+// list.appendChild(listItem)
 listItem.textContent = '2'
+list.insertAdjacentElement('afterend', listItem)
 
 // body.appendChild(list)
 
-body.insertAdjacentElement('afterbegin', list)
+document.body.insertAdjacentElement('afterend', list)
