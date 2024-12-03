@@ -203,14 +203,41 @@ myDiv.insertAdjacentElement('beforebegin', heading)     // appendChild is ok, bu
 const list = document.createElement('ul')
 const listItem = document.createElement('li')
 
-listItem.textContent = '3'
-console.log(list)
-list.insertAdjacentElement('afterend', listItem)
-console.log(list)
-// list.appendChild(listItem)
-listItem.textContent = '2'
-list.insertAdjacentElement('afterend', listItem)
+// listItem.textContent = '3'
+// console.log(list)
+// list.insertAdjacentElement('afterend', listItem)
+// console.log(list)
+// // list.appendChild(listItem)
+// listItem.textContent = '2'
+// list.insertAdjacentElement('afterend', listItem)
 
 // body.appendChild(list)
 
+// document.body.insertAdjacentElement('afterend', list)
+
+// listItem.appendChild(list)
+// list.appendChild(listItem)
+listItem.textContent = '3'
+list.insertAdjacentElement('afterbegin', listItem)
+listItem.textContent = '2'
+list.insertAdjacentElement('afterend', listItem)
+listItem.textContent = '4'
+list.insertAdjacentElement('afterbegin', listItem)
+listItem.textContent = '1'
+list.insertAdjacentElement('afterbegin', listItem)
+// listItem.textContent = '5'
+// list.insertAdjacentElement('afterbegin', listItem)
+
 document.body.insertAdjacentElement('afterend', list)
+
+console.log(list)
+
+// body.insertAdjacentElement('afterend', listItem)
+
+//   const ul = document.createElement("ul");
+//   const li = document.createElement("li");
+//   const text = document.createTextNode("PHP");    
+//   li.appendChild(text);
+// ul.appendChild(li);
+  
+// console.log(ul)
