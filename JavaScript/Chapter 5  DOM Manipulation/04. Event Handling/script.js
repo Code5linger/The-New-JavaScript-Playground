@@ -59,8 +59,32 @@ function theCleaner() {
      `contextmenu`
    - Keyboard Events
      - `keydown`, `keyup`, `keypress`
+*/
+/**
    - Form Events
-     - `input`, `change`, `submit`, `focus`, `blur`
+   `input`,
+   `change`,
+   `submit`,
+   `focus`,
+   `blur`
+*/
+const form = document.querySelector('.signup-form')
+// const username = document.querySelector('#username')
+// const emoji = document.querySelector('#emoji')
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  // console.log(username.value)           //! Ok  {With ID}
+  // console.log(form.username.value)      //! Better  {With ID}
+  // console.log(form.user.value)          //! With name
+
+  // console.log(emoji.value)              //! Ok  {With ID}
+  // console.log(form.emoji.value)         //! Better  {With ID}
+  console.log(form.emoji.value)            //! With name
+})
+
+/**
+     
    - Window Events
      - `load`, `unload`, `scroll`, `resize`, `error`
    - Touch Events
