@@ -57,30 +57,99 @@ function theCleaner() {
      `mouseover`, 
      `mouseout`, 
      `contextmenu`
-   - Keyboard Events
-     - `keydown`, `keyup`, `keypress`
 */
+
+const deleteBTN = document.querySelectorAll('.delete')
+const listItem = document.querySelectorAll('li')
+const clearAll = document.querySelector('.clearAll')
+
+listItem.forEach(item => {
+  item.addEventListener('click', e => {
+    // console.log('Item Clicked!')
+    // console.log(`${e.target.textContent} Clicked!`)
+    // console.log(e)
+    // console.log(e.target)
+    // console.log(item)
+    // item.remove()
+    e.target.style.background = 'crimson'
+    e.target.style.textDecoration = 'line-through'
+  })
+
+})
+
+// listItem.forEach(item => {
+//   item.addEventListener('mouseover', e => {
+//     e.target.setAttribute('class', 'warn') 
+//   })
+// })
+
+// deleteBTN.forEach(item => {
+//   item.addEventListener('click', e => {
+//     e.target.parentElement.remove()
+//   })
+// })
+
+// clearAll.addEventListener('click', e => {
+//   listItem.forEach(item => {
+// item.remove()
+//   })
+// })
+
+
+
 /**
    - Form Events
    `input`,
    `change`,
-   `submit`,
+   `submit`,  //* ✅
    `focus`,
    `blur`
 */
 const form = document.querySelector('.signup-form')
-// const username = document.querySelector('#username')
-// const emoji = document.querySelector('#emoji')
+const username = document.querySelector('#username')
+const emoji = document.querySelector('#emoji')
+const input = document.querySelector('input')
+const usernamePattern = /^[a-zA-Z]{6,12}$/    //! Regex
 
 form.addEventListener('submit', e => {
-  e.preventDefault()
+  // e.preventDefault()
   // console.log(username.value)           //! Ok  {With ID}
   // console.log(form.username.value)      //! Better  {With ID}
-  // console.log(form.user.value)          //! With name
+  console.log(form.user.value)          //! With name
 
   // console.log(emoji.value)              //! Ok  {With ID}
   // console.log(form.emoji.value)         //! Better  {With ID}
   console.log(form.emoji.value)            //! With name
+})
+
+// ! Regex
+
+// if (usernamePattern.test(username)) {
+//   console.log('Thats Valid')
+// } else {
+//   console.log('Invalid')
+// }
+
+/**
+ * !- Keyboard Events
+     `keydown`, 
+     `keyup`,     //* ✅
+     `keypress`
+*/
+form.username.addEventListener('keyup', e => {
+  // console.log(e.target.value, form.username.value) //! Same output
+  // console.log(e.target.value)
+  if (usernamePattern.test(e.target.value)) {
+    console.log('✅')
+    // input.classList.remove('error')    //! Old Ways 👴
+    // input.classList.add('success')
+    form.username.setAttribute('class', 'success')    //* Modern Way
+  } else {
+    console.log('❌')
+    // input.classList.remove('success')      //! Old Ways 👴
+    // input.classList.add('error')
+    form.username.setAttribute('class', 'error')    //* Modern Way
+  }
 })
 
 /**
@@ -193,4 +262,5 @@ form.addEventListener('submit', e => {
  * * Source 4️⃣
  * * Source 5️⃣
  */
+
 

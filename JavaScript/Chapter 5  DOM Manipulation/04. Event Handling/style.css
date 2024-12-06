@@ -2,3 +2,77 @@ body {
     background: black;
     color: whitesmoke;
 }
+
+.success {
+    border: .5rem solid teal;
+    padding: .5rem;
+}
+
+.error {
+    border: .5rem solid crimson;
+    padding: .5rem;
+}
+
+.todos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ccc;
+    color: black;
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    max-width: 20rem;
+    padding: .5rem 2rem;
+    margin: .5rem;
+    border: .125rem solid black;
+        border-radius: .25rem;
+}
+
+li:hover {
+    background: black;
+    color: white;
+
+}
+
+.warn:hover {
+    background: crimson;
+    cursor: pointer;
+}
+
+button {
+    padding: .5rem 1rem;
+    /* border: none;
+    outline: none; */
+    cursor: pointer;
+    border-radius: .25rem;
+}
+
+button:hover {
+        padding: .5rem 1rem;
+    background: black;
+    color: white;
+}
+
+.delete {
+    /* margin-left: 3rem; */
+    transition: all 1s;
+
+}
+
+.delete:hover {
+    cursor: pointer;
+    transition: all 1s;
+}
+
+h1 {
+    line-height: 0;
+}
