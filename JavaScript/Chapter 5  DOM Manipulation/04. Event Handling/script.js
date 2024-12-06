@@ -11,13 +11,13 @@
 // }
 const consloeBTN = document.querySelector('#mouseClick')
 
-function btnPress() {
-  console.log('🖱️👆 from JS') 
-}
+// function btnPress() {
+//   console.log('🖱️👆 from JS') 
+// }
 
-function theCleaner() {
-  consloeBTN.remove()
-}
+// function theCleaner() {
+//   consloeBTN.remove()
+// }
 
 // consloeBTN.onclick = () => {   //! Old Way
 //   console.log('🖱️👆 from JS')
@@ -110,17 +110,36 @@ const username = document.querySelector('#username')
 const emoji = document.querySelector('#emoji')
 const input = document.querySelector('input')
 const usernamePattern = /^[a-zA-Z]{6,12}$/    //! Regex
+const signUp = document.querySelector('[name="signup"]')
 
 form.addEventListener('submit', e => {
   // e.preventDefault()
   // console.log(username.value)           //! Ok  {With ID}
   // console.log(form.username.value)      //! Better  {With ID}
-  console.log(form.user.value)          //! With name
+  // console.log(form.user.value)          //! With name
 
   // console.log(emoji.value)              //! Ok  {With ID}
   // console.log(form.emoji.value)         //! Better  {With ID}
-  console.log(form.emoji.value)            //! With name
+  // console.log(form.emoji.value)            //! With name
+
+    // const confirmation = confirm('T_T')
+    // if (!confirmation) {
+    //   e.preventDefault()
+    // }
 })
+
+//! Submit Event
+// signUp.addEventListener('submit', e => {
+//   // e.preventDefault()
+//   console.log(e.currentTarget.user.value)
+//   console.log(e.currentTarget.emoji.value)
+//   console.log(e.currentTarget.check.checked)
+
+//   const name = e.currentTarget.user.value
+//   if (name.includes('hasina')) {
+//     console.log('No Soirachar Allowed!')
+//   }
+// })
 
 // ! Regex
 
@@ -136,21 +155,40 @@ form.addEventListener('submit', e => {
      `keyup`,     //* ✅
      `keypress`
 */
-form.username.addEventListener('keyup', e => {
-  // console.log(e.target.value, form.username.value) //! Same output
-  // console.log(e.target.value)
-  if (usernamePattern.test(e.target.value)) {
-    console.log('✅')
-    // input.classList.remove('error')    //! Old Ways 👴
-    // input.classList.add('success')
-    form.username.setAttribute('class', 'success')    //* Modern Way
-  } else {
-    console.log('❌')
-    // input.classList.remove('success')      //! Old Ways 👴
-    // input.classList.add('error')
-    form.username.setAttribute('class', 'error')    //* Modern Way
-  }
+// form.username.addEventListener('keyup', e => {
+//   // console.log(e.target.value, form.username.value) //! Same output
+//   // console.log(e.target.value)
+//   if (usernamePattern.test(e.target.value)) {
+//     // console.log('✅')
+//     // input.classList.remove('error')    //! Old Ways 👴
+//     // input.classList.add('success')
+//     form.username.setAttribute('class', 'success')    //* Modern Way
+//   } else {
+//     // console.log('❌')
+//     // input.classList.remove('success')      //! Old Ways 👴
+//     // input.classList.add('error')
+//     form.username.setAttribute('class', 'error')    //* Modern Way
+//   }
+// })
+
+
+
+form.username.addEventListener('keyup', e => { 
+  console.log('Key Up')
 })
+
+form.username.addEventListener('keydown', e => { 
+  console.log('Key Down')
+})
+
+form.username.addEventListener('focus', e => { 
+  console.log('focus')
+})
+
+form.username.addEventListener('blur', e => { 
+  console.log('blur')
+})
+
 
 /**
      
@@ -163,6 +201,27 @@ form.username.addEventListener('keyup', e => {
      `touchend`, and 
      `touchcancel` (for mobile devices)
 */
+
+const copy = document.querySelector('.copy-me')
+const box = document.querySelector('.box')
+
+copy.addEventListener('copy', () => {
+  // console.log('Imitation is flattery, but sorry, this content comes with a built-in \'Do Not Copy\' spell. Nice try, though! 🪄😂')
+  // console.log("I see you've found the 'Ctrl + C' feature. Don't forget 'Ctrl + V' works too—just make sure to paste some originality next time! 😄")
+})
+
+box.addEventListener('mousemove', e => {
+  // console.log(e)   //! All Event Data
+  // console.log(`x = ${e.offsetX}, y = ${e.offsetY}`)
+  // box.textContent = `x position is ${e.offsetX} y position is ${e.offsetY}`
+})
+
+document.addEventListener('wheel', e => {
+  // console.log(e)   //! All Data
+  // console.log(e.pageX, e.pageY)
+})
+
+
 /**
  * !#### 3. Event Handling
    - Event Listeners

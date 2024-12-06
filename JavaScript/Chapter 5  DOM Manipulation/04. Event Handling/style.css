@@ -76,3 +76,16 @@ button:hover {
 h1 {
     line-height: 0;
 }
+
+.copy-me {
+    display: block;
+    background: yellow;
+    color: black;
+    padding: 1rem;
+}
+
+.box {
+    display: inline-block;
+    padding: 2rem;
+    background: crimson;
+}
