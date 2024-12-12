@@ -715,3 +715,11 @@ const sourov = document.querySelector('.sourov')
 
 console.log(sourov.children)
 console.log(sourov.childNodes)
+
+
+// Change the id of the form    7️⃣
+// document.forms[0].id = `new-id`
+// console.log(document.forms[0].id)
+
+// Replace all the content inside the HTML  3️⃣
+// document.body.innerHTML = `<h1>Hello World!</h1>`
