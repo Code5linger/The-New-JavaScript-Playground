@@ -1,0 +1,9 @@
+.darkTheme {
+    background: black;
+    color: whitesmoke;
+}
+
+.lightTheme {
+    background: whitesmoke;
+    color: black;
+}
