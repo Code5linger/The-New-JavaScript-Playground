@@ -723,3 +723,30 @@ console.log(sourov.childNodes)
 
 // Replace all the content inside the HTML  3️⃣
 // document.body.innerHTML = `<h1>Hello World!</h1>`
+
+const main = document.getElementById('main');
+console.log(document.getElementById('main'));
+main.innerHTML = `<h1>Main say Hello</h1>`;
+// document.getElementById('intro-text').id = `New ID`
+// console.log()
+// document.getElementById('intro-text').title = `Shopping🛒`
+// console.log()
+// document.getElementById('intro-text').setAttribute(`class`, `title`)
+// console.log()
+// Put a HTML text node element inside a variable. Using the variable change the HTML using innerHTML     1️⃣3️⃣5️⃣8️⃣
+const introText = document.getElementById(`intro-text`)
+introText.innerHTML = `<h1>XD</h1>`
+
+
+// document.querySelector(`#main p`).innerHTML = `Sup!`;
+
+// listItem.forEach((item, index) => {
+//   if (index % 2 === 0) {
+//     item.style.background = `crimson`;
+//   }
+
+//   if (index === 0) {
+//     // item.innerText += ` teal`;
+//     // item.innerHTML
+//   }
+// });
