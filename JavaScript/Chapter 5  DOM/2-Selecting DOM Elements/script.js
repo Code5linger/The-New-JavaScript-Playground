@@ -1,32 +1,4 @@
-//! querySelectorAll
-// const items = document.querySelectorAll(`li`);
-
-// document.querySelectorAll('p');
-
-// const listItem = document.querySelectorAll(`.item`);
-
-// para = document.querySelectorAll('.error');
-
-// para.forEach((par) => {
-//   console.log(par);
-// });
-
-// errors = document.querySelectorAll('.error');
-
-// errors.forEach((err) => {
-//   console.log(err);
-// });
-
 //! Element vs. Node Selection
-
-// outpu = parent.childNodes;
-// outpu = parent.childNodes[1].textContent;
-// outpu = parent.childNodes[1].nodeName;
-// outpu = parent.childNodes[3].textContent;
-// outpu = parent.childNodes[3].innerHTML;
-// outpu = parent.childNodes[3].outerHTML;
-// outpu = parent.childNodes[3].innerText = 'OnE';
-// outpu = parent.childNodes[5].style.color = 'red';
 
 // output = child.parentNode;
 // output = child.parentElement;

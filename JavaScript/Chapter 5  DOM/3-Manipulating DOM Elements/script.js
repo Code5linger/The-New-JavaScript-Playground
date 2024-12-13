@@ -750,3 +750,6 @@ introText.innerHTML = `<h1>XD</h1>`
 //     // item.innerHTML
 //   }
 // });
+
+// parent.childNodes[3].innerText = 'OnE';
+// parent.childNodes[5].style.color = 'red';
