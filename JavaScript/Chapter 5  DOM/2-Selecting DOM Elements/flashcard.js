@@ -150,77 +150,33 @@ paragraph.forEach(item => {
 
 console.log(document.querySelectorAll('div'))
 
-//! Select/Create a div with class `parent`, inside it create 3 div with class child
+//! 
 
-//! Create a variable, that selects the element with `parent` class
-const parentAlt = document.querySelector('.parent')
+//! 
 
-//! Print the child nodes of parent
-console.log(parentAlt.childNodes)
 
-//! Print the `h1 (or the top text content)` of the parent using `childNode`
-console.log(parentAlt.childNodes[1])
 
-//! Print the text content of the `h1 (or the top text content)`
-console.log(parentAlt.childNodes[1].textContent)
 
-//! Print the node name of the `h1 (or the top text content)`
-console.log(parentAlt.childNodes[1].nodeName)
 
-//! Print the 1st element with the child class
-console.log(parentAlt.childNodes[3]) 
+//! 
 
-//! Print the `innerHTML` of the 1st element with the child class
-console.log(parentAlt.childNodes[3].innerHTML)
 
-//! Print the `outerHTML` of the 1st element with the child class
-console.log(parentAlt.childNodes[3].outerHTML)
+//! 
 
-//! Print the 1st child node of the parent element 
-console.log(parentAlt.firstChild)
 
-//! Print the last child node of the parent element 
-console.log(parentAlt.lastChild)
+//! 
 
-//! ↔️ Declare a variable that selects the element with child class
-const childAlt = document.querySelector(`.child`)
-console.log(childAlt)
 
-//! using the variable, select its parent node
-console.log(childAlt.parentNode)
+//! 
 
-//! using the variable, select its parent `element`
-console.log(childAlt.parentElement)
 
-//! using the variable, select its parent's parent node
-console.log(childAlt.parentNode.parentNode)
+//! 
 
-//! using the variable, select its parent's parent element
-console.log(childAlt.parentElement.parentElement)
 
-//! using the variable, select its next element sibling
-console.log(childAlt.nextElementSibling)
 
-//! using the variable, select its previous element sibling
-console.log(childAlt.previousElementSibling)
 
-//! Declare a variable the select the 2nd child element 
-const secondItem = document.querySelector('.child:nth-child(2)')
-console.log(secondItem.nextSibling)
 
-//** New  */
 
-//! Print all the children of the parent as a HTMLCollection
-console.log(parentAlt.children)
 
-//! Now convert it to an Array
-console.log(Array.from(parentAlt.children))
 
-//! Using forEach, add a class `➿` & id `➰` to each element
-Array.from(parentAlt.children).forEach(child => {
-    child.classList.add('➿')
-    child.setAttribute('id', '➰')
-})
 
-//! ⛓️‍💥 Chaining || From the 2nd child element variable, then go to nextElementSibling then parentElement, after that parentNode & finally all its children
-console.log(secondItem.nextElementSibling.parentElement.parentNode.children)

@@ -13,18 +13,8 @@
 // console.log(titleX9.nextElementSibling.parentElement.children);
 
 
-// What is the difference between the HTMLCollection and nodelist   5️⃣
-// - **HTMLCollection**:
-//   - Live: Updates automatically if the DOM changes.
-//   - Contains only HTML elements.
+//    5️⃣
+// 
 
-// - **NodeList**:
-//   - Static (default): Doesn't update automatically.
-//   - Can include any node type (elements, text, comments).
+//   5️⃣
 
-// Why cant i use forEach function on HTMLCollection but can in NodeList  5️⃣
-// - **HTMLCollection**: Doesn't support `forEach` directly because it's not an array.
-// - **NodeList**: Supports `forEach` as it's array-like and often iterable.
-
-// How to convert HTMLCollection to NodeList  5️⃣
-// Convert HTMLCollection using `Array.from()` to use `forEach`.
