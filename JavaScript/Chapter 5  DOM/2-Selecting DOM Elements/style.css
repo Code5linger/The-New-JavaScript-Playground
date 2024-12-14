@@ -67,3 +67,9 @@ a:visited {
 .error-2 {
     background: rebeccapurple;
 }
+
+.parent {
+    background: #313131;
+    text-align: center;
+    padding: 1rem;
+}

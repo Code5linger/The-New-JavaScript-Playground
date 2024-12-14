@@ -28,15 +28,3 @@
 
 // How to convert HTMLCollection to NodeList  5️⃣
 // Convert HTMLCollection using `Array.from()` to use `forEach`.
-
-
-//TODO: 💫
-// const forms = Array.from(document.forms);
-
-// console.log(typeof output);
-// HTML Collection
-// console.log(forms);
-
-// forms.forEach((form) => {
-//   console.log(form);
-// });
