@@ -15,6 +15,12 @@ console.log(`3-Manipulating DOM Elements`)
      - Using `remove()` and `parentNode.removeChild()`
  */
 
+/**
+ * TODO Get.Change Content
+ * TODO Change Styles
+ * TODO 
+ */
+
 
 document.links[0].href = `being.com`
 console.log()
