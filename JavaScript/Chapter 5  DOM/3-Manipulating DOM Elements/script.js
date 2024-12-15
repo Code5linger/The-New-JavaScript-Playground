@@ -1,7 +1,5 @@
 'use script'
 
-console.log(`3-Manipulating DOM Elements`)
-
 /**
  * !3. **Manipulating DOM Elements**
    - **Creating Elements**
@@ -15,81 +13,23 @@ console.log(`3-Manipulating DOM Elements`)
      - Using `remove()` and `parentNode.removeChild()`
  */
 
-/**
- * TODO Get.Change Content
- * TODO Change Styles
- * TODO 
- */
-
-
-document.links[0].href = `being.com`
-console.log()
-
-document.links[0].id = `search-engine-alt`
-console.log()
-
-
-// Insert a string in the HTMl using write method   3️⃣
-document.write('o_O')
-
-// Insert Image 1️⃣
-
 // In DOM, What is the html tag is called   1️⃣
 // root node
 
 // In DOM, What are the title, h1 & p tags are called   1️⃣
 //  text node
 
-// document.body.innerHTML = '<h1>Hello World!</h1>';
+//! Creating Elements
 
+/*
 
-
-// output = parent.firstChild;
-// output = parent.lastChild = `HeLlO`;
-
-// child.parentNode.style.backgroundColor = `#ccc`;
-// child.parentNode.style.padding = `1rem`;
-
-// output = secondItem.nextSibling.style.color = 'red';
-
-// document.forms[0].id = 'new-id';
-
-// output = document.links[0].href = 'facebook.com';
-// output = document.links[0].id = 'google-link';
-// output = document.links[0].className = 'google-class';
-// output = document.links[0].classList = 'google-classlist';
-
-// output.forEach((out) => {
-//   console.log(out);
-// });
-
-// Set Attributes
+// Insert a string in the HTMl using write method   3️⃣
+// document.write('o_O')
 
 // document.getElementById(`app-id`).id = `new-id`;
 // document.getElementById(`new-id`).title = `New List`;
 // document.getElementById(`new-id`).innerText = `New List`;
 // console.log(document.getElementById(`new-id`).title);
-
-// document.getElementById(`new-id`).setAttribute('class', 'o_O');
-
-// const titleAlt = document.getElementById(`new-id`);
-// console.log(titleAlt);
-// console.log(titleAlt.textContent);
-// titleAlt.textContent = 'O_O';
-// titleAlt.innerText = `Hello Again!`;
-// titleAlt.innerHTML = `<strong>Sup!</strong>`;
-
-// CHange Stype
-
-// titleAlt.style.color = `crimson`;
-// titleAlt.style.background = `black`;
-// titleAlt.style.padding = `1rem `;
-// titleAlt.style.border = `.25rem solid crimson`;
-// titleAlt.style.borderRadius = `1rem`;
-
-// const secondItemAlt = document.querySelector(`li:nth-child(2)`);
-// secondItemAlt.innerText = 'Apple Juice';
-// secondItemAlt.style.color = `Green`;
 
 // const list = document.querySelector(`ul`);
 // console.log(list);
@@ -103,43 +43,51 @@ document.write('o_O')
 // const listArray = Array.from(list);
 
 // listArray.forEach((item) => {
-//   // item.style.background = `black`;
+  // item.style.background = `black`;
 //   console.log(item);
 // });
 
 // let paragraph = document.querySelector('p');
 
-// console.log(paragraph.innerText);
-
 // let paragraphs = document.querySelectorAll(`p`);
 
-// console.log(paragraphs);
-
-// // let paragraphArray = Array.from(paragraph);
-
-// // console.log(paragraphArray);
+// let paragraphArray = Array.from(paragraph);
 
 // paragraphs.forEach((item) => {
 //   console.log(item.innerText);
-//   // item.style.background = `red`;
+  // item.style.background = `red`;
 //   item.innerText += ` **`;
 // });
 
-// paragraph.innerText = `Ninjas are awesome!`;
-// const contentAlt = document.querySelector(`.content`);
+// Imagine you have same attribute in a divnode. Put a div tag node element inside a variable. Select all nodes with same attribute using querySelector. Using the variable change the HTML using innerHTML       4️⃣6️⃣
+// const nextParagraph = document.querySelector(`div.error`)
+// nextParagraph.innerText = `🔥🔥🔥`
 
-// console.log(contentAlt.innerHTML);
+// document.querySelector('#intro-text')
 
-// // contentAlt.innerHTML = `<h1>THIS WHERE WE HOLD THEM</h1>`;
-// contentAlt.innerHTML += `<h1>THIS WHERE WE HOLD THEM</h1>`;
-// contentAlt.style.background = `#702f18`;
+// document.querySelector(`input[type='text']`)
 
+// document.querySelector(`li:nth-child(2)`)
 
-// const people = ['mario', 'luigi', `yoshi`];
+// const secondItem = document.querySelector(`li:nth-child(2)`).innerText
 
-// people.forEach((item) => {
-//   console.log((contentAlt.innerHTML += `<p>${item} was here!</p>`));
-// });
+// secondItem.innerText = `🍎`
+
+// In console print all the p tags using querySelectorAll as a Nodelist 4️⃣
+// const all_P_Tags = document.querySelectorAll(`p`)
+// console.log(all_P_Tags)
+
+//  Get the p tags with attribute using querySelectorAll as a Nodelist. Using forEach change all of them  4️⃣
+// const paragraphWithAttribute = document.querySelectorAll(`.error`)
+
+// paragraphWithAttribute.forEach(item => {
+//   item.innerText = `🌱🌱🌱`
+// })
+
+//TODO: Using `document.createElement()`
+
+//TODO: Setting attributes with `setAttribute()`
+// document.getElementById(`new-id`).setAttribute('class', 'o_O');
 
 // const link = document.querySelector(`a`);
 
@@ -153,19 +101,19 @@ document.write('o_O')
 
 // link.innerText = `o_O`;
 
-const message = document.querySelector(`p.errorAlt`);
+// const message = document.querySelector(`p.errorAlt`);
 
 // console.log(message.getAttribute(`class`));
 // message.setAttribute(`class`, `alt`);
 // message.setAttribute(`style`, `color: white`);
 
 
-const headline = document.querySelector(`h1`);
+// const headline = document.querySelector(`h1`);
 
 // headline.setAttribute(`style`, `margin: 3rem`);
 
-console.log(headline.style);
-console.log(headline.style.color);
+// console.log(headline.style);
+// console.log(headline.style.color);
 
 // headline.style.margin = `.5rem`;
 // headline.style.padding = `3rem`;
@@ -174,49 +122,189 @@ console.log(headline.style.color);
 
 // headline.style.padding = ``;
 
-const result = document.querySelector(`p.errorAlt`);
-
-// Change a p tag's text inside using querySelector method     1️⃣3️⃣
-document.querySelector(`p`).innerText = `:'(`
-
-// Put a p tag node element inside a variable. Select a node with attribute using querySelector. Using the variable change the HTML using innerHTML       4️⃣
-const firstParagraph = document.querySelector(`.error`)
-firstParagraph.innerText = `💥💥💥`
 
 // result.setAttribute(`class`, `error`);
 
-console.log(result.classList);
 
-result.classList.add(`error`);
-result.classList.remove(`error`);
+//TODO: Inserting elements using `appendChild()`, `insertBefore()`, and `replaceChild()`
 
-result.classList.add(`success`);
-result.classList.remove(`success`);
+*/
 
-const challengeField = document.querySelectorAll(`.challange p`);
+//! Modifying Elements
+
+//TODO Get.Change Content
+
+//** - Inside the HTML create and/or the h1 tag with `myHeading` id. Declare a variable that selects it using html tag (ex: h1, p. No id or class)
+const myHeading = document.querySelector(`h1`)
+console.log(myHeading)
+
+//** - Log the text using text content
+console.log(myHeading.textContent)
+
+//** - Now change the text using text content 
+myHeading.textContent = `This is a new heading 🗞️`
+
+//TODO Creating Elements - querySelector
+
+//** - Inside the HTML create and/or the `input` tag with `description` class. Declare a variable that selects it using html tag (ex: h1, p. No id or class)
+const input = document.querySelector(`input`)
+
+//T**- Inside the HTML create and/or the `p` tag with `description` class. Declare a variable that selects it using html tag. There are more p tag. SO use a combo class
+const p = document.querySelector(`p.description`)
+
+//** - Inside the HTML create and/or the `button` tag with `description` class. Declare a variable that selects it using html tag (ex: h1, p. No id or class)
+const button = document.querySelector(`button`)
+
+//** - Add an event listener to the button. While clicked, the button would change the p tag using text content with the value inserted into the `input`
+button.addEventListener('click', () => {
+  p.textContent = input.value + ':'
+})
+
+//** - Add an event listener to the button. While clicked, the button would change the p tag using innerHTML with the value inserted into the `input` as HTML tag (ex: h1)
+button.addEventListener('click', () => {
+  p.innerHTML = `<h1>${input.value}</h1>`
+})
+
+//** - Inside the HTML create a `ul` with 4 `li`. Declare a variable that selects the `ul` 
+const ul = document.querySelector(`ul`)
+
+//** - Using the variable, replace 4 `li` with 1 `li` 
+// ul.innerHTML = `<li>💥</li>`
+
+//TODO Modifying Elements - getElementById
+
+//TODO Modifying Elements - Form
+
+//* Log the input type of the form 
+console.log(input.type)
+
+//* Log the class name of the input
+console.log(input.className)
+
+//* Modify the form input into a check box
+// input.type = 'checkbox'
+
+//* Add title to `p` element
+p.title = '📃' 
+
+
+
+// document.links[0].href = `being.com`
+// document.links[0].id = `search-engine-alt`
+// output = document.links[0].href = 'facebook.com';
+// output = document.links[0].id = 'google-link';
+// output = document.links[0].className = 'google-class';
+// output = document.links[0].classList = 'google-classlist';
+
+// output.forEach((out) => {
+//   console.log(out);
+// });
+
+// document.forms[0].id = 'new-id';
+
+// const titleAlt = document.getElementById(`new-id`);
+// console.log(titleAlt);
+// console.log(titleAlt.textContent);
+// titleAlt.textContent = 'O_O';
+// titleAlt.innerText = `Hello Again!`;
+// titleAlt.innerHTML = `<strong>Sup!</strong>`;
+
+//TODO Modifying Elements - Change Styles
+
+//* Change the text color of p variable 
+p.style.color = `black`
+
+//* Change the background color of p variable 
+p.style.background = `white`
+
+//* Change the padding of p variable 
+p.style.padding = `1rem .5rem`
+
+//* Change the border of p variable 
+p.style.border = `.25rem solid purple`
+
+//* Change the border radius of p variable 
+p.style.borderRadius = `.25rem`
+
+//* Create a button with id `toggleList`. Put every element with `description` class inside a same div
+
+//* 
+
+//TODO : Changing text content: `textContent`, `innerText`, and `innerHTML`
+
+// document.body.innerHTML = '<h1>Hello World!</h1>';
+// const secondItemAlt = document.querySelector(`li:nth-child(2)`);
+// secondItemAlt.innerText = 'Apple Juice';
+// secondItemAlt.style.color = `Green`;
+
+// paragraph.innerText = `Ninjas are awesome!`;
+// const contentAlt = document.querySelector(`.content`);
+
+
+// console.log(contentAlt.innerHTML);
+
+// contentAlt.innerHTML = `<h1>THIS WHERE WE HOLD THEM</h1>`;
+// contentAlt.innerHTML += `<h1>THIS WHERE WE HOLD THEM</h1>`;
+// contentAlt.style.background = `#702f18`;
+
+
+// const people = ['mario', 'luigi', `yoshi`];
+
+// people.forEach((item) => {
+//   console.log((contentAlt.innerHTML += `<p>${item} was here!</p>`));
+// });
+
+// const result = document.querySelector(`p.errorAlt`);
+
+// Change a p tag's text inside using querySelector method     1️⃣3️⃣
+// document.querySelector(`p`).innerText = `:'(`
+
+// Put a p tag node element inside a variable. Select a node with attribute using querySelector. Using the variable change the HTML using innerHTML       4️⃣
+// const firstParagraph = document.querySelector(`.error`)
+// firstParagraph.innerText = `💥💥💥`
+
+// parent.childNodes[3].innerText = 'OnE';
+// parent.childNodes[5].style.color = 'red';
+
+//TODO : Modifying styles: `style` property and `classList` methods (`add()`, `remove()`, `toggle()`)
+
+// result.classList.add(`error`);
+// result.classList.remove(`error`);
+
+// result.classList.add(`success`);
+// result.classList.remove(`success`);
+
+// const challengeField = document.querySelectorAll(`.challange p`);
 
 // console.log(challengeField);
 
-challengeField.forEach((item) => {
-  if (item.innerText.includes('error')) {
-    item.classList.add(`error`, `output`);
-  } else if (item.innerText.includes(`success`)) {
-    item.classList.add(`success`, `output`);
-  } else {
-    item.classList.add(`output`);
-  }
-});
+// challengeField.forEach((item) => {
+//   if (item.innerText.includes('error')) {
+//     item.classList.add(`error`, `output`);
+//   } else if (item.innerText.includes(`success`)) {
+//     item.classList.add(`success`, `output`);
+//   } else {
+//     item.classList.add(`output`);
+//   }
+// });
 
-const titleAlt = document.querySelector(`#title`);
+// const titleAlt = document.querySelector(`#title`);
 
-titleAlt.classList.toggle(`O_o`);
-titleAlt.classList.toggle(`O_o`);
+// titleAlt.classList.toggle(`O_o`);
+// titleAlt.classList.toggle(`O_o`);
 
-console.log(titleAlt);
+//! Removing Elements
 
-console.log(`009 Parents, Children & Siblings`);
+//TODO : Using `remove()` and `parentNode.removeChild()`
 
-const article = document.querySelector(`article`);
+// output = parent.firstChild;
+// output = parent.lastChild = `HeLlO`;
+// child.parentNode.style.backgroundColor = `#ccc`;
+// child.parentNode.style.padding = `1rem`;
+// output = secondItem.nextSibling.style.color = 'red';
+
+
+// const article = document.querySelector(`article`);
 
 // console.log(article.children);
 
@@ -228,145 +316,126 @@ const article = document.querySelector(`article`);
 //   item.classList.add(`article-element`);
 // });
 
-// Imagine you have same attribute in a divnode. Put a div tag node element inside a variable. Select all nodes with same attribute using querySelector. Using the variable change the HTML using innerHTML       4️⃣6️⃣
-const nextParagraph = document.querySelector(`div.error`)
-nextParagraph.innerText = `🔥🔥🔥`
-
-document.querySelector('#intro-text')
-
-document.querySelector(`input[type='text']`)
-
-document.querySelector(`li:nth-child(2)`)
-
-// const secondItem = document.querySelector(`li:nth-child(2)`).innerText
-
-// secondItem.innerText = `🍎`
-
-// secondItem.style.color = `red`
-
-// In console print all the p tags using querySelectorAll as a Nodelist 4️⃣
-const all_P_Tags = document.querySelectorAll(`p`)
-console.log(all_P_Tags) 
-
 // From the p tag's nodelist print the 2nd p tag's content  4️⃣
-console.log(all_P_Tags[1])
+// console.log(all_P_Tags[1])
 
-//  Get the p tags with attribute using querySelectorAll as a Nodelist. Using forEach change all of them  4️⃣
-const paragraphWithAttribute = document.querySelectorAll(`.error`)
-
-paragraphWithAttribute.forEach(item => {
-  item.innerText = `🌱🌱🌱`
-})
-
-// Get all the node tags with h1 tag using getElementsByTagName and print them as a HTMLCollection  5️⃣
-const allH1Tags = document.getElementsByTagName(`h1`)
-console.log(allH1Tags)
-
-// Now convert the HTMLCollection to NodeList and print the Text  5️⃣
-const converter = Array.from(allH1Tags)
-console.log(converter)
-
-converter.forEach(item => {
-  console.log(item.innerText)
-})
-
-const title = document.getElementById(`intro-text`)
-title.textContent = `😆`
-console.log(title.textContent)
-
-
-title.innerText = `😂`
-
-title.innerHTML = `<strong>Intro ot DOM</strong>`
-
-title.style.color = `crimson`
-title.style.backgroundColor = `White`
-title.style.padding = `2rem`
-
-
-// DOM Node Types
-
-// 12
-// Insert Image
-
-// DOM Element Relationships
-
-// Declare a variable that represents the parent node
-const parent = document.querySelector(`.parent`)
-
-// Print all the child node of the parent node 
-parent.childNodes
-
-// Print the 1st child of the parent node 
-console.log(parent.childNodes[3])
-
-// Print the text content of the 1st child 
-console.log(parent.childNodes[3].textContent)
-
-// Print the node name of the 1st child 
-console.log(parent.childNodes[3].nodeName)
-
-
-// Print the text content of the 1st child 
-console.log(parent.childNodes[3].innerHTML)
-
-// Print the outer HTML of the 1st child 
-console.log(parent.childNodes[3].outerHTML)
-
-// Print the inner Text of the 1st child 
-console.log(parent.childNodes[3].innerText)
-
-// Change the text content of the 1st child 
-parent.childNodes[3].innerText = `Child One 👶`
-
-// Change the text color of the 1st child 
-parent.childNodes[5].style.color = `red`
+//** */
+//** */
+//** */
 
 
 
-// Print the 1st child of the parent node using firstChild
-console.log(parent.firstChild)
-// Print the last child of the parent node using lastChild
-console.log(parent.lastChild)
-
-// Insert text content before 1st child
-parent.firstChild.textContent = `I hit it First`
-// Insert text content after last child
-parent.lastChild.textContent = `Kanye West`
-
-// Getting parent node from child node
-
-// Select the child node
-console.log(document.querySelector(`.child`))
-// Select the parent node using the child node
-console.log(document.querySelector(`.child`).parentNode)
-// Select the parent element using the child node
-console.log(document.querySelector(`.child`).parentElement)
-// Change the background color of the parent element using the child node
-console.log(document.querySelector(`.child`).parentNode.style.backgroundColor = `gray`)
-// Change the padding of the parent element using the child node
-console.log(document.querySelector(`.child`).parentNode.style.padding = `1rem`)
-
-// Siblings
-
-// Selcet the 2nd chid using the child element
-console.log(document.querySelector(`.child:nth-child(2)`))
-// Selcet the next sibling of 2nd chid using the child element
-console.log(document.querySelector(`.child:nth-child(2)`).nextSibling)
-// Change the background color of the sibling of 2nd chid using the child element
-console.log(document.querySelector(`.child:nth-child(2)`).nextSibling.style.backgroundColor = `teal`)
-// Selcet the prevous sibling of 2nd chid using the child element
-console.log(document.querySelector(`.child:nth-child(2)`).previousSibling)
-// Change the background color of the previous sibling of 2nd chid using the child element
-console.log(document.querySelector(`.child:nth-child(2)`).previousSibling.style.backgroundColor = `red`)
 
 
+// // Get all the node tags with h1 tag using getElementsByTagName and print them as a HTMLCollection  5️⃣
+// const allH1Tags = document.getElementsByTagName(`h1`)
+// console.log(allH1Tags)
 
-const secondChild = document.querySelector(`.child:nth-child(2)`)
+// // Now convert the HTMLCollection to NodeList and print the Text  5️⃣
+// const converter = Array.from(allH1Tags)
+// console.log(converter)
 
-secondChild.addEventListener('click', () => {
-    secondChild.style.backgroundColor = `yellow`
-})
+// converter.forEach(item => {
+//   console.log(item.innerText)
+// })
+
+// const title = document.getElementById(`intro-text`)
+// title.textContent = `😆`
+// console.log(title.textContent)
+
+
+// title.innerText = `😂`
+
+// title.innerHTML = `<strong>Intro ot DOM</strong>`
+
+// title.style.color = `crimson`
+// title.style.backgroundColor = `White`
+// title.style.padding = `2rem`
+
+
+// // DOM Node Types
+
+// // 12
+// // Insert Image
+
+// // DOM Element Relationships
+
+// // Declare a variable that represents the parent node
+// const parent = document.querySelector(`.parent`)
+
+// // Print all the child node of the parent node 
+// parent.childNodes
+
+// // Print the 1st child of the parent node 
+// console.log(parent.childNodes[3])
+
+// // Print the text content of the 1st child 
+// console.log(parent.childNodes[3].textContent)
+
+// // Print the node name of the 1st child 
+// console.log(parent.childNodes[3].nodeName)
+
+
+// // Print the text content of the 1st child 
+// console.log(parent.childNodes[3].innerHTML)
+
+// // Print the outer HTML of the 1st child 
+// console.log(parent.childNodes[3].outerHTML)
+
+// // Print the inner Text of the 1st child 
+// console.log(parent.childNodes[3].innerText)
+
+// // Change the text content of the 1st child 
+// parent.childNodes[3].innerText = `Child One 👶`
+
+// // Change the text color of the 1st child 
+// parent.childNodes[5].style.color = `red`
+
+
+
+// // Print the 1st child of the parent node using firstChild
+// console.log(parent.firstChild)
+// // Print the last child of the parent node using lastChild
+// console.log(parent.lastChild)
+
+// // Insert text content before 1st child
+// parent.firstChild.textContent = `I hit it First`
+// // Insert text content after last child
+// parent.lastChild.textContent = `Kanye West`
+
+// // Getting parent node from child node
+
+// // Select the child node
+// console.log(document.querySelector(`.child`))
+// // Select the parent node using the child node
+// console.log(document.querySelector(`.child`).parentNode)
+// // Select the parent element using the child node
+// console.log(document.querySelector(`.child`).parentElement)
+// // Change the background color of the parent element using the child node
+// console.log(document.querySelector(`.child`).parentNode.style.backgroundColor = `gray`)
+// // Change the padding of the parent element using the child node
+// console.log(document.querySelector(`.child`).parentNode.style.padding = `1rem`)
+
+// // Siblings
+
+// // Selcet the 2nd chid using the child element
+// console.log(document.querySelector(`.child:nth-child(2)`))
+// // Selcet the next sibling of 2nd chid using the child element
+// console.log(document.querySelector(`.child:nth-child(2)`).nextSibling)
+// // Change the background color of the sibling of 2nd chid using the child element
+// console.log(document.querySelector(`.child:nth-child(2)`).nextSibling.style.backgroundColor = `teal`)
+// // Selcet the prevous sibling of 2nd chid using the child element
+// console.log(document.querySelector(`.child:nth-child(2)`).previousSibling)
+// // Change the background color of the previous sibling of 2nd chid using the child element
+// console.log(document.querySelector(`.child:nth-child(2)`).previousSibling.style.backgroundColor = `red`)
+
+
+
+// const secondChild = document.querySelector(`.child:nth-child(2)`)
+
+// secondChild.addEventListener('click', () => {
+//     secondChild.style.backgroundColor = `yellow`
+// })
 
 // // Declare a variable that select a p tag
 // const para = document.querySelector(`p`)
@@ -488,7 +557,7 @@ secondChild.addEventListener('click', () => {
 // console.log(titleH2.nextElementSibling)
 // console.log(titleH2.previousElementSibling)
 
-// // chaining
+// chaining
 // console.log(titleH2.nextElementSibling.parentElement.children)
 
 // const inner = document.querySelector('.innerVscontent')
@@ -496,34 +565,34 @@ secondChild.addEventListener('click', () => {
 // console.log(inner.innerText)
 // console.log(inner.textContent)
 
-// // const pizzaList = document.querySelector('.pizza')
-// // console.log(pizzaList.textContent)
+// const pizzaList = document.querySelector('.pizza')
+// console.log(pizzaList.textContent)
 
-// // // pizzaList.textContent +=  '🍕'
-// // pizzaList.insertAdjacentText('afterend', '🍕')
-// // pizzaList.insertAdjacentText('beforebegin', '🍕')
-// // pizzaList.insertAdjacentText('beforeend', '🍕')
+// pizzaList.textContent +=  '🍕'
+// pizzaList.insertAdjacentText('afterend', '🍕')
+// pizzaList.insertAdjacentText('beforebegin', '🍕')
+// pizzaList.insertAdjacentText('beforeend', '🍕')
 
-// // const pic = document.querySelector('img')
-// // // pic.classList.add('rounded')
-// // // pic.classList.remove('rounded')
-// // // pic.classList.toggle('rounded')
-// // // pic.classList.toggle('rounded')
+// const pic = document.querySelector('img')
+// pic.classList.add('rounded')
+// pic.classList.remove('rounded')
+// pic.classList.toggle('rounded')
+// pic.classList.toggle('rounded')
 
-// // pic.addEventListener('click', () => {
-// //     pic.classList.toggle('rounded')
-// // })
+// pic.addEventListener('click', () => {
+//     pic.classList.toggle('rounded')
+// })
 
-// // pic.alt = 'Earth ASEAN Side'        // setter
-// // console.log(pic.alt)                // getter
-// // console.log(pic.naturalWidth)       // getter
+// pic.alt = 'Earth ASEAN Side'        // setter
+// console.log(pic.alt)                // getter
+// console.log(pic.naturalWidth)       // getter
 
 
-// // const picApi = document.querySelector('.imgAPI');
-// // console.log(picApi)
-// // console.log(picApi.src)
-// // console.log(picApi.alt)
-// // console.log(picApi.naturalWidth)    // Problem: Output 0
+// const picApi = document.querySelector('.imgAPI');
+// console.log(picApi)
+// console.log(picApi.src)
+// console.log(picApi.alt)
+// console.log(picApi.naturalWidth)    // Problem: Output 0
 
 // window.addEventListener('load', () => {     // Solution: Add a Loader function
 //     console.log(picApi.naturalWidth)
@@ -569,135 +638,119 @@ secondChild.addEventListener('click', () => {
 // // myDiv.appendChild(heading)
 // myDiv.insertAdjacentElement('beforebegin', heading)     // appendChild is ok, but insertAdjacentElement is better
 
-// // Challenge
-// // const list = document.createElement('ul')
-// // const listItem = document.createElement('li')
+// Challenge
+// const list = document.createElement('ul')
+// const listItem = document.createElement('li')
 
-// // listItem.textContent = '3'
-// // console.log(list)
-// // list.insertAdjacentElement('afterend', listItem)
-// // console.log(list)
-// // // list.appendChild(listItem)
-// // listItem.textContent = '2'
-// // list.insertAdjacentElement('afterend', listItem)
-
-// // body.appendChild(list)
-
-// // document.body.insertAdjacentElement('afterend', list)
-
-// // listItem.appendChild(list)
+// listItem.textContent = '3'
+// console.log(list)
+// list.insertAdjacentElement('afterend', listItem)
+// console.log(list)
 // // list.appendChild(listItem)
-// // listItem.textContent = '3'
-// // list.insertAdjacentElement('afterbegin', listItem)
-// // listItem.textContent = '2'
-// // list.insertAdjacentElement('afterend', listItem)
-// // listItem.textContent = '4'
-// // list.insertAdjacentElement('afterbegin', listItem)
-// // listItem.textContent = '1'
-// // list.insertAdjacentElement('afterbegin', listItem)
-// // listItem.textContent = '5'
-// // list.insertAdjacentElement('afterbegin', listItem)
+// listItem.textContent = '2'
+// list.insertAdjacentElement('afterend', listItem)
 
-// // document.body.insertAdjacentElement('afterend', list)
+// body.appendChild(list)
 
-// // console.log(list)
+// document.body.insertAdjacentElement('afterend', list)
 
-// // body.insertAdjacentElement('afterend', listItem)
+// listItem.appendChild(list)
+// list.appendChild(listItem)
+// listItem.textContent = '3'
+// list.insertAdjacentElement('afterbegin', listItem)
+// listItem.textContent = '2'
+// list.insertAdjacentElement('afterend', listItem)
+// listItem.textContent = '4'
+// list.insertAdjacentElement('afterbegin', listItem)
+// listItem.textContent = '1'
+// list.insertAdjacentElement('afterbegin', listItem)
+// listItem.textContent = '5'
+// list.insertAdjacentElement('afterbegin', listItem)
 
-// //   const ul = document.createElement("ul");
-// //   const li = document.createElement("li");
-// //   const text = document.createTextNode("PHP");
-// //   li.appendChild(text);
-// // ul.appendChild(li);
+// document.body.insertAdjacentElement('afterend', list)
+
+// console.log(list)
+
+// body.insertAdjacentElement('afterend', listItem)
+
+//   const ul = document.createElement("ul");
+//   const li = document.createElement("li");
+//   const text = document.createTextNode("PHP");
+//   li.appendChild(text);
+// ul.appendChild(li);
   
-// // console.log(ul)
+// console.log(ul)
 
 //! All HTML Element Variables 
 
-const slot = document.createElement('div')
-const paragraphForSlot = document.createElement('p')
-const imageForSlot = document.createElement('img')
-const headingForSlot = document.createElement('h1')
+// const slot = document.createElement('div')
+// const paragraphForSlot = document.createElement('p')
+// const imageForSlot = document.createElement('img')
+// const headingForSlot = document.createElement('h1')
 
-const ulForSlot = document.createElement('ul')
-const liForUL = document.createElement('li')
+// const ulForSlot = document.createElement('ul')
+// const liForUL = document.createElement('li')
 
-//! 5 List items being created, value inserted & being put inside a ul
-liForUL.textContent = '3️⃣'
-ulForSlot.appendChild(liForUL)
+// //! 5 List items being created, value inserted & being put inside a ul
+// liForUL.textContent = '3️⃣'
+// ulForSlot.appendChild(liForUL)
 
-const listItem2 = liForUL.cloneNode(true)
-listItem2.textContent = '2️⃣'
-ulForSlot.insertAdjacentElement('afterbegin', listItem2)
+// const listItem2 = liForUL.cloneNode(true)
+// listItem2.textContent = '2️⃣'
+// ulForSlot.insertAdjacentElement('afterbegin', listItem2)
 
-const listItem1 = liForUL.cloneNode(true)
-listItem1.textContent = '1️⃣'
-ulForSlot.insertAdjacentElement('afterbegin', listItem1)
+// const listItem1 = liForUL.cloneNode(true)
+// listItem1.textContent = '1️⃣'
+// ulForSlot.insertAdjacentElement('afterbegin', listItem1)
 
-const listItem4 = liForUL.cloneNode(true)
-listItem4.textContent = '4️⃣'
-ulForSlot.insertAdjacentElement('beforeend', listItem4)
+// const listItem4 = liForUL.cloneNode(true)
+// listItem4.textContent = '4️⃣'
+// ulForSlot.insertAdjacentElement('beforeend', listItem4)
 
-const listItem5 = liForUL.cloneNode(true)
-listItem5.textContent = '5️⃣'
-ulForSlot.insertAdjacentElement('beforeend', listItem5)
+// const listItem5 = liForUL.cloneNode(true)
+// listItem5.textContent = '5️⃣'
+// ulForSlot.insertAdjacentElement('beforeend', listItem5)
 
-//! ul is inserted into the div
-slot.appendChild(ulForSlot)
+// //! ul is inserted into the div
+// slot.appendChild(ulForSlot)
 
-slot.classList.add('creatingHTML')
+// slot.classList.add('creatingHTML')
 
-paragraphForSlot.classList.add('error')
-paragraphForSlot.innerHTML = `<strong>Paragraph 4 Slot</strong>`
+// paragraphForSlot.classList.add('error')
+// paragraphForSlot.innerHTML = `<strong>Paragraph 4 Slot</strong>`
 
-imageForSlot.src = 'https://picsum.photos/200'
-imageForSlot.alt = 'image from api'
-imageForSlot.classList.add('rounded')
+// imageForSlot.src = 'https://picsum.photos/200'
+// imageForSlot.alt = 'image from api'
+// imageForSlot.classList.add('rounded')
 
-headingForSlot.textContent = 'Heading 4 Slot'
+// headingForSlot.textContent = 'Heading 4 Slot'
 
-slot.appendChild(imageForSlot)
-slot.appendChild(headingForSlot)
-slot.appendChild(paragraphForSlot)
+// slot.appendChild(imageForSlot)
+// slot.appendChild(headingForSlot)
+// slot.appendChild(paragraphForSlot)
 // slot.insertAdjacentElement('afterend', paragraphForSlot)
 // slot.insertAdjacentElement('beforebegin', imageForSlot)
 
-slot.classList.add('area')
+// slot.classList.add('area')
 
-window.addEventListener('load', () => {
-    // document.body.appendChild(slot)
-    document.body.insertAdjacentElement('beforebegin', slot)    //! Adding to DOM
-})
+// window.addEventListener('load', () => {
+//     // document.body.appendChild(slot)
+//     document.body.insertAdjacentElement('beforebegin', slot)    //! Adding to DOM
+// })
 
-console.log(slot)
-
-/**
- * ! Beware
- * TODO: Organize Code
- * ! Beware 
-*/
-
-/**
- * ! o_O
- */
-
-/**
- * ! O-O
- */
-
-const imgWidth = 200
-const imgSRC = `https://picsum.photos/${imgWidth}` 
-// const imgAlt = `API ${console.log('👾👾')}` //! Security 
-const imgAlt = `API ${console.log('👾👾')}` //! Cross Site Scripting
-const item = document.querySelector('.item')
+// const imgWidth = 200
+// const imgSRC = `https://picsum.photos/${imgWidth}` 
+// // const imgAlt = `API ${console.log('👾👾')}` //! Security 
+// const imgAlt = `API ${console.log('👾👾')}` //! Cross Site Scripting
+// const item = document.querySelector('.item')
 
 
-item.innerHTML = `
-<div class="area">  
-    <h1>What Up!</h1>
-    <img src=${imgSRC} alt=${imgAlt} />
-</div>
-`
+// item.innerHTML = `
+// <div class="area">  
+//     <h1>What Up!</h1>
+//     <img src=${imgSRC} alt=${imgAlt} />
+// </div>
+// `
 
 // console.log(item.innerHTML)
 
@@ -717,10 +770,10 @@ item.innerHTML = `
 // document.body.appendChild(myFragment)
 // document.body.append(myFragment)
 
-const sourov = document.querySelector('.sourov')
+// const sourov = document.querySelector('.sourov')
 
-console.log(sourov.children)
-console.log(sourov.childNodes)
+// console.log(sourov.children)
+// console.log(sourov.childNodes)
 
 
 // Change the id of the form    7️⃣
@@ -730,9 +783,9 @@ console.log(sourov.childNodes)
 // Replace all the content inside the HTML  3️⃣
 // document.body.innerHTML = `<h1>Hello World!</h1>`
 
-const main = document.getElementById('main');
-console.log(document.getElementById('main'));
-main.innerHTML = `<h1>Main say Hello</h1>`;
+// const main = document.getElementById('main');
+// console.log(document.getElementById('main'));
+// main.innerHTML = `<h1>Main say Hello</h1>`;
 // document.getElementById('intro-text').id = `New ID`
 // console.log()
 // document.getElementById('intro-text').title = `Shopping🛒`
@@ -740,8 +793,8 @@ main.innerHTML = `<h1>Main say Hello</h1>`;
 // document.getElementById('intro-text').setAttribute(`class`, `title`)
 // console.log()
 // Put a HTML text node element inside a variable. Using the variable change the HTML using innerHTML     1️⃣3️⃣5️⃣8️⃣
-const introText = document.getElementById(`intro-text`)
-introText.innerHTML = `<h1>XD</h1>`
+// const introText = document.getElementById(`intro-text`)
+// introText.innerHTML = `<h1>XD</h1>`
 
 
 // document.querySelector(`#main p`).innerHTML = `Sup!`;
@@ -752,10 +805,7 @@ introText.innerHTML = `<h1>XD</h1>`
 //   }
 
 //   if (index === 0) {
-//     // item.innerText += ` teal`;
-//     // item.innerHTML
+    // item.innerText += ` teal`;
+    // item.innerHTML
 //   }
 // });
-
-// parent.childNodes[3].innerText = 'OnE';
-// parent.childNodes[5].style.color = 'red';
