@@ -21,6 +21,13 @@
 
 //! Creating Elements
 
+//* Under the ul, Create a form input with `addItemInput` with it a button with `addItemButton`. Create variables for each of them 
+const addItemInput = document.querySelector(`input.addItemInput`)
+const addItemButton = document.querySelector(`button.addItemButton`)
+
+//* 
+addItemButton.addEventListener()
+
 /*
 
 // Insert a string in the HTMl using write method   3️⃣
@@ -147,13 +154,15 @@ myHeading.textContent = `This is a new heading 🗞️`
 //TODO Creating Elements - querySelector
 
 //** - Inside the HTML create and/or the `input` tag with `description` class. Declare a variable that selects it using html tag (ex: h1, p. No id or class)
-const input = document.querySelector(`input`)
+// const input = document.querySelector(`input`)
+const input = document.querySelector(`input.description`) //! After Error 
 
 //T**- Inside the HTML create and/or the `p` tag with `description` class. Declare a variable that selects it using html tag. There are more p tag. SO use a combo class
 const p = document.querySelector(`p.description`)
 
 //** - Inside the HTML create and/or the `button` tag with `description` class. Declare a variable that selects it using html tag (ex: h1, p. No id or class)
-const button = document.querySelector(`button`)
+// const button = document.querySelector(`button`)
+const button = document.querySelector(`button.description`) //! After Error 
 
 //** - Add an event listener to the button. While clicked, the button would change the p tag using text content with the value inserted into the `input`
 button.addEventListener('click', () => {
@@ -161,9 +170,9 @@ button.addEventListener('click', () => {
 })
 
 //** - Add an event listener to the button. While clicked, the button would change the p tag using innerHTML with the value inserted into the `input` as HTML tag (ex: h1)
-button.addEventListener('click', () => {
-  p.innerHTML = `<h1>${input.value}</h1>`
-})
+// button.addEventListener('click', () => {
+//   p.innerHTML = `<h1>${input.value}</h1>`
+// })
 
 //** - Inside the HTML create a `ul` with 4 `li`. Declare a variable that selects the `ul` 
 const ul = document.querySelector(`ul`)
@@ -215,7 +224,7 @@ p.title = '📃'
 p.style.color = `black`
 
 //* Change the background color of p variable 
-p.style.background = `white`
+p.style.background = `gray`
 
 //* Change the padding of p variable 
 p.style.padding = `1rem .5rem`
@@ -226,9 +235,27 @@ p.style.border = `.25rem solid purple`
 //* Change the border radius of p variable 
 p.style.borderRadius = `.25rem`
 
-//* Create a button with id `toggleList`. Put every element with `description` class inside a same div
+//* Create a button with id `toggleList`. Declare a variable that selects it. 
+const toggleBtn = document.querySelector(`#toggleBtn`)
 
-//* 
+//* Put every element with `description` class inside a same div. Declare a variable that selects it.
+const list = document.querySelector(`.toggleList`)
+
+//* Add an event listener to the button that while clicked, hides the `list` 
+// toggleBtn.addEventListener('click', () => {
+//   list.style.display = `none`
+// })
+
+//* Add an event listener to the button that while clicked, hides the `list`. and show it when clicked again .(⚙️ Change Button Text )
+toggleBtn.addEventListener('click', () => {
+  if (list.style.display == `none`) {
+    list.style.display = `block`
+    toggleBtn.textContent = `➖`
+  } else {
+    list.style.display = `none`
+    toggleBtn.textContent = `➕`
+  }
+})
 
 //TODO : Changing text content: `textContent`, `innerText`, and `innerHTML`
 
