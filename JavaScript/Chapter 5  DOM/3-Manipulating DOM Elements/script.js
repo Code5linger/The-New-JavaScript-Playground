@@ -370,6 +370,32 @@ toggleBtn.addEventListener('click', () => {
 
 //! Removing Elements
 
+//*
+
+//* Under the Add Item button. Add a new button with a id `removeItemButton`. Declare a variable the selects it 
+const removeItemButton = document.querySelector(`button.removeItemButton`)
+
+console.log(removeItemButton)
+
+//* Add an event listener to `removeItemButton` that whiled clicked remove the last `li` item using `removeChild`
+removeItemButton.addEventListener('click', () => {
+  const ul = document.getElementsByTagName(`ul`)[0]
+  let li = document.querySelector(`li:last-child`)
+
+  li.textContent = addItemInput.value
+  ul.removeChild(li)
+})
+
+//* Add an event listener to `removeItemButton` that whiled clicked remove the 1st `li` item using `removeChild`
+const removeItemButton1st = document.querySelector(`button.removeItemButton1st`)
+removeItemButton1st.addEventListener('click', () => {
+  const ul = document.getElementsByTagName(`ul`)[0]
+  let li = document.querySelector(`li:first-child`)
+
+  li.textContent = addItemInput.value
+  ul.removeChild(li)
+})
+
 //TODO : Using `remove()` and `parentNode.removeChild()`
 
 // output = parent.firstChild;
