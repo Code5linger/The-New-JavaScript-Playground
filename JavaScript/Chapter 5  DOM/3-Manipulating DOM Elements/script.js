@@ -25,8 +25,56 @@
 const addItemInput = document.querySelector(`input.addItemInput`)
 const addItemButton = document.querySelector(`button.addItemButton`)
 
-//* 
-addItemButton.addEventListener()
+
+
+//* Add an event listener to the `addItemButton` that while clicked, log the values inside `addItemInput` as a `li` tag 
+// addItemButton.addEventListener('click', () => {
+//   let li = document.createElement(`li`)
+
+//   li.textContent = addItemInput.value
+//   console.log(li)
+// })
+
+//* Now create a `ul` variable that selects the ul using `getElementsByTagName` inside the event listener function. Append the `li` tag inside it 
+// addItemButton.addEventListener('click', () => {
+//   const ul = document.getElementsByTagName(`ul`)[0] 
+//! (`ul`) returns a collection of ul. But we only need the 1st one. So (`ul`)[0] 
+//   let li = document.createElement(`li`)
+
+//   console.log(ul)
+//   li.textContent = addItemInput.value
+//   ul.appendChild(li)
+// })
+
+//* Now create a `ul` variable that selects the ul using `querySelector` inside the event listener function. Append the `li` tag inside it 
+// addItemButton.addEventListener('click', () => {
+//   const ul = document.querySelector(`ul`)
+//   let li = document.createElement(`li`)
+
+//   console.log(ul)
+// })
+
+//* Now append the `li` tag inside the ul 
+// addItemButton.addEventListener('click', () => {
+//   const ul = document.getElementsByTagName(`ul`)[0]
+//   let li = document.createElement(`li`)
+
+//   li.textContent = addItemInput.value
+//   ul.appendChild(li)
+// })
+
+//* Reset the input box. 
+addItemButton.addEventListener('click', () => {
+  const ul = document.getElementsByTagName(`ul`)[0]
+  let li = document.createElement(`li`)
+
+  li.textContent = addItemInput.value
+  ul.appendChild(li)
+
+  addItemInput.value = ``
+})
+
+
 
 /*
 
