@@ -64,15 +64,15 @@ const addItemButton = document.querySelector(`button.addItemButton`)
 // })
 
 //* Reset the input box. 
-addItemButton.addEventListener('click', () => {
-  const ul = document.getElementsByTagName(`ul`)[0]
-  let li = document.createElement(`li`)
+// addItemButton.addEventListener('click', () => {
+//   const ul = document.getElementsByTagName(`ul`)[0]
+//   let li = document.createElement(`li`)
 
-  li.textContent = addItemInput.value
-  ul.appendChild(li)
+//   li.textContent = addItemInput.value
+//   ul.appendChild(li)
 
-  addItemInput.value = ``
-})
+//   addItemInput.value = ``
+// })
 
 
 
@@ -539,36 +539,145 @@ parent.removeChild(paragraph)
 // });
 
 //* While the `li` reaching the top or bottom it either it rotating from bottom or getting an error like `Uncaught TypeError: Failed to execute 'insertBefore' on 'Node': parameter 1 is not of type 'Node'.` Fix it!
-const listItem = document.querySelector(`ul`)
+// const listItem = document.querySelector(`ul`)
+
+// listItem.addEventListener('click', e => {
+//   if (e.target.tagName === 'BUTTON') {
+//     if (e.target.className == 'remove') {
+//       let li = e.target.parentNode
+//       let ul = li.parentNode
+      
+//       ul.removeChild(li)
+//     }
+//     if (e.target.className == 'up') {
+//       let li = e.target.parentNode
+//       let previousLi = li.previousElementSibling
+//       let ul = li.parentNode
+
+//       if (previousLi) {
+//         ul.insertBefore(li, previousLi)
+//       }
+//     }
+//     if (e.target.className == 'down') {
+//       let li = e.target.parentNode
+//       let nextLi = li.nextElementSibling
+//       let ul = li.parentNode
+      
+//       if (nextLi) {
+//         ul.insertBefore(nextLi, li); 
+//       }
+//     }
+//   }
+// });
+
+//* Remove All the buttons from the `li`. Create a function that create those element and append them inside an `li`
+
+function attachListItemButton(li) {
+  let up = document.createElement(`button`)
+  up.className = `up`
+  up.textContent = `⬆️`
+  li.appendChild(up)
+
+  let down = document.createElement(`button`)
+  down.className = `down`
+  down.textContent = `⬇️`
+  li.appendChild(down)
+
+  let remove = document.createElement(`button`)
+  remove.className = `remove`
+  remove.textContent = `❌`
+  li.appendChild(remove)
+}
+
+
+//* Now add the function to the Add Item Button
+addItemButton.addEventListener('click', () => {
+  const ul = document.getElementsByTagName(`ul`)[0]
+  let li = document.createElement(`li`)
+
+  li.textContent = addItemInput.value  
+  attachListItemButton(li)
+  ul.appendChild(li)
+
+  addItemInput.value = ``
+})
+
+//* Make sure every `li` has all the buttons
+const lis = document.querySelector('ul').children
+
+for (let i = 0; i < lis.length; i++) {
+  attachListItemButton(lis[i])
+}
+
+//* Declare 2 variables that Selects the 1st & last `li` using element child. Use them them to change background color  
+const firstListItem = document.querySelector(`ul`).firstElementChild
+const lastListItem = document.querySelector(`ul`).lastElementChild
+
+console.log(firstListItem, lastListItem)
+
+firstListItem.style.background = `red`
+lastListItem.style.background = `yellow`
+
+//* Now make Sure the `up` button is diabled on the top item & the `down`button is disabled on the bottom
+const listItem = document.querySelector(`ul`);
+
+// Function to update button states
+function updateButtonStates() {
+  const listItems = document.querySelectorAll('ul li');
+  listItems.forEach((li, index) => {
+    const upButton = li.querySelector('.up');
+    const downButton = li.querySelector('.down');
+
+    // Enable or disable the up button
+    if (upButton) {
+      upButton.disabled = index === 0; // Disable if it's the first item
+    }
+
+    // Enable or disable the down button
+    if (downButton) {
+      downButton.disabled = index === listItems.length - 1; // Disable if it's the last item
+    }
+  });
+}
+
 listItem.addEventListener('click', e => {
   if (e.target.tagName === 'BUTTON') {
-    if (e.target.className == 'remove') {
-      let li = e.target.parentNode
-      let ul = li.parentNode
-      
-      ul.removeChild(li)
+    if (e.target.className === 'remove') {
+      let li = e.target.parentNode;
+      let ul = li.parentNode;
+
+      ul.removeChild(li);
+      updateButtonStates(); // Update buttons after removal
     }
-    if (e.target.className == 'up') {
-      let li = e.target.parentNode
-      let previousLi = li.previousElementSibling
-      let ul = li.parentNode
+
+    if (e.target.className === 'up') {
+      let li = e.target.parentNode;
+      let previousLi = li.previousElementSibling;
+      let ul = li.parentNode;
 
       if (previousLi) {
-        ul.insertBefore(li, previousLi)
+        ul.insertBefore(li, previousLi);
+        updateButtonStates(); // Update buttons after moving up
       }
     }
-    if (e.target.className == 'down') {
-      let li = e.target.parentNode
-      let nextLi = li.nextElementSibling
-      let ul = li.parentNode
-      
+
+    if (e.target.className === 'down') {
+      let li = e.target.parentNode;
+      let nextLi = li.nextElementSibling;
+      let ul = li.parentNode;
+
       if (nextLi) {
-        ul.insertBefore(nextLi, li); 
+        ul.insertBefore(nextLi, li); // Move li below nextLi
+        updateButtonStates(); // Update buttons after moving down
       }
     }
   }
 });
 
+// Call updateButtonStates on page load to initialize button states
+document.addEventListener('DOMContentLoaded', () => {
+  updateButtonStates();
+});
 
 
 // output = parent.firstChild;
