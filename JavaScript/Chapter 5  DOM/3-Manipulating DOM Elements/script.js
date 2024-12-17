@@ -398,6 +398,179 @@ removeItemButton1st.addEventListener('click', () => {
 
 //TODO : Using `remove()` and `parentNode.removeChild()`
 
+//* Declare a variable that selects the `p` tag with `myParagraph` id
+let paragraph = document.querySelector(`#myParagraph`)
+
+//* Declare a variable that selects parent node of `paragraph` element. Use the variable to remove the paragraph element
+let parent = paragraph.parentNode
+parent.removeChild(paragraph)
+
+//* Create a feature that, while hovering over a list item. Turn the text uppercase.
+// const listItem = document.querySelector(`ul`)
+
+// listItem.addEventListener('mouseover', e => {
+//   if (e.target.tagName == 'LI') {
+//     e.target.textContent = e.target.textContent.toLocaleUpperCase()
+//   }
+// })
+// listItem.addEventListener('mouseout', e => {
+//   if (e.target.tagName == 'LI') {
+//     e.target.textContent = e.target.textContent.toLocaleLowerCase()
+//   }
+// })
+
+//* Now preserve the original case
+// Save the original text in a data attribute before changing it
+// const listItem = document.querySelector(`ul`)
+// listItem.addEventListener('mouseover', e => {
+//   if (e.target.tagName === 'LI') {
+//     if (!e.target.dataset.originalText) {
+//       e.target.dataset.originalText = e.target.textContent; // Store original text
+//     }
+//     e.target.textContent = e.target.textContent.toLocaleUpperCase();
+//   }
+// });
+
+// listItem.addEventListener('mouseout', e => {
+//   if (e.target.tagName === 'LI') {
+//     if (e.target.dataset.originalText) {
+//       e.target.textContent = e.target.dataset.originalText; // Restore original text
+//     }
+//   }
+// });
+
+//* Remove list item while clicked (Use parentNode)
+// listItem.addEventListener('click', e => {
+//   if (e.target.tagName === 'LI') {
+//     let li = e.target
+//     let ul = li.parentNode
+
+//     ul.removeChild(li)
+//   }
+// });
+
+//* Create a feature, Turn cursor into pointer white over list item
+// listItem.addEventListener('mouseover', e => { 
+//   let li = e.target
+//   li.style.cursor = 'pointer'
+// })
+
+//* Create a button with id `removeAllItemButton` that removes all item 
+// const resetButton = document.querySelector('.removeAllItemButton')
+
+// resetButton.addEventListener('click', e => {
+//     if (e.target.tagName === 'LI') {
+//     let li = e.target
+//     let ul = li.parentNode
+
+//     ul.removeChild(li)
+//   }
+// })
+
+//* Add a button on each `li` now rather than clickig on list item, click on the button to remove the `li`
+// const listItem = document.querySelector(`ul`)
+// listItem.addEventListener('click', e => {
+//   if (e.target.tagName === 'BUTTON') {
+//     let li = e.target.parentNode
+//     let ul = li.parentNode
+
+//     ul.removeChild(li)
+//   }
+// });
+
+//* Add another butto to `li` with a class `up` Also add a class to `remove` button. Make sure only pressing `remove` button removes the li
+// const listItem = document.querySelector(`ul`)
+// listItem.addEventListener('click', e => {
+//   if (e.target.tagName === 'BUTTON') {
+//     if (e.target.className == 'remove') {
+//       let li = e.target.parentNode
+//       let ul = li.parentNode
+      
+//       ul.removeChild(li)
+//     }
+//   }
+// });
+
+//* Add functionality, while pressing `up` button it puts the li 1 li up
+// const listItem = document.querySelector(`ul`)
+// listItem.addEventListener('click', e => {
+//   if (e.target.tagName === 'BUTTON') {
+//     if (e.target.className == 'remove') {
+//       let li = e.target.parentNode
+//       let ul = li.parentNode
+      
+//       ul.removeChild(li)
+//     }
+//     if (e.target.className == 'up') {
+//       let li = e.target.parentNode
+//       let previousLi = li.previousElementSibling
+//       let ul = li.parentNode
+
+//       ul.insertBefore(li, previousLi)
+//     }
+//   }
+// });
+
+//* Add functionality, while pressing `down` button it puts the li 1 li down
+// const listItem = document.querySelector(`ul`)
+// listItem.addEventListener('click', e => {
+//   if (e.target.tagName === 'BUTTON') {
+//     if (e.target.className == 'remove') {
+//       let li = e.target.parentNode
+//       let ul = li.parentNode
+      
+//       ul.removeChild(li)
+//     }
+//     if (e.target.className == 'up') {
+//       let li = e.target.parentNode
+//       let previousLi = li.previousElementSibling
+//       let ul = li.parentNode
+
+//       ul.insertBefore(li, previousLi)
+//     }
+//     if (e.target.className == 'down') {
+//       let li = e.target.parentNode
+//       let nextLi = li.nextElementSibling
+//       let ul = li.parentNode
+      
+//       ul.insertBefore(nextLi, li )
+//     }
+//   }
+// });
+
+//* While the `li` reaching the top or bottom it either it rotating from bottom or getting an error like `Uncaught TypeError: Failed to execute 'insertBefore' on 'Node': parameter 1 is not of type 'Node'.` Fix it!
+const listItem = document.querySelector(`ul`)
+listItem.addEventListener('click', e => {
+  if (e.target.tagName === 'BUTTON') {
+    if (e.target.className == 'remove') {
+      let li = e.target.parentNode
+      let ul = li.parentNode
+      
+      ul.removeChild(li)
+    }
+    if (e.target.className == 'up') {
+      let li = e.target.parentNode
+      let previousLi = li.previousElementSibling
+      let ul = li.parentNode
+
+      if (previousLi) {
+        ul.insertBefore(li, previousLi)
+      }
+    }
+    if (e.target.className == 'down') {
+      let li = e.target.parentNode
+      let nextLi = li.nextElementSibling
+      let ul = li.parentNode
+      
+      if (nextLi) {
+        ul.insertBefore(nextLi, li); 
+      }
+    }
+  }
+});
+
+
+
 // output = parent.firstChild;
 // output = parent.lastChild = `HeLlO`;
 // child.parentNode.style.backgroundColor = `#ccc`;
