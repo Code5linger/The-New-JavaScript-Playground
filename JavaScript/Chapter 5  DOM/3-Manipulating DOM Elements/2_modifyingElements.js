@@ -61,7 +61,24 @@ msg.setAttribute(`class`, `success`)
 //* Now just change the text color style from white to red
 msg.setAttribute(`style`, `color: red`) 
 
+//* Turn the h1 into orange with inline css. Declare a variable the selects it
+const title = document.querySelector(`h1`)
 
+//* Using the variable add background color to it.
+// console.log(title.setAttribute(`style`, `background: purple`))
+
+//* As you can see, one style overwrite's another. You can fix it with title.style. Add both style to title
+
+title.style.background = `purple`
+title.style.color = `white`
+title.style.padding = `1rem`
+
+//* Now chage the font size of title & center it
+title.style.fontSize = `3rem` 
+title.style.textAlign = `center`
+
+//* Ok enough fun, now remove the font size
+title.style.fontSize = ``
 
 
 //** - Inside the HTML create and/or the h1 tag with `myHeading` id. Declare a variable that selects it using html tag (ex: h1, p. No id or class)
