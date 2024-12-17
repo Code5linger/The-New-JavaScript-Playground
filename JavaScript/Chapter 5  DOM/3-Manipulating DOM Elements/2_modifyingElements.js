@@ -35,9 +35,33 @@ const content = document.querySelector(`.content`)
 
 const array = ['🅰️', '🅱️', '❌']
 
-array.forEach(item => [
-  content.innerHTML += `<p>${item} was added</p>`
-])
+// array.forEach(item => [
+//   content.innerHTML += `<p>${item} was added</p>`
+// ])
+
+//* Add a link to html & a variable that selects it. Using it print the link address. Use getAttribute
+const link = document.querySelector('a')
+
+// console.log(link.getAttribute('href'))
+
+//* Now change the link address using setAttribute
+link.setAttribute(`href`, `https://www.torrentbd.net/`)
+
+//* Change the link text 
+link.innerText = `TorrentBD`
+
+//* Declare a variable that selects the p with `error` class. Log its class using getAttribute
+const msg = document.querySelector(`p.error`)
+
+console.log(msg.getAttribute(`class`))
+
+//* Change the class from `error` to `success`
+msg.setAttribute(`class`, `success`)
+
+//* Now just change the text color style from white to red
+msg.setAttribute(`style`, `color: red`) 
+
+
 
 
 //** - Inside the HTML create and/or the h1 tag with `myHeading` id. Declare a variable that selects it using html tag (ex: h1, p. No id or class)
