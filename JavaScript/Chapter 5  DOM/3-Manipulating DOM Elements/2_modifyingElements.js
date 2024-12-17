@@ -2,9 +2,46 @@
 
 //TODO Get.Change Content
 
+//* Inside html create 2 div, 1 with class `content`. In 1st div add 3 `p` last with a `error` class. In last div add a another `p`
+
+//* Declare a variable the selects a `p` tag
+const para = document.querySelector(`.domTest p`)
+
+//* Use the variable to change the inner Text
+// para.innerText = `o_O`
+
+//* Wow, thats a bit invasive. How about keep the previous text and add new text to it 
+para.innerText += `😱`
+
+//* Declare a variable the selects all `p` tag
+const paraAll = document.querySelectorAll(`p`)
+
+//* Using a callback function log all inner text of `p` tag
+// paraAll.forEach(item=> {
+//   console.log(item.innerText)
+// })
+
+//* Now add something new to each `p`
+// paraAll.forEach(item=> {
+//   item.innerText += `🎉`
+// })
+
+//* Select the div with class `content` and change the `p` tag with `h1`
+const content = document.querySelector(`.content`)
+
+// content.innerHTML = `<h1><mark>Replaced</mark></h1>`
+
+//* Create an array with 3 items. Add each of them as independent `p` tag inside the content div
+
+const array = ['🅰️', '🅱️', '❌']
+
+array.forEach(item => [
+  content.innerHTML += `<p>${item} was added</p>`
+])
+
+
 //** - Inside the HTML create and/or the h1 tag with `myHeading` id. Declare a variable that selects it using html tag (ex: h1, p. No id or class)
 const myHeading = document.querySelector(`h1`)
-console.log(myHeading)
 
 //** - Log the text using text content
 console.log(myHeading.textContent)
@@ -180,3 +217,4 @@ toggleBtn.addEventListener('click', () => {
 
 // titleAlt.classList.toggle(`O_o`);
 // titleAlt.classList.toggle(`O_o`);
+
