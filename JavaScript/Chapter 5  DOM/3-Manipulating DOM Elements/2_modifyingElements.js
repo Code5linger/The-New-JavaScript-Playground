@@ -80,6 +80,57 @@ title.style.textAlign = `center`
 //* Ok enough fun, now remove the font size
 title.style.fontSize = ``
 
+//* Print all the classes of the variable 
+console.log(msg.classList)
+
+//* Now add a new class to the variable using add()
+msg.classList.add(`royal`)
+
+//* Remove previous classes from the variable using remove()
+msg.classList.remove(`success`)
+
+//TODO Challenge
+//* Create 10 p tags with demo text. Some must inclue `error` text some `success` some nither & some both. Those with `success` in them add `success` class and `error` with erro. For those with both add `royal`
+const challenge = document.querySelectorAll(`.challenge p `)
+
+
+// challenge.forEach(item => {
+//   console.log(item.textContent)
+//   if (item.textContent.includes(`success`)) {
+//     if (item.textContent.includes(`error`)) {
+//       item.classList.add(`royal`)
+//     } else {
+//       item.classList.add(`success`)
+//     }
+//   } else if (item.textContent.includes(`error`)) {
+//       item.classList.add(`error`)
+//   } 
+// })
+
+//* 🪝 Use span to hide some `succes` text from the p tags. Dose the code still wokrs? Recreate the challenge with `innerText` if not. See the difference 
+challenge.forEach(item => {
+  console.log(item.innerText)
+  if (item.innerText.includes(`success`)) {
+    if (item.innerText.includes(`error`)) {
+      item.classList.add(`royal`)
+    } else {
+      item.classList.add(`success`)
+    }
+  } else if (item.innerText.includes(`error`)) {
+      item.classList.add(`error`)
+  } 
+})
+
+//* Give a HTML tag a class using toggle 
+console.log(content)
+content.classList.toggle(`success`)
+
+//* Now take it back, again with toggle 
+content.classList.toggle(`success`)
+
+
+
+
 
 //** - Inside the HTML create and/or the h1 tag with `myHeading` id. Declare a variable that selects it using html tag (ex: h1, p. No id or class)
 const myHeading = document.querySelector(`h1`)

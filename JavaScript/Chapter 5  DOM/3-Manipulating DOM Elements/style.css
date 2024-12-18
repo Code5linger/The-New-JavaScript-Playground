@@ -42,3 +42,12 @@ a {
     font-size: 1.5rem;
     line-height: 1;
 }
+
+.royal {
+    background: gold;
+        color: black;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    line-height: 1;
+}
