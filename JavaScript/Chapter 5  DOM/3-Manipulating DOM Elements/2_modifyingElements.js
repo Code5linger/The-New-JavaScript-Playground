@@ -177,6 +177,33 @@ pixTwo.alt = `Image 2 Alt Text`
 
 console.log(pixOne.alt, pixTwo.alt)
 
+//* Now log alt text to both image using getAttribute
+
+console.log(pixOne.getAttribute(`alt`), pixTwo.getAttribute(`alt`))
+
+//* Now the alt text of both image using setAttribute
+console.log(pixOne.setAttribute(`alt`, `🖼️`), pixTwo.setAttribute(`alt`, `🖼️`))
+
+//* Now Create a custom attribute with value using setAttribute
+
+pixOne.setAttribute(`customAttr`, `💥`)
+pixTwo.setAttribute(`customAttr`, `💣`)
+
+//* Create custom attribute using `dataset` way
+//* Add `data-xxx` to the img in HTML with value
+
+console.log(pixOne.dataset, pixTwo.dataset)
+
+//* Create another custom attribute using `dataset` way, than log it
+
+console.log(pixOne.dataset, pixTwo.dataset)
+
+//* Add an event listener to the image that useses the dataset
+
+pixOne.addEventListener(`click`, () => {
+  console.log(`${pixOne.dataset.name} | ${pixOne.dataset.text}`)
+})
+
 //* Log the natural with of the image
 
 console.log(pixOne.naturalWidth)
@@ -184,6 +211,9 @@ console.log(pixOne.naturalWidth)
 //* Add an event listener to the image that wait till the webpage load than print the natural width
 
 window.addEventListener('load', () => console.log(pixTwo.naturalWidth))
+
+
+
 
 //** - Inside the HTML create and/or the h1 tag with `myHeading` id. Declare a variable that selects it using html tag (ex: h1, p. No id or class)
 const myHeading = document.querySelector(`h1`)
