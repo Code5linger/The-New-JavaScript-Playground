@@ -128,9 +128,62 @@ content.classList.toggle(`success`)
 //* Now take it back, again with toggle 
 content.classList.toggle(`success`)
 
+//* Add 2 image to the HTML and give them classes. Declare variables the select those images 
+const pixOne = document.querySelector(`.imageOne`)
+const pixTwo = document.querySelector(`.imageTwo`)
 
+//* Using those variables, give each of them css classes (ex: Error, Success)
 
+pixOne.classList.add(`success`)
+pixTwo.classList.add(`error`)
 
+//* Now Remove the error class and add royal class
+pixTwo.classList.remove(`error`)
+pixTwo.classList.add(`royal`)
+
+//* Add an event listener to the 2nd image that while clickd it rounded the background. & return to original on another click
+
+// pixTwo.addEventListener("click", () => {
+//   pixTwo.classList.toggle(`rounded`)
+// })
+
+//* Thats too clanky. Add animation
+
+//* Rotale the 1st image 1 turn while cliked. & return to original on another click
+
+// pixOne.addEventListener(`click`, () => {
+//   pixOne.classList.toggle(`rounded`)
+//   pixOne.classList.toggle(`rotate`)
+// })
+
+//* Log the class list of each image on click
+pixOne.addEventListener(`click`, () => {
+  pixOne.classList.toggle(`rounded`)
+  pixOne.classList.toggle(`rotate`)
+  console.log(pixOne.classList)
+})
+
+pixTwo.addEventListener("click", () => {
+  pixTwo.classList.toggle(`rounded`)
+  pixTwo.classList.toggle(`royal`)
+  pixTwo.classList.add(`error`)
+
+  console.log(pixTwo.classList)
+})
+
+//* Change/Add alt text to both image, than log them
+pixOne.alt = `Image 1 Alt Text`
+pixTwo.alt = `Image 2 Alt Text`
+
+console.log(pixOne.alt, pixTwo.alt)
+
+//* Log the natural with of the image
+
+console.log(pixOne.naturalWidth)
+
+//* Add an event listener to the image that wait till the webpage load than print the natural width
+
+window.addEventListener('load', () => console.log(pixTwo.naturalWidth))
 
 //** - Inside the HTML create and/or the h1 tag with `myHeading` id. Declare a variable that selects it using html tag (ex: h1, p. No id or class)
 const myHeading = document.querySelector(`h1`)
@@ -140,6 +193,29 @@ console.log(myHeading.textContent)
 
 //** - Now change the text using text content 
 myHeading.textContent = `This is a new heading 🗞️`
+
+//* Now change the text using innerText
+
+myHeading.innerText = `This is even newer heading 📰`
+
+//* textContent & innerText both replace the text. What is the difference. 
+myHeading.innerHTML = `This is <span style="display: none;">even newer </span>heading 📰`
+console.log(myHeading.innerText)
+console.log(myHeading.textContent)
+
+//* Add an an h2 in HTML and a variable that selects it. Using it add an emoji to it 
+const domTest = document.querySelector(`.domTest h2`)
+
+console.log(domTest.textContent += `🍕`)
+
+//* Using `insertAdjacentText` method add another emoji next to it. || After check the HTML code in the browser to see where it is
+domTest.insertAdjacentText('beforeend', '🍕')
+
+//* Using `insertAdjacentText` method add another emoji before the text. || After check the HTML code in the browser to see where it is
+domTest.insertAdjacentText('afterbegin', '🍕 ')
+
+
+
 
 //TODO Creating Elements - querySelector
 
