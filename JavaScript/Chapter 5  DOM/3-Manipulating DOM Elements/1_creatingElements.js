@@ -72,12 +72,84 @@ listItem2.insertAdjacentElement(`beforebegin`, listItem1)
 //* Add the ul to DOM
 document.body.appendChild(ulItem)
 
+//* Select a text content from the HTML
+const xssTest = document.querySelector(`.content`)
+
+//* Replace the innerHTML using template literal with a div with a class. Inside the div add an h1 with text & an image 
+xssTest.innerHTML =
+  `<div class='error'>
+    <img class="imageOne" src="./Bokehlicia-Captiva-Checkbox.ico" alt="">
+    <h1>This is H1</h1>
+  </div>`
+
+//* Now declare variable for img src & alt text. Using those replace the img link
+// const src = `./unnamed.png`
+// const des = `unnamed`
+
+// xssTest.innerHTML =
+//   `<div class='error'>
+//     <img class="imageOne" src=${src} alt=${des}>
+//     <h1>This is H1</h1>
+//   </div>`
 
 
+//* We have been working with an image so far. Now just change the image class
+const xssImg = document.querySelector(`.error img`) 
+xssImg.classList.remove('imageOne')
+xssImg.classList.remove('success')
+xssImg.classList.add('imageTwo')
 
+//* Create Contextual Fragment of the variable 
+const myFragment = document.createRange().createContextualFragment(xssTest)
 
+//* Using Contextual Fragment log the img
+console.log(myFragment.querySelector('img'))
 
+//* Insert the Contextual Fragment into the DOM
+document.body.appendChild(myFragment)
 
+//* xss Security || Previously we declare variable for img src & alt text. Using those replace the img link. Inside one of those variable insert a html tag & a js code 
+const src = `./unnamed.png ${console.log(`👾👾👾`)}}`
+const des = `unnamed <h1><br><span style="text-align: center; display: block">👾👾👾</span></h1`
+
+xssTest.innerHTML =
+  `<div class='error'>
+    <img class="imageOne" src=${src} alt=${des}>
+    <h1>This is H1</h1>
+  </div>`
+
+//* Inside the HTML, create a p tag with class `yourName` with some texts in em tag. Declare a vriable that selects it
+const sourov = document.querySelector('.sourov')
+console.log(sourov)
+//* Using the variable print all its children
+console.log(sourov.children)
+
+//*
+console.log(sourov.firstElementChild)
+
+//*
+console.log(sourov.lastElementChild)
+
+//*
+console.log(sourov.previousElementSibling)
+
+//*
+console.log(sourov.nextElementSibling)
+
+//*
+console.log(sourov.parentElement)
+
+//* Using the variable print all its child node
+console.log(sourov.childNodes)
+
+//* Create a p tag. Inser some text in it. add it to html. remove it using remove(). Than log it 
+const pToBeRemoved = document.createElement('p')
+pToBeRemoved.textContent = `I will be removed 🗑️`
+document.body.appendChild(pToBeRemoved)
+
+pToBeRemoved.remove()
+
+console.log(pToBeRemoved)
 
 //* Under the ul, Create a form input with `addItemInput` with it a button with `addItemButton`. Create variables for each of them 
 const addItemInput = document.querySelector(`input.addItemInput`)
