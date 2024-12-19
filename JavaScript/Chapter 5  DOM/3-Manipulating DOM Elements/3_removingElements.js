@@ -221,16 +221,16 @@ function attachListItemButton(li) {
 
 
 //* Now add the function to the Add Item Button
-addItemButton.addEventListener('click', () => {
-  const ul = document.getElementsByTagName(`ul`)[0]
-  let li = document.createElement(`li`)
+// addItemButton.addEventListener('click', () => {
+//   const ul = document.getElementsByTagName(`ul`)[0]
+//   let li = document.createElement(`li`)
 
-  li.textContent = addItemInput.value  
-  attachListItemButton(li)
-  ul.appendChild(li)
+//   li.textContent = addItemInput.value  
+//   attachListItemButton(li)
+//   ul.appendChild(li)
 
-  addItemInput.value = ``
-})
+//   addItemInput.value = ``
+// })
 
 //* Make sure every `li` has all the buttons
 const lis = document.querySelector('ul').children

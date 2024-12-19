@@ -1,12 +1,91 @@
 //! Creating Elements
 
+//* Create a paragraph element with createElement method
+const myParagraph = document.createElement(`p`)
+
+//* Add text content and class to it
+myParagraph.textContent = `JS created dis`
+myParagraph.classList.add(`royal`)
+
+//* Create an image element with createElement method
+const myImage = document.createElement(`img`)
+
+//* Add image src, class & alt to the image
+myImage.src = `./Bokehlicia-Captiva-Checkbox.ico`
+myImage.alt = `JS added This`
+myImage.classList.add(`rounded`)
+
+//* Create a div element with createElement method
+const myDiv = document.createElement(`div`)
+
+//* Add a class to the div
+myDiv.classList.add(`success`)
+
+
+//* Add the paragraph & the image to the div
+myDiv.appendChild(myImage)
+myDiv.appendChild(myParagraph)
+myDiv.style.textAlign = `center`
+
+document.body.appendChild(myDiv)
+
+//* Create a h2 element with createElement method
+const myHeader = document.createElement(`h2`)
+myHeader.textContent =`JS created this Heading😳`
+
+
+//* Add the herer to the div
+
+// myDiv.appendChild(myHeader)
+
+//* As you can see the header was added at the bottom. It should be at top. Fix it with 
+myDiv.insertAdjacentElement('afterbegin', myHeader)
+
+//TODO: Challenge - Create an ul. Add an li with value 3️⃣. Now fill it till 5️⃣ using insertAdjacentElement. (Insted of createElement use cloneNode)
+
+const ulItem = document.createElement(`ul`)
+
+const listItem3 = document.createElement(`li`)
+listItem3.textContent = `3️⃣`
+ulItem.appendChild(listItem3)
+
+// const listItem2 = document.createElement(`li`)
+const listItem2 = listItem3.cloneNode()
+listItem2.textContent = `2️⃣`
+ulItem.insertAdjacentElement(`afterbegin`, listItem2)
+
+// const listItem4 = document.createElement(`li`)
+const listItem4 = listItem2.cloneNode()
+listItem4.textContent = `4️⃣`
+ulItem.insertAdjacentElement(`beforeend`, listItem4)
+
+// const listItem5 = document.createElement(`li`)
+const listItem5 = listItem4.cloneNode()
+listItem5.textContent = `5️⃣`
+ulItem.insertAdjacentElement(`beforeend`, listItem5)
+
+// const listItem1 = document.createElement(`li`)
+const listItem1 = listItem5.cloneNode()
+listItem1.textContent = `1️⃣`
+listItem2.insertAdjacentElement(`beforebegin`, listItem1)
+
+//* Add the ul to DOM
+document.body.appendChild(ulItem)
+
+
+
+
+
+
+
+
 //* Under the ul, Create a form input with `addItemInput` with it a button with `addItemButton`. Create variables for each of them 
 const addItemInput = document.querySelector(`input.addItemInput`)
 const addItemButton = document.querySelector(`button.addItemButton`)
 
 
 
-//* Add an event listener to the `addItemButton` that while clicked, log the values inside `addItemInput` as a `li` tag 
+//* Add an event listener to the `addItemButton` that while clicked, log the values inside `addItemInput` as a `li` tag
 // addItemButton.addEventListener('click', () => {
 //   let li = document.createElement(`li`)
 
@@ -14,10 +93,10 @@ const addItemButton = document.querySelector(`button.addItemButton`)
 //   console.log(li)
 // })
 
-//* Now create a `ul` variable that selects the ul using `getElementsByTagName` inside the event listener function. Append the `li` tag inside it 
+//* Now create a `ul` variable that selects the ul using `getElementsByTagName` inside the event listener function. Append the `li` tag inside it
 // addItemButton.addEventListener('click', () => {
-//   const ul = document.getElementsByTagName(`ul`)[0] 
-//! (`ul`) returns a collection of ul. But we only need the 1st one. So (`ul`)[0] 
+//   const ul = document.getElementsByTagName(`ul`)[0]
+//! (`ul`) returns a collection of ul. But we only need the 1st one. So (`ul`)[0]
 //   let li = document.createElement(`li`)
 
 //   console.log(ul)
@@ -25,7 +104,7 @@ const addItemButton = document.querySelector(`button.addItemButton`)
 //   ul.appendChild(li)
 // })
 
-//* Now create a `ul` variable that selects the ul using `querySelector` inside the event listener function. Append the `li` tag inside it 
+//* Now create a `ul` variable that selects the ul using `querySelector` inside the event listener function. Append the `li` tag inside it
 // addItemButton.addEventListener('click', () => {
 //   const ul = document.querySelector(`ul`)
 //   let li = document.createElement(`li`)
@@ -33,7 +112,7 @@ const addItemButton = document.querySelector(`button.addItemButton`)
 //   console.log(ul)
 // })
 
-//* Now append the `li` tag inside the ul 
+//* Now append the `li` tag inside the ul
 // addItemButton.addEventListener('click', () => {
 //   const ul = document.getElementsByTagName(`ul`)[0]
 //   let li = document.createElement(`li`)
@@ -42,7 +121,7 @@ const addItemButton = document.querySelector(`button.addItemButton`)
 //   ul.appendChild(li)
 // })
 
-//* Reset the input box. 
+//* Reset the input box.
 // addItemButton.addEventListener('click', () => {
 //   const ul = document.getElementsByTagName(`ul`)[0]
 //   let li = document.createElement(`li`)
