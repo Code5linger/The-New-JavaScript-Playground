@@ -310,6 +310,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+//* 
+
+
+
+
+
+
+
+
 // output = parent.firstChild;
 // output = parent.lastChild = `HeLlO`;
 // child.parentNode.style.backgroundColor = `#ccc`;

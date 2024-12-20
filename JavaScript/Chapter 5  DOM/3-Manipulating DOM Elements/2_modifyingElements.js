@@ -416,3 +416,85 @@ toggleBtn.addEventListener('click', () => {
 // titleAlt.classList.toggle(`O_o`);
 // titleAlt.classList.toggle(`O_o`);
 
+//* In HTML create an `ul` with 4 `li`. Declare a variable that selcts it as nodelist (use querySelectorAll)
+const bratsList = document.querySelectorAll(`.bradsCode li`)
+console.log(bratsList)
+
+//* Print each of its text content 
+bratsList.forEach(item => {
+  console.log(item.textContent)
+})
+
+//* Just log the inner text of the 2nd li
+console.log(bratsList[1].innerText)
+
+//* Change the text color of the 3rd li
+// bratsList[2].style.color = `red`
+
+//* Now change all the `li` text color using forEach
+// bratsList.forEach(item => {
+//   item.style.color = `yellow`
+//   item.style.fontSize = `2rem`
+//   item.style.textAlign = `center`
+// })
+
+//* Inside the forEach method, print each items index number
+// bratsList.forEach((item, index) => {
+//   item.style.color = `yellow`
+//   item.style.fontSize = `2rem`
+//   item.style.textAlign = `center`
+
+//   console.log(index)
+// })
+
+//* Using the Index Remove the 1st `li` insite the forEach
+// bratsList.forEach((item, index) => {
+//   item.style.color = `yellow`
+//   item.style.fontSize = `2rem`
+//   item.style.textAlign = `center`
+
+//   if (index === 0) {
+//     item.remove()
+//   }
+// })
+
+//* Using the Index add an class to the lst `li` insite the forEach
+bratsList.forEach((item, index) => {
+  item.style.color = `yellow`
+  item.style.fontSize = `2rem`
+  item.style.textAlign = `center`
+
+  if (index === 0) {
+    item.remove()
+  } else if (index === 3) {
+    item.classList.add(`error`)
+  }
+}) 
+
+//* In HTML create an `ul` with 4 `li`. Declare a variable that selcts it as HTMLCollection (use getElementsByClassName)
+const bradsListAlt = document.getElementsByClassName(`bradsClass`)
+
+console.log(bradsListAlt)
+
+//* Print each of its text content
+// bradsListAlt.forEach(item => {
+//   console.log(item.textContent)
+// })
+
+//* You might gon en error as we ware working with HTMLCollection. Convert it to an array so we can use for each
+const bradsListAltArray = Array.from(bradsListAlt)
+
+bradsListAltArray.forEach(item => {
+  console.log(item.textContent)
+})
+
+//* In HTML create an `ul` with 4 `li`. Declare a variable that selcts it as HTMLCollection (use getElementsByClassName)
+const bradsListAltX2 = document.getElementsByTagName(`li`)
+
+//* Print each of its text content. Convert it to an array so we can use for each
+
+const bradsListAltX2Array = Array.from(bradsListAltX2) 
+
+bradsListAltX2Array.forEach(item => {
+  item.textContent
+})
