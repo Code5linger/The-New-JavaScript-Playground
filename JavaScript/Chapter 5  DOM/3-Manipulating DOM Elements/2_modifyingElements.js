@@ -244,8 +244,51 @@ domTest.insertAdjacentText('beforeend', '🍕')
 //* Using `insertAdjacentText` method add another emoji before the text. || After check the HTML code in the browser to see where it is
 domTest.insertAdjacentText('afterbegin', '🍕 ')
 
+//* Create a function that creates a h1 with text and inset before begins 
+//! insertAdjacentElement - beforebegin
+function insertElement() {
+  const insertLocation = document.querySelector(`.domTest`)
 
+  const h1 = document.createElement(`h1`)
+  h1.textContent = `insertAdjacentElement`
+  h1.style.color = `crimson`
 
+  insertLocation.insertAdjacentElement(`beforebegin`, h1)
+}
+
+insertElement()
+
+//* insertAdjacentText - afterbegin
+function insertText() {
+  const item = document.querySelector(`.domTest`) 
+
+  item.insertAdjacentText(`afterbegin`, `insertAdjacentText`)
+}
+
+insertText()
+
+//* insertAdjacentHTML(`beforebegin`,
+function insertHTML() {
+  const clearBTN = document.querySelector(``)
+
+  clearBTN.insertAdjacentHTML(`beforebegin`, `<h2>insertAdjacentHTML</h2>`)
+}
+
+insertHTML()
+
+//* 
+function insertBeforeItem() {
+  const ul = document.querySelector(``)
+
+  const li = document.createElement(`li`)
+  li.textContent = `insertBefore`
+
+  const thirdItem = document.querySelector(`li:nth-child(3)`)
+
+  ul.insertBefore(li, thirdItem)
+}
+
+insertBeforeItem()
 
 //TODO Creating Elements - querySelector
 

@@ -339,4 +339,55 @@ newDiv.appendChild(newText)
 //* Rather than adding it to HTML add it to an ul
 document.querySelector('.bradsCode').appendChild(newDiv)
 
-console.log(newDiv)
+//* Create a function that adds an item to an ul list
+function createListItem(item) {
+  const li = document.createElement(`li`)
+
+  li.innerHTML = `${item}<button>❌</button>`
+
+  document.querySelector('.bradsCode').appendChild(li)
+}
+
+createListItem(`🥚`)
+
+//* Create a function that adds an item to an ul list, but follow separation of concern. ex: declare variables for li, button and icon. 
+function createGreatListItems(item) {
+  const li = document.createElement(`li`)
+  li.appendChild(document.createTextNode(item))
+
+  // const button = document.createElement(`button`)
+  // button.className = `error`
+  const button = createButton(`error`)
+
+  // const icon = document.createElement(`i`)
+  // icon.className = `fa-solid fa-xmark`
+
+  // button.appendChild(icon)
+  li.appendChild(button)
+
+  document.querySelector('.bradsCode').appendChild(li)
+}
+
+
+
+//* Now Refactor the previous function into additional 2. One for creating Button another for icon
+function createButton(classes) { 
+  const button = document.createElement(`button`)
+  button.className = classes
+
+  const icon = createIcon(`fa-solid fa-xmark`)
+  button.appendChild(icon)
+  
+  return button
+}
+
+function createIcon(classes) {
+  const icon = document.createElement(`i`)
+  icon.className = `fa-solid fa-xmark`
+  return icon
+}
+
+createGreatListItems(`🍈`)
+createGreatListItems(`🥩`)
+
+//* 
