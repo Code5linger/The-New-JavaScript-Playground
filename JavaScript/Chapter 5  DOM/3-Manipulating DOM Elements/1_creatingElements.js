@@ -314,3 +314,29 @@ const addItemButton = document.querySelector(`button.addItemButton`)
 //TODO: Inserting elements using `appendChild()`, `insertBefore()`, and `replaceChild()`
 
 */
+
+
+//* Create a div element using createElement 
+const newDiv = document.createElement(`div`)
+
+//* Add a class & id to the newly created div
+newDiv.className = `my-element`
+newDiv.id = `my-element`
+
+//* Now add tile to the div using setAttribute 
+newDiv.setAttribute(`title`, `My Element`)
+
+//* Add innerText 
+newDiv.innerText = `o_O `
+
+//* Now create a text node than append it to the div
+const newText = document.createTextNode(`Text Node`)
+newDiv.appendChild(newText)
+
+//* Now add the div at the end of the page
+// document.body.appendChild(newDiv)
+
+//* Rather than adding it to HTML add it to an ul
+document.querySelector('.bradsCode').appendChild(newDiv)
+
+console.log(newDiv)
