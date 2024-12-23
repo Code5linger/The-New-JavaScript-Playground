@@ -274,7 +274,7 @@ function insertHTML() {
   clearBTN.insertAdjacentHTML(`beforebegin`, `<h2>insertAdjacentHTML</h2>`)
 }
 
-insertHTML()
+// insertHTML()
 
 //* 
 function insertBeforeItem() {
@@ -288,7 +288,21 @@ function insertBeforeItem() {
   ul.insertBefore(li, thirdItem)
 }
 
-insertBeforeItem()
+// insertBeforeItem()
+
+//* Previouly we used `insertBefore` But there is no insertAfter. We have to do it manually. 
+function insertAfter(newElement, existingElement) {
+  existingElement.parentElement.insertBefore(newElement, existingElement.nextSibling)
+}
+// New element to insert
+const li = document.createElement(`li`)
+li.textContent = `Insert Me After`
+
+// Existing element to insert after
+const firstItem = document.querySelector(`li:first-child`)
+
+// Our Custom function
+insertAfter(li, firstItem)
 
 //TODO Creating Elements - querySelector
 
@@ -541,3 +555,72 @@ const bradsListAltX2Array = Array.from(bradsListAltX2)
 bradsListAltX2Array.forEach(item => {
   item.textContent
 })
+
+//TODO Replace Element
+
+//* Create a function that repalce the 1st item of the list item
+function replaceFirstItem() {
+  const firstItem = document.querySelector('li:first-child')
+
+  const li = document.createElement('li')
+  li.textContent = `Replaced First!`
+
+  firstItem.replaceWith(li)
+}
+
+replaceFirstItem()
+
+//* Create a function that replace the 2nd item of the list item
+function replaceSecondItem() {
+  const secondItem = document.querySelector('li:nth-child(2)')
+
+  secondItem.outerHTML = `<li>Replaced Second</li>`
+}
+
+replaceSecondItem()
+
+//* Create a function that replace all the item of the list item
+// function replaceAllItem() {
+//   const lis = document.querySelectorAll(`li`)
+
+//   lis.forEach((item, index) => {
+//     item.outerHTML = `<li>Replace All</li>`
+//   })
+// }
+
+// replaceAllItem()
+
+//* From the previous function, Create a function that replace only the 3rd item of the list item
+// function replaceAllItem() {
+//   const lis = document.querySelectorAll(`li`)
+
+//   lis.forEach((item, index) => {
+//     if (index === 2) {
+//       item.outerHTML = `<li>3rd Item</li>`
+//     } else {
+//       item.outerHTML = `<li>Replace All</li>`
+//     }
+//   })
+// }
+
+// replaceAllItem()
+
+//* From the previous function, Shortens the if else to 1 line
+// function replaceAllItem() {
+//   const lis = document.querySelectorAll(`li`)
+
+//   lis.forEach((item, index) => item.outerHTML = index === 2 ? `<li>3rd Item</li>`:  `<li>Item</li>` )
+// }
+
+// replaceAllItem()
+
+//* Create a function, replace the header h1 text with a h2 using the parent element by replace child
+function replacedChldHeading() {
+  const header = document.querySelector(`header`)
+  const h1 = document.querySelector(`header h1`)
+
+  const h2 = document.createElement(`h2`)
+  h2.id = `app-title`
+  h2.textContent = `Shopping List`
+  header.replaceChild(h2, h1)
+}
