@@ -2,7 +2,7 @@
 
 //TODO Get.Change Content
 
-//* Inside html create 2 div, 1 with class `content`. In 1st div add 3 `p` last with a `error` class. In last div add a another `p`
+//* 
 
 //* Declare a variable the selects a `p` tag
 const para = document.querySelector(`.domTest p`)
@@ -624,3 +624,9 @@ function replacedChldHeading() {
   h2.textContent = `Shopping List`
   header.replaceChild(h2, h1)
 }
+
+
+//* Style
+
+
+

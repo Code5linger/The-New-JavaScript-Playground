@@ -310,13 +310,54 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+//* Remove the `Clear` button
+
+function removeClearButton() {
+  document.querySelector(`#clear`).remove()
+}
+
+removeClearButton()
+
+//* Remove the 1st child
+
+function removeFirstItem() {
+  const ul = document.querySelector('ul')
+  const li = document.querySelector(`li:first-child`)
+
+  ul.removeChild(li)
+}
+
+removeFirstItem()
+
+//* Create a function that removes an item based on input [Use template Lit]
+function removeItem(itemNumber) {
+  const ul = document.querySelector(`ul`)
+  const li = document.querySelector(`li:nth-child(${itemNumber})`)
+
+  ul.removeChild(li)
+}
+
+removeItem(1)
+
+//* Create a function that removes an item based on input [Use nodelist]
+function removeItem(itemNumber) {
+  const ul = document.querySelector(`ul`)
+  const li = document.querySelectorAll(`li`)[itemNumber - 1]
+
+  ul.removeChild(li)
+}
+
+removeItem(1)
+
 //* 
+function removeItem() {
+  const li = document.querySelectorAll(`li`)
+  li[itemNumber - 1].remove()
+}
 
 
-
-
-
-
+//* Create an Arrow function that removes an item based on input
+const removeItem = itemNumber => document.querySelectorAll(`li`)[itemNumber - 1].remove()
 
 
 // output = parent.firstChild;
