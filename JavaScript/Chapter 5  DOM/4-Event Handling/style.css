@@ -7,3 +7,9 @@
     background: whitesmoke;
     color: black;
 }
+
+.box {
+    max-width: 10rem;
+    padding: 2rem;
+    background: crimson;
+}
