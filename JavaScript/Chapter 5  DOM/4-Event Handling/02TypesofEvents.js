@@ -211,3 +211,11 @@ const ondrag = (e) => {
   document.querySelector(`#link`).textContent = `X ${e.clientX} Y ${e.clientY}`
 }
 img.addEventListener('drag', ondrag)
+
+//* Create 10 buttons in HTML. Clicking each buttons log `👆`. 
+const buyButtons = document.querySelectorAll('.buttons .buyButton')
+console.log(buyButtons)
+
+buyButtons.forEach(item => {
+  item.addEventListener('click', () => console.log( `${item.textContent } 👆`))
+})
