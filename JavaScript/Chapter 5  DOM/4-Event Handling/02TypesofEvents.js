@@ -219,3 +219,30 @@ console.log(buyButtons)
 buyButtons.forEach(item => {
   item.addEventListener('click', () => console.log( `${item.textContent } 👆`))
 })
+
+//* Create 10 cards. Ech card with h2 a button & an Image. where the image is coming from an api
+
+//* Create a popup
+
+//TODO 
+const cardButtons = document.querySelectorAll('.card button')
+const modalInner = document.querySelector('.modal-inner')
+
+const handleCardButtonClick = (e) => {
+  const button = e.currentTarget
+  const card = button.closest('.card')
+
+  const imgSrc = card.querySelector('img').src 
+  const desc = card.dataset.description
+  const name = card.querySelector('h2').textContent
+
+  modalInner.innerHTML = `
+    <img src="${imgSrc.replace('200', '600')}" alt=${name}/>
+     
+  `
+}
+
+cardButtons.forEach(item => item.addEventListener('click', handleCardButtonClick))
+
+//TODO
+
