@@ -1,0 +1,23 @@
+[
+  {
+    "unit_id": 1,
+    "name": "Mathematics",
+    "code": "MATH101",
+    "credits": 3,
+    "description": "Introduction to basic mathematical concepts."
+  },
+  {
+    "unit_id": 2,
+    "name": "Physics",
+    "code": "PHYS101",
+    "credits": 4,
+    "description": "Fundamentals of classical mechanics and thermodynamics."
+  },
+  {
+    "unit_id": 3,
+    "name": "Computer Science",
+    "code": "CS101",
+    "credits": 3,
+    "description": "Basic principles of computer science and programming."
+  }
+]
