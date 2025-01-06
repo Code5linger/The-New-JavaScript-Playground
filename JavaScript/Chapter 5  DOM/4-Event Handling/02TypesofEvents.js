@@ -268,3 +268,10 @@ window.addEventListener('keydown', e => {
   }
 })
 
+//* In HTML add a div with large text content that could represnt `terms-and-conditions`. Add a disabled button in the end
+
+//* Enable the button when the end of the text is reached
+
+//* Now disable the button if the user scroll up
+
+//* Keeping the button stats change take up resources. Make it permanetly enable when the end of the text is reached at the best way possible  

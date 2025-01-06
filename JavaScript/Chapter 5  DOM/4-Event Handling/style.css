@@ -1,6 +1,7 @@
 *, *::before, *::after {
     box-sizing: border-box;
 }
+
 .darkTheme {
     background: black;
     color: whitesmoke;
@@ -15,10 +16,6 @@
     max-width: 10rem;
     padding: 2rem;
     background: crimson;
-}
-
-p {
-    color: blue;
 }
 
 #popup {
@@ -100,10 +97,7 @@ p {
 }
 
 /*  */
-/* 
-    modal-outer
-    modal-inner
-*/
+
 
 .modal-outer {
     display: grid;
@@ -148,3 +142,5 @@ p {
 .modal-outer.open .modal-inner {
     transform: translateY(0);
 }
+
+/*  */
