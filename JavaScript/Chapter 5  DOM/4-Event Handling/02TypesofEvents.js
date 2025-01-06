@@ -290,3 +290,7 @@ items.forEach(item => {
     e.target.remove()
   })
 })
+
+
+//* Create a tab
+
