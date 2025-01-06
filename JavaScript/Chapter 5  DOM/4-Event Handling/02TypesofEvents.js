@@ -214,7 +214,6 @@ img.addEventListener('drag', ondrag)
 
 //* Create 10 buttons in HTML. Clicking each buttons log `👆`. 
 const buyButtons = document.querySelectorAll('.buttons .buyButton')
-console.log(buyButtons)
 
 buyButtons.forEach(item => {
   item.addEventListener('click', () => console.log( `${item.textContent } 👆`))
@@ -222,11 +221,11 @@ buyButtons.forEach(item => {
 
 //* Create 10 cards. Ech card with h2 a button & an Image. where the image is coming from an api
 
-//* Create a popup
+//* Create a popup with a Image & its description. The Image should come from an API. The dscription is from the parent card. Clicking the Button of any card will open a popup.
 
-//TODO 
 const cardButtons = document.querySelectorAll('.card button')
 const modalInner = document.querySelector('.modal-inner')
+const modalOuter = document.querySelector('.modal-outer')
 
 const handleCardButtonClick = (e) => {
   const button = e.currentTarget
@@ -234,15 +233,38 @@ const handleCardButtonClick = (e) => {
 
   const imgSrc = card.querySelector('img').src 
   const desc = card.dataset.description
+
   const name = card.querySelector('h2').textContent
 
   modalInner.innerHTML = `
-    <img src="${imgSrc.replace('200', '600')}" alt=${name}/>
+    <img width="600" height="600" src="${imgSrc.replace('200', '600')}" alt=${name}/>
+    <p>${desc}</p>
      
-  `
+  `;
+  modalOuter.classList.add('open')
 }
 
 cardButtons.forEach(item => item.addEventListener('click', handleCardButtonClick))
 
-//TODO
+//* Clicking anywhere outside the popup will close the popup
+
+const closeModal = () => {
+  modalOuter.classList.remove('open')
+}
+
+modalOuter.addEventListener('click', (e) => {
+  const isOutsite = e.target.closest('.modal-inner')
+
+  if (!isOutsite) {
+    closeModal()
+  }
+})
+
+//* Pressing the `Escape` key will close the popup
+
+window.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeModal()
+  }
+})
 
