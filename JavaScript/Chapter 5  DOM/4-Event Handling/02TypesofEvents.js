@@ -274,4 +274,19 @@ window.addEventListener('keydown', e => {
 
 //* Now disable the button if the user scroll up
 
-//* Keeping the button stats change take up resources. Make it permanetly enable when the end of the text is reached at the best way possible  
+//* Keeping the button stats change take up resources. Make it permanetly enable when the end of the text is reached at the best way possible
+
+//* Create a ul with 4 li. Add a h1 at top & a button at bottom. On click, clicked item would get a strikethrough. 
+
+const buttonTodo = document.querySelector(`.btn-todo`)
+const items = document.querySelectorAll(`li`)
+const item = document.querySelector(`li`)
+
+items.forEach(item => {
+  item.addEventListener(`click`, (e) => {
+
+    // console.log(e.target)
+    // e.target.style.textDecoration = `line-through`
+    e.target.remove()
+  })
+})
