@@ -294,3 +294,32 @@ items.forEach(item => {
 
 //* Create a tab
 
+//! Form Events
+
+//* Create a form input box with a button that submits it
+
+//* When we submit a form it refreshes the page. Prevent it 
+const form = document.querySelector('.signup-form')
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+})
+
+//* Log the inputs || Get the inputs by creating an input variable 
+const username = document.querySelector('#username')
+
+// form.addEventListener('submit', e => {
+//   e.preventDefault()
+//   console.log(username.value)
+// })
+
+//* Log the inputs || Get the inputs without creating an input variable 
+// form.addEventListener('submit', e => {
+//   console.log(form.username.value)
+// })
+
+//* Change the id (id="username") attribute to name (name="username"). Get the inputs without creating an input variable 
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  console.log(form.username.value)
+})
