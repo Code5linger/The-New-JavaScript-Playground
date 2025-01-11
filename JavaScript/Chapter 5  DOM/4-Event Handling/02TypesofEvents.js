@@ -301,9 +301,9 @@ items.forEach(item => {
 //* When we submit a form it refreshes the page. Prevent it 
 const form = document.querySelector('.signup-form')
 
-form.addEventListener('submit', e => {
-  e.preventDefault()
-})
+// form.addEventListener('submit', e => {
+//   e.preventDefault()
+// })
 
 //* Log the inputs || Get the inputs by creating an input variable 
 const username = document.querySelector('#username')
@@ -313,13 +313,84 @@ const username = document.querySelector('#username')
 //   console.log(username.value)
 // })
 
-//* Log the inputs || Get the inputs without creating an input variable 
+//* Log the inputs || Get the inputs without creating an input variable
 // form.addEventListener('submit', e => {
 //   console.log(form.username.value)
 // })
 
-//* Change the id (id="username") attribute to name (name="username"). Get the inputs without creating an input variable 
+//* Change the id (id="username") attribute to name (name="username"). Get the inputs without creating an input variable
+// form.addEventListener('submit', e => {
+//   e.preventDefault()
+//   console.log(form.username.value)
+// })
+
+//* In browser, preserve log
+
+//* Let's say you have not changed the default behaviour of the browser. Show a prompt that confirems weather the page should be changed
+// form.addEventListener('submit', e => {
+//   preventDefault()
+//   const isPageChanged = confirm('Change pages already?')
+
+//* If pressed yes, it will take you to the link
+// if (isPageChanged) {
+//   window.location = e.currentTarget.href
+//   }
+// })
+
+//* Create control flow where it only change the page when you confirm yes. if not the page stays the same
+// form.addEventListener('submit', e => {
+//   const shouldChangePage = confirm('Change Page?')
+//   if (!shouldChangePage) {
+//     e.preventDefault()
+//   }
+// })
+ 
+//* Add a checkbox to page. If the box is clicked log `on`
+// const checkbox = document.querySelector('#checkbox')
+
+// form.addEventListener('submit', e => {
+//   e.preventDefault()
+
+//   console.log(e.currentTarget.checkbox.value)
+// })
+
+//* I 'Sakib' was typed it would say `Boss??` else it would log inserted value & checkbox
 form.addEventListener('submit', e => {
-  e.preventDefault()
-  console.log(form.username.value)
+  const name = e.currentTarget.username.value
+
+  if (name.includes('Sakib')) {
+    console.log('Boss?')
+    if (e.currentTarget.checkbox.checked) {
+      console.log(e.currentTarget.checkbox.value)
+    }
+    e.preventDefault()
+  } else {
+    console.log(e.currentTarget.username.value)
+    if (e.currentTarget.checkbox.checked) {
+      console.log(e.currentTarget.checkbox.value)
+      e.preventDefault()
+    } else {
+      console.log(e.currentTarget.checkbox.value)
+      e.preventDefault()
+    }
+  }
 })
+
+//* Lets createa `keyup` event. When the key is up. log how many time the key was pressed
+const logEvent = (e) => console.log(e.type)
+
+// form.username.addEventListener('keyup', logEvent)
+
+//* Now log what button was pressed 
+const keyLog = e => console.log(e.currentTarget.value)
+
+form.username.addEventListener('keyup', logEvent)
+
+//* Log when the key was down
+form.username.addEventListener('keydown', keyLog)
+
+//* Log when the focus event was triggered 
+form.username.addEventListener('focus', () => console.log('Focus'))
+
+//* Log when the blur event was triggered 
+form.username.addEventListener('blur', () => console.log('Blur'))
