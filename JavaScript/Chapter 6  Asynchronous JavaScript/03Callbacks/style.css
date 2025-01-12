@@ -1,3 +1,8 @@
+body {
+    background: black;
+    color: whitesmoke;
+}
+
 button {
     padding: .75rem;
     margin: 1rem;
@@ -5,7 +10,7 @@ button {
     color: whitesmoke;
     border-radius: .5rem;
     /* outline: black; */
-    border: none;
+    border: 1px solid whitesmoke;
     cursor: pointer;
 }
 

@@ -394,3 +394,4 @@ form.username.addEventListener('focus', () => console.log('Focus'))
 
 //* Log when the blur event was triggered 
 form.username.addEventListener('blur', () => console.log('Blur'))
+
