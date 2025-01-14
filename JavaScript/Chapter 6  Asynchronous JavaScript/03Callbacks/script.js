@@ -169,33 +169,65 @@
 // })
 
 //* Add 2 logs before & after the callback function
-const getTodos = (callback) => {
+// const getTodos = (callback) => {
+//     const request = new XMLHttpRequest()
+
+//     request.addEventListener('readystatechange', () => {
+//     // console.log(request, request.readyState)
+//     if (request.readyState === 4 && request.status === 200) {
+//         callback(undefined, request.responseText)
+//     } else if (request.readyState === 4) {
+//         callback('Could not fetch data', undefined)
+//     }
+//     })
+    
+//     request.open('GET', 'https://jsonplaceholder.typicode.com/todos/')
+//     request.send()
+// }
+
+// console.log(1)
+// console.log(2)
+
+// getTodos((err, data) => {
+//     console.log('Callback Fired')
+//     if (err) {
+//         console.log(err)
+//     } else {
+//         console.log(data)
+//     }
+// })
+
+// console.log(3)
+// console.log(4)
+
+//* Create a folder, inside it 3 json files with demo text
+
+//* Insted of the link, log request data from 1 file after another 
+const getTodos = (resource, callback) => {
     const request = new XMLHttpRequest()
 
     request.addEventListener('readystatechange', () => {
-    // console.log(request, request.readyState)
     if (request.readyState === 4 && request.status === 200) {
         callback(undefined, request.responseText)
     } else if (request.readyState === 4) {
         callback('Could not fetch data', undefined)
     }
-    })
+})
     
-    request.open('GET', 'https://jsonplaceholder.typicode.com/todos/')
+    request.open('GET', resource)
     request.send()
 }
 
-console.log(1)
-console.log(2)
-
-getTodos((err, data) => {
-    console.log('Callback Fired')
-    if (err) {
-        console.log(err)
-    } else {
+getTodos('./todos/a.json', (err, data) => {
+    console.log(data)
+    getTodos('./todos/m.json', (err, data) => {
         console.log(data)
-    }
+        getTodos('./todos/q.json', (err, data) => {
+            console.log(data)
+        })
+    })
 })
 
-console.log(3)
-console.log(4)
+
+
+
