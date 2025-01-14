@@ -202,32 +202,79 @@
 
 //* Create a folder, inside it 3 json files with demo text
 
-//* Insted of the link, log request data from 1 file after another 
+//* Insted of the link, log request data from 1 file after another
+// const getTodos = (resource, callback) => {
+//     const request = new XMLHttpRequest()
+
+//     request.addEventListener('readystatechange', () => {
+//     if (request.readyState === 4 && request.status === 200) {
+//         callback(undefined, request.responseText)
+//     } else if (request.readyState === 4) {
+//         callback('Could not fetch data', undefined)
+//     }
+// })
+    
+//     request.open('GET', resource)
+//     request.send()
+// }
+
+
+
+// getTodos('./todos/a.json', (err, data) => {
+//     console.log(data)
+//     getTodos('./todos/m.json', (err, data) => {
+//         console.log(data)
+//         getTodos('./todos/q.json', (err, data) => {
+//             console.log(data)
+//         })
+//     })
+// })
+
+//* 
 const getTodos = (resource, callback) => {
-    const request = new XMLHttpRequest()
+    return new Promise((resolve, reject) => {
+        const request = new XMLHttpRequest()
 
     request.addEventListener('readystatechange', () => {
-    if (request.readyState === 4 && request.status === 200) {
-        callback(undefined, request.responseText)
+        if (request.readyState === 4 && request.status === 200) {
+        const data = JSON.parse(request.responseText)
+        resolve(data)
     } else if (request.readyState === 4) {
-        callback('Could not fetch data', undefined)
+        reject('some error')
     }
 })
     
     request.open('GET', resource)
     request.send()
+    })
+
 }
 
-getTodos('./todos/a.json', (err, data) => {
-    console.log(data)
-    getTodos('./todos/m.json', (err, data) => {
-        console.log(data)
-        getTodos('./todos/q.json', (err, data) => {
-            console.log(data)
-        })
-    })
+getTodos('./todos/a.json').then(data => {
+    console.log("Promise Resolved: ", data)
+}).then(err => {
+    console.log("Promise Rejected: ", err)
 })
 
 
+//! Promise 
+// const getSomething = () => {
 
+//     return new Promise((resolve, reject) => {
+//         // fetch Something
+//         // resolve('some data')
+//         reject('some error')
+//     })
+// }
 
+// getSomething().then((data) => {
+//     console.log(data)
+// }, err => {
+//     console.log(err)
+// })
+
+// getSomething().then(data => {
+//     console.log(data)
+// }).catch(err => {
+//     console.log(err)
+// })
