@@ -16,7 +16,7 @@
 //* A Create a new Request Object
 // const request = new XMLHttpRequest()
 
-//* C In the console's network section we can see we got the response. Now show it in the window. But first log the states of the request
+//* C In the console's network section we can see we got the response. Now show it in the window. But first log the ready states of the request
 // request.addEventListener('readystatechange', () => {
 //     // console.log(request, request.readyState)
 // })
@@ -200,7 +200,60 @@
 // console.log(3)
 // console.log(4)
 
+//* We have been getting a JSON string till now. Convert it to an array
+// const getTodos = (callback) => {
+//     const newRequest = new XMLHttpRequest()
+
+//     newRequest.addEventListener('readystatechange', () => {
+
+//         if (newRequest.readyState === 4 && newRequest.status === 200) {
+//             const data = JSON.parse(newRequest.responseText)
+//             callback(undefined, data)
+//         } else if(newRequest.readyState === 4){
+//             callback('💥', undefined)
+//         }
+//     })
+
+//     newRequest.open('GET', 'https://jsonplaceholder.typicode.com/todos')
+//     newRequest.send()
+// }
+
+
+
+// getTodos((error, data) => {
+//     if (error) {
+//         console.log(error)
+//     } else {
+//         console.log(data)
+//     }
+// })
+
 //* Create a folder, inside it 3 json files with demo text
+
+//* Insted of the link, log request data from 1st JSON file 
+const getTodos = (callback) => {
+    const request = new XMLHttpRequest()
+
+    request.addEventListener('readystatechange', () => {
+        if (request.readyState === 4 && request.status === 200) {
+            const data = JSON.parse(request.responseText)
+            callback(undefined, data)
+        } else if (request.readyState === 4) {
+            callback('Could not fetch data', undefined)
+        }
+    })
+    
+    request.open('GET', './todos/a.json')
+    request.send()
+}
+
+getTodos((err, data) => {
+    if (err) {
+        console.log(err)
+    } else {
+        console.log(data)
+    }
+})
 
 //* Insted of the link, log request data from 1 file after another
 // const getTodos = (resource, callback) => {
@@ -208,7 +261,8 @@
 
 //     request.addEventListener('readystatechange', () => {
 //     if (request.readyState === 4 && request.status === 200) {
-//         callback(undefined, request.responseText)
+//         const data = JSON.parse(request.responseText)
+//         callback(undefined, data)
 //     } else if (request.readyState === 4) {
 //         callback('Could not fetch data', undefined)
 //     }
@@ -217,8 +271,6 @@
 //     request.open('GET', resource)
 //     request.send()
 // }
-
-
 
 // getTodos('./todos/a.json', (err, data) => {
 //     console.log(data)
@@ -230,34 +282,34 @@
 //     })
 // })
 
-//* 
-const getTodos = (resource, callback) => {
-    return new Promise((resolve, reject) => {
-        const request = new XMLHttpRequest()
+//*
+// const getTodos = (resource, callback) => {
+//     return new Promise((resolve, reject) => {
+//         const request = new XMLHttpRequest()
 
-    request.addEventListener('readystatechange', () => {
-        if (request.readyState === 4 && request.status === 200) {
-        const data = JSON.parse(request.responseText)
-        resolve(data)
-    } else if (request.readyState === 4) {
-        reject('some error')
-    }
-})
+//     request.addEventListener('readystatechange', () => {
+//         if (request.readyState === 4 && request.status === 200) {
+//         const data = JSON.parse(request.responseText)
+//         resolve(data)
+//     } else if (request.readyState === 4) {
+//         reject('some error')
+//     }
+// })
     
-    request.open('GET', resource)
-    request.send()
-    })
+//     request.open('GET', resource)
+//     request.send()
+//     })
 
-}
+// }
 
-getTodos('./todos/a.json').then(data => {
-    console.log("Promise Resolved: ", data)
-}).then(err => {
-    console.log("Promise Rejected: ", err)
-})
+// getTodos('./todos/a.json').then(data => {
+//     console.log("Promise Resolved: ", data)
+// }).then(err => {
+//     console.log("Promise Rejected: ", err)
+// })
 
 
-//! Promise 
+//! Promise
 // const getSomething = () => {
 
 //     return new Promise((resolve, reject) => {
@@ -277,4 +329,31 @@ getTodos('./todos/a.json').then(data => {
 //     console.log(data)
 // }).catch(err => {
 //     console.log(err)
+// })
+
+// const getTodos = (callback) => {
+//     const newRequest = new XMLHttpRequest()
+
+//     newRequest.addEventListener('readystatechange', () => {
+
+//         if (newRequest.readyState === 4 && newRequest.status === 200) {
+//             const data = JSON.parse(newRequest.responseText)
+//             callback(undefined, data)
+//         } else if(newRequest.readyState === 4){
+//             callback('💥', undefined)
+//         }
+//     })
+
+//     newRequest.open('GET', 'https://jsonplaceholder.typicode.com/todos')
+//     newRequest.send()
+// }
+
+
+
+// getTodos((error, data) => {
+//     if (error) {
+//         console.log(error)
+//     } else {
+//         console.log(data)
+//     }
 // })
