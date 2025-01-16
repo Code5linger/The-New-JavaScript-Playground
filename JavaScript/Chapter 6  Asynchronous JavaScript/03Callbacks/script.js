@@ -371,14 +371,40 @@ const getTodos = (resource, callback) => {
 //! Chaining Promises
 
 //* Now chain those promices together
-getTodos('./todos/a.json').then(data => {
-    console.log("Promise 1 Resolved: ", data)
-    return getTodos('./todos/m.json')
+// getTodos('./todos/a.json').then(data => {
+//     console.log("Promise 1 Resolved: ", data)
+//     return getTodos('./todos/m.json')
+// }).then(data => {
+//     console.log('Promise 2 Resolved: ', data)
+//     return getTodos('./todos/q.json')
+// }).then(data => {
+//     console.log('Promise 3 Resolved: ', data)
+// }).catch(error => {
+//     console.log("Promise Rejected", error)
+// })
+
+//! The Fetch API
+
+//* Use fetch to log data from the JSON files
+// fetch('./todos/a.json').then((response) => {
+//     console.log('resolved', response)
+// }).catch((error) => {
+//     console.log('rejected', error)
+// })
+
+//* Try to fetch from a non exitend files, check the status
+// fetch('./todos/aX.json').then((response) => {
+//     console.log('resolved', response)
+// }).catch((error) => {
+//     console.log('rejected', error)
+// })
+
+//* Log the data from the 1st JSON file
+fetch('./todos/a.json').then((response) => {
+    return response.json()
 }).then(data => {
-    console.log('Promise 2 Resolved: ', data)
-    return getTodos('./todos/q.json')
-}).then(data => {
-    console.log('Promise 3 Resolved: ', data)
-}).catch(error => {
-    console.log("Promise Rejected", error)
+    console.log(data)
+}).catch((error) => {
+    console.log('rejected', error)
 })
+
