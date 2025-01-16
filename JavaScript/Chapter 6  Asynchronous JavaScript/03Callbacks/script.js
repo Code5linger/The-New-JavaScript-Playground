@@ -353,17 +353,32 @@ const getTodos = (resource, callback) => {
     })
 }
 
-getTodos('./todos/a.json').then((data) => {
-    console.log("Promise Resolved: ", data)
+// getTodos('./todos/a.json').then((data) => {
+//     console.log("Promise Resolved: ", data)
+// }).catch(error => {
+//     console.log("Promise Rejected", error)
+// })
+
+//* Use promise the log other 2 data sets
+// getTodos('./todos/m.json')
+//     .then(data => console.log("Promise Resolved: ", data))
+//     .catch(error => console.log("Promise Rejected ", error))
+
+// getTodos('./todos/q.json')
+//     .then(data => console.log(data))
+//     .catch(error => console.log(error))
+
+//! Chaining Promises
+
+//* Now chain those promices together
+getTodos('./todos/a.json').then(data => {
+    console.log("Promise 1 Resolved: ", data)
+    return getTodos('./todos/m.json')
+}).then(data => {
+    console.log('Promise 2 Resolved: ', data)
+    return getTodos('./todos/q.json')
+}).then(data => {
+    console.log('Promise 3 Resolved: ', data)
 }).catch(error => {
     console.log("Promise Rejected", error)
 })
-
-//* Use promise the log other 2 data sets
-getTodos('./todos/m.json')
-    .then(data => console.log("Promise Resolved: ", data))
-    .catch(error => console.log("Promise Rejected ", error))
-
-getTodos('./todos/q.json')
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
