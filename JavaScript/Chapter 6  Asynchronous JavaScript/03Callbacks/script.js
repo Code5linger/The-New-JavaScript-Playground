@@ -336,22 +336,22 @@ const request = new XMLHttpRequest()
 // })
 
 //* We have been using dummy text till now. Lets log the todo data using Promise
-const getTodos = (resource, callback) => {
-    return new Promise((resolve, reject) => {
-        const request = new XMLHttpRequest()
+// const getTodos = (resource, callback) => {
+//     return new Promise((resolve, reject) => {
+//         const request = new XMLHttpRequest()
 
-        request.addEventListener('readystatechange', () => {
-            if (request.readyState === 4 && request.status === 200) {
-            const data = JSON.parse(request.responseText)
-            resolve(data)
-        } else if (request.readyState === 4) {
-            reject('some error')
-        }
-})
-    request.open('GET', resource)
-    request.send()
-    })
-}
+//         request.addEventListener('readystatechange', () => {
+//             if (request.readyState === 4 && request.status === 200) {
+//             const data = JSON.parse(request.responseText)
+//             resolve(data)
+//         } else if (request.readyState === 4) {
+//             reject('some error')
+//         }
+// })
+//     request.open('GET', resource)
+//     request.send()
+//     })
+// }
 
 // getTodos('./todos/a.json').then((data) => {
 //     console.log("Promise Resolved: ", data)
@@ -400,11 +400,46 @@ const getTodos = (resource, callback) => {
 // })
 
 //* Log the data from the 1st JSON file
-fetch('./todos/a.json').then((response) => {
-    return response.json()
-}).then(data => {
-    console.log(data)
-}).catch((error) => {
-    console.log('rejected', error)
-})
+// fetch('./todos/a.json').then((response) => {
+//     return response.json()
+// }).then(data => {
+//     console.log(data)
+// }).catch((error) => {
+//     console.log('rejected', error)
+// })
 
+//! Async & Await
+//* Create a async function & log it. It should log a promise
+// const getTodos = async () => {
+
+// }
+
+// const test = getTodos()
+// console.log(test)
+
+//* Get a response from the 1st JSON file using async & await
+// const getTodos = async () => {
+//     const response = await fetch('./todos/a.json')
+//     console.log(response)
+// }
+
+// getTodos()
+
+//* Now log the data as object from the 1st JSON file 
+// const getTodos = async () => {
+//     const response = await fetch('./todos/a.json')
+//     const data = await response.json()
+//     console.log(data)
+// }
+
+// getTodos()
+
+//* How can you use the getTodos function with .then() to handle and log resolved JSON data in JavaScript
+const getTodos = async () => {
+    const response = await fetch('./todos/a.json')
+    const data = await response.json()
+    return data
+}
+
+getTodos()
+    .then(data => console.log('Resolved: ', data))
