@@ -5,6 +5,10 @@
 // console.log(3)
 // console.log(4)
 
+//* Write 2 logs 1st one `Starting` lst one `Ending`
+// console.log('Starting')
+// console.log('Ending')
+
 //* In the middle write a callback function that waits 2 sec
 // console.log(1)
 // console.log(2)
@@ -13,6 +17,100 @@
 
 // console.log(3)
 // console.log(4)
+
+//* In the middle write a callback function that waits 2 sec
+// console.log('Starting')
+// setTimeout(() => console.log('Running'), 2000)
+// console.log('Ending')
+
+//* Visit this site `http://latentflip.com/loupe/` and run the previous code to see how JS handles it
+
+//* Create a square that says `Click Me`
+
+//* Change the text to `GO` when clicked
+const go = document.querySelector('.go')
+
+// go.addEventListener('click', (e) => {
+//     const el = e.currentTarget
+//     el.textContent = 'GO'
+// })
+//* Make it a circle after 2 seconds
+// go.addEventListener('click', (e) => {
+//     const el = e.currentTarget
+//     el.textContent = 'GO'
+
+//     setTimeout(() => {
+//         el.classList.add('circle')
+//     }, 2000)
+// })
+
+//* Make it red after 0.5 s
+// go.addEventListener('click', (e) => {
+//     const el = e.currentTarget
+//     el.textContent = 'GO'
+
+//     setTimeout(() => {
+//         el.classList.add('circle')
+//         setTimeout(() => {
+//             el.classList.add('danger')
+//         },500)
+//     }, 2000)
+// })
+
+//* make it square after e.25s
+// go.addEventListener('click', (e) => {
+//     const el = e.currentTarget
+//     el.textContent = 'GO'
+
+//     setTimeout(() => {
+//         el.classList.add('circle')
+//         setTimeout(() => {
+//             el.classList.add('danger')
+//             setTimeout(() => {
+//                 el.classList.remove('circle')
+//             }, 250)
+//         },500)
+//     }, 2000)
+// })
+
+//* make it purpee after .3s
+// go.addEventListener('click', (e) => {
+//     const el = e.currentTarget
+//     el.textContent = 'GO'
+
+//     setTimeout(() => {
+//         el.classList.add('circle')
+//         setTimeout(() => {
+//             el.classList.add('danger')
+//             setTimeout(() => {
+//                 el.classList.remove('circle')
+//                 setTimeout(() => el.classList.add('purple'), 300)
+//             }, 250)
+//         },500)
+//     }, 2000)
+// })
+
+//* Fade out after .5s
+go.addEventListener('click', (e) => {
+    const el = e.currentTarget
+    el.textContent = 'GO'
+
+    setTimeout(() => {
+        el.classList.add('circle')
+        setTimeout(() => {
+            el.classList.add('danger')
+            setTimeout(() => {
+                el.classList.remove('circle')
+                setTimeout(() => {
+                    el.classList.add('purple')
+                    setTimeout(() => {
+                        el.classList.add('fadeOut')
+                    }, 500)
+                }, 300)
+            }, 250)
+        },500)
+    }, 2000)
+})
 
 //! What are HTTP Requests
 //* Go to `https://jsonplaceholder.typicode.com/` and run the demo script on the site. Than copy the link and visit it
@@ -483,17 +581,17 @@ const request = new XMLHttpRequest()
 //     .catch(error => console.log('Rejected: ', error.message))
 
 //* As you can see, it says there is a problem with the JSON. But that is not the case.  Prevent it by checking the status. 
-const getTodos = async () => {
-    const response = await fetch('./todos/aX.json')
+// const getTodos = async () => {
+//     const response = await fetch('./todos/aX.json')
 
-    if (response.status !== 200) {
-        throw new Error('Cannot fetch the data')
-    }
-    const data = await response.json()
+//     if (response.status !== 200) {
+//         throw new Error('Cannot fetch the data')
+//     }
+//     const data = await response.json()
 
-    return data
-}
+//     return data
+// }
 
-getTodos()
-    .then(data => console.log('Resolved: ', data))
-    .catch(error => console.log('Rejected: ', error.message))
+// getTodos()
+//     .then(data => console.log('Resolved: ', data))
+//     .catch(error => console.log('Rejected: ', error.message))
