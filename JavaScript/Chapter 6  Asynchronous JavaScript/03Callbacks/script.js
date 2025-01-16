@@ -425,7 +425,7 @@ const request = new XMLHttpRequest()
 
 // getTodos()
 
-//* Now log the data as object from the 1st JSON file 
+//* Now log the data as object from the 1st JSON file
 // const getTodos = async () => {
 //     const response = await fetch('./todos/a.json')
 //     const data = await response.json()
@@ -435,11 +435,65 @@ const request = new XMLHttpRequest()
 // getTodos()
 
 //* How can you use the getTodos function with .then() to handle and log resolved JSON data in JavaScript
+// const getTodos = async () => {
+//     const response = await fetch('./todos/a.json')
+//     const data = await response.json()
+//     return data
+// }
+
+// getTodos()
+//     .then(data => console.log('Resolved: ', data))
+
+//! Throwing & Catching Errors
+//* How can you handle errors when using the getTodos function with promises in JavaScript?
+// const getTodos = async () => {
+//     const response = await fetch('./todos/a.json')
+//     const data = await response.json()
+//     return data
+// }
+
+// getTodos()
+//     .then(data => console.log('Resolved: ', data))
+//     .catch(error => console.log('Rejected: ', error))
+
+//* How can you log only the error message when handling a rejected promise in JavaScript? (For an error in the JSON file)
+// const getTodos = async () => {
+//     const response = await fetch('./todos/a.json')
+//     const data = await response.json()
+
+
+//     return data
+// }
+
+// getTodos()
+//     .then(data => console.log('Resolved: ', data))
+//     .catch(error => console.log('Rejected: ', error.message))
+
+//* Try to fetch a non exixtent JSON file. How can you log only the error message when handling a rejected promise in JavaScript?
+// const getTodos = async () => {
+//     const response = await fetch('./todos/aX.json')
+//     const data = await response.json()
+
+
+//     return data
+// }
+
+// getTodos()
+//     .then(data => console.log('Resolved: ', data))
+//     .catch(error => console.log('Rejected: ', error.message))
+
+//* As you can see, it says there is a problem with the JSON. But that is not the case.  Prevent it by checking the status. 
 const getTodos = async () => {
-    const response = await fetch('./todos/a.json')
+    const response = await fetch('./todos/aX.json')
+
+    if (response.status !== 200) {
+        throw new Error('Cannot fetch the data')
+    }
     const data = await response.json()
+
     return data
 }
 
 getTodos()
     .then(data => console.log('Resolved: ', data))
+    .catch(error => console.log('Rejected: ', error.message))
