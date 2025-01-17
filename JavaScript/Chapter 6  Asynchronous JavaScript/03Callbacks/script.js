@@ -662,7 +662,7 @@ const request = new XMLHttpRequest()
 //     console.log(pizza)
 // })
 
-//* Pizza toppings are separeted by comma's till now. Replace it with space 
+//* Pizza toppings are separeted by comma's till now. Replace it with space
 // function makePizza(toppings) {
 //     return new Promise((resolve, reject) => {
     
@@ -680,7 +680,7 @@ const request = new XMLHttpRequest()
 //     console.log(pizza)
 // })
 
-//* What if someone wants a Pizza with no toppings? Add aditional .5sec of delay for each toppings  
+//* What if someone wants a Pizza with no toppings? Add aditional .5sec of delay for each toppings
 // function makePizza(toppings = []) {
 //     return new Promise((resolve, reject) => {
     
@@ -706,7 +706,7 @@ const request = new XMLHttpRequest()
 //     console.log(pizza)
 // }).then(pizza => console.log(`All done! Here is your last pizza!`))
 
-//* We have been running using single callback till now. How can we run it concurently 
+//* We have been running using single callback till now. How can we run it concurently
 // function makePizza(toppings = []) {
 //     return new Promise((resolve, reject) => {
     
@@ -728,25 +728,96 @@ const request = new XMLHttpRequest()
 // pizzaPromise4.then(pizza => console.log(pizza))
 // pizzaPromise5.then(pizza => console.log(pizza))
 
-//* Log all the promises at once 
-function makePizza(toppings = []) {
-    return new Promise((resolve, reject) => {
+//* Log all the promises at once
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
     
-    const amountOfTimeToBake = 500 + (toppings.length * 500)
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
         
-    setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
-    })
-}
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
 
-const pizzaPromise1 = makePizza(['Pepperoni'])
-const pizzaPromise2 = makePizza(['ham', 'cheese'])
-const pizzaPromise3 = makePizza(['hot peppers', 'onion', 'feta'])
-const pizzaPromise5 = makePizza()
-const pizzaPromise4 = makePizza(['🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍'])
+// const pizzaPromise1 = makePizza(['Pepperoni'])
+// const pizzaPromise2 = makePizza(['ham', 'cheese'])
+// const pizzaPromise3 = makePizza(['hot peppers', 'onion', 'feta'])
+// const pizzaPromise5 = makePizza()
+// const pizzaPromise4 = makePizza(['🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍'])
 
-const dinner = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3, pizzaPromise4])
+// const dinner = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3, pizzaPromise4])
 
-dinner.then(pizza => console.log(pizza))
+// dinner.then(pizza => console.log(pizza))
+
+//* Rather than logging an array log all of them as a string
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+    
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// const pizzaPromise1 = makePizza(['Pepperoni'])
+// const pizzaPromise2 = makePizza(['ham', 'cheese'])
+// const pizzaPromise3 = makePizza(['hot peppers', 'onion', 'feta'])
+// const pizzaPromise5 = makePizza()
+// const pizzaPromise4 = makePizza(['🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍'])
+
+// const dinner = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3, pizzaPromise4])
+
+// dinner.then(function(pizzas) {
+//     const [hottie, garbagePali, hamAndCheese] = pizzas
+
+//     console.log(hottie, garbagePali, hamAndCheese)
+// })
+
+//* Pass the array via function parameter
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+    
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// const pizzaPromise1 = makePizza(['Pepperoni'])
+// const pizzaPromise2 = makePizza(['ham', 'cheese'])
+// const pizzaPromise3 = makePizza(['hot peppers', 'onion', 'feta'])
+// const pizzaPromise5 = makePizza()
+// const pizzaPromise4 = makePizza(['🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍'])
+
+// const dinner = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3, pizzaPromise4])
+
+// dinner.then(function([hottie, garbagePali, hamAndCheese]) {
+//     console.log(hottie, garbagePali, hamAndCheese)
+// })
+
+//* We used Promise.all() that wait till every promise if filled than log the data, now let's say someone is in hurry. Log a promise ASAP
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+    
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// const pizzaPromise1 = makePizza(['Pepperoni'])
+// const pizzaPromise2 = makePizza(['ham', 'cheese'])
+// const pizzaPromise3 = makePizza(['hot peppers', 'onion', 'feta'])
+// const pizzaPromise5 = makePizza()
+// const pizzaPromise4 = makePizza(['🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍'])
+ 
+// const dinner = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3, pizzaPromise4])
+
+// dinner.then(function([hottie, garbagePali, hamAndCheese]) {
+//     console.log(hottie, garbagePali, hamAndCheese)
+// })
+
+// const firstPizza = Promise.race([pizzaPromise1, pizzaPromise2, pizzaPromise3])
+// firstPizza.then(pizza => console.log('You must be hungery, here is the first one ready!'))
 
 //! Throwing & Catching Errors
 //* How can you handle errors when using the getTodos function with promises in JavaScript?
@@ -786,7 +857,7 @@ dinner.then(pizza => console.log(pizza))
 //     .then(data => console.log('Resolved: ', data))
 //     .catch(error => console.log('Rejected: ', error.message))
 
-//* As you can see, it says there is a problem with the JSON. But that is not the case.  Prevent it by checking the status. 
+//* As you can see, it says there is a problem with the JSON. But that is not the case.  Prevent it by checking the status.
 // const getTodos = async () => {
 //     const response = await fetch('./todos/aX.json')
 
@@ -801,3 +872,176 @@ dinner.then(pizza => console.log(pizza))
 // getTodos()
 //     .then(data => console.log('Resolved: ', data))
 //     .catch(error => console.log('Rejected: ', error.message))
+
+//* Imagine someone wants to put melon🍈 on a pizza. Reject it
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// makePizza(['cheese', 'melon']).then(pizza => {
+//     console.log(pizza)
+// })
+
+//* Now handle the error
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// makePizza(['cheese', 'melon']).then(pizza => {
+//     console.log(pizza)
+// }).catch(error => {
+//     console.log('WTF!!')
+//     console.log(error)
+// })
+
+//* Create a function that handles the function
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// function handleError(error) {
+//     console.log('WTF!!')
+//     console.log(error)
+// }
+
+// makePizza(['cheese', 'melon']).then(pizza => {
+//     console.log(pizza)
+// }).catch(handleError)
+
+//* Bring back the code with callbackchain. Add error handling function to it
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// function handleError(error) {
+//     console.log('WTF!!')
+//     console.log(error)
+// }
+
+// makePizza(['cheese', 'melon']).then(pizza => {
+//     console.log(pizza)
+// }).catch(handleError)
+
+
+
+// makePizza(['Pepperoni']).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza(['ham', 'cheese'])
+// }).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza(['hot peppers', 'onion', 'feta'])
+// }).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza()
+// }).then(pizza => {
+//     console.log(pizza)
+//     return makePizza(['🍍','🍍','🍍','🍍','🍍','🍍','🍍','melon','🍍','🍍','🍍','🍍','🍍'])
+// }).then(pizza => {
+//     console.log(pizza)
+// }).then(pizza => console.log(`All done! Here is your last pizza!`)).catch(handleError)
+
+//* Problem with error handeling is in a callback chain of 7, if the 1st one has an error JS won't run the next ones. To fix it we will use Promise.allSettled. Create 2 Pizzas, one with 'melon' so it would be rejected. See the result
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// function handleError(error) {
+//     console.log('WTF!!')
+//     console.log(error)
+// }
+
+// const pizzaA = makePizza(['pep'])
+// const pizzaB = makePizza(['melon'])
+
+// const dinner = Promise.allSettled([pizzaA, pizzaB])
+
+// dinner.then(results => {
+//     console.log(results)
+// })
+
+//* Previously we used Promise.all. What would happen if we use it insted of `Promise.allSettled`
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// function handleError(error) {
+//     console.log('WTF!!')
+//     console.log(error)
+// }
+
+// const pizzaA = makePizza(['pep'])
+// const pizzaB = makePizza(['melon'])
+
+// const dinner = Promise.all([pizzaA, pizzaB])
+
+// dinner.then(results => {
+//     console.log(results)
+// })
+
+//* It kind of worked. But the error needs to be handled. 
+function makePizza(toppings = []) {
+    return new Promise((resolve, reject) => {
+        if (toppings.includes('melon')) {
+            reject('Brav? What is wrong with you?')
+    }
+    const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+    setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+    })
+}
+
+function handleError(error) {
+    console.log('WTF!!')
+    console.log(error)
+}
+
+const pizzaA = makePizza(['pep'])
+const pizzaB = makePizza(['melon'])
+
+const dinner = Promise.all([pizzaA, pizzaB]).catch(handleError)
+
+dinner.then(results => {
+    console.log(results)
+})
