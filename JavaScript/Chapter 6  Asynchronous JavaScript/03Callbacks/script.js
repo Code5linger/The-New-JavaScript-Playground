@@ -28,7 +28,7 @@
 //* Create a square that says `Click Me`
 
 //* Change the text to `GO` when clicked
-const go = document.querySelector('.go')
+// const go = document.querySelector('.go')
 
 // go.addEventListener('click', (e) => {
 //     const el = e.currentTarget
@@ -91,26 +91,26 @@ const go = document.querySelector('.go')
 // })
 
 //* Fade out after .5s
-go.addEventListener('click', (e) => {
-    const el = e.currentTarget
-    el.textContent = 'GO'
+// go.addEventListener('click', (e) => {
+//     const el = e.currentTarget
+//     el.textContent = 'GO'
 
-    setTimeout(() => {
-        el.classList.add('circle')
-        setTimeout(() => {
-            el.classList.add('danger')
-            setTimeout(() => {
-                el.classList.remove('circle')
-                setTimeout(() => {
-                    el.classList.add('purple')
-                    setTimeout(() => {
-                        el.classList.add('fadeOut')
-                    }, 500)
-                }, 300)
-            }, 250)
-        },500)
-    }, 2000)
-})
+//     setTimeout(() => {
+//         el.classList.add('circle')
+//         setTimeout(() => {
+//             el.classList.add('danger')
+//             setTimeout(() => {
+//                 el.classList.remove('circle')
+//                 setTimeout(() => {
+//                     el.classList.add('purple')
+//                     setTimeout(() => {
+//                         el.classList.add('fadeOut')
+//                     }, 500)
+//                 }, 300)
+//             }, 250)
+//         },500)
+//     }, 2000)
+// })
 
 //! What are HTTP Requests
 //* Go to `https://jsonplaceholder.typicode.com/` and run the demo script on the site. Than copy the link and visit it
@@ -1020,28 +1020,56 @@ const request = new XMLHttpRequest()
 //     console.log(results)
 // })
 
-//* It kind of worked. But the error needs to be handled. 
-function makePizza(toppings = []) {
-    return new Promise((resolve, reject) => {
-        if (toppings.includes('melon')) {
-            reject('Brav? What is wrong with you?')
-    }
-    const amountOfTimeToBake = 500 + (toppings.length * 500)
+//* It kind of worked. But the error needs to be handled.
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
         
-    setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
-    })
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// function handleError(error) {
+//     console.log('WTF!!')
+//     console.log(error)
+// }
+
+// const pizzaA = makePizza(['pep'])
+// const pizzaB = makePizza(['melon'])
+
+// const dinner = Promise.all([pizzaA, pizzaB]).catch(handleError)
+
+// dinner.then(results => {
+//     console.log(results)
+// })
+
+//* Previously we animated a box using setTimeout. Create the animation using promise chain 
+const go = document.querySelector('.go')
+const wait = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms))
+
+const animate = (e) => {
+    const el = e.currentTarget
+    el.textContent = 'GO'
+
+    wait(2000)
+        .then(() => {
+            el.classList.add('circle')
+            return wait(500)
+        })
+        .then(() => {
+            el.classList.add('danger');
+            return wait(250)
+        }).then(() => {
+            el.classList.remove('circle')
+            return wait(300)
+        }).then(() => {
+            el.classList.add('purple')
+            return wait(500)
+        }).then(() => {
+            el.classList.add('fadeOut')
+        })
 }
-
-function handleError(error) {
-    console.log('WTF!!')
-    console.log(error)
-}
-
-const pizzaA = makePizza(['pep'])
-const pizzaB = makePizza(['melon'])
-
-const dinner = Promise.all([pizzaA, pizzaB]).catch(handleError)
-
-dinner.then(results => {
-    console.log(results)
-})
+go.addEventListener('click', animate)
