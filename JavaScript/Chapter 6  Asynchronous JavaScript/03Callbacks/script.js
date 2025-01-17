@@ -542,6 +542,212 @@ const request = new XMLHttpRequest()
 // getTodos()
 //     .then(data => console.log('Resolved: ', data))
 
+//TODO [WESBOS]
+//* Create a function that returns a promise. The promise retuns `🍕` as resolve
+// function makePizza() {
+//     const pizzaPromise = new Promise((resolve, reject) => {
+//         resolve('🍕')
+//     })
+//     return pizzaPromise
+// }
+
+// const pizza = makePizza()
+// console.log(pizza)
+
+//* What is a Pizza without any toppings? Create 2 variables that will pass the data to the promise. Log those
+// function makePizza(toppings) {
+//     const pizzaPromise = new Promise((resolve, reject) => {
+//         resolve(`Here is your pizza🍕 with toppings ${toppings}`)
+//     })
+//     return pizzaPromise
+// }
+
+// const pepperoniPromise = makePizza(['Pepperoni'])
+// const canadaPromise = makePizza(['Pepperoni', 'mushrooms', 'onion'])
+
+// console.log(pepperoniPromise, canadaPromise)
+
+//* Use callback to log the 1st variable
+// function makePizza(toppings) {
+//     const pizzaPromise = new Promise((resolve, reject) => {
+//         resolve(`Here is your pizza🍕 with toppings ${toppings}`)
+//     })
+//     return pizzaPromise
+// }
+
+// const pepperoniPromise = makePizza(['Pepperoni'])
+// const canadaPromise = makePizza(['Pepperoni', 'mushrooms', 'onion'])
+
+// pepperoniPromise.then((pizza) => {
+//     console.log('Ahh got it!')
+//     console.log(pizza)
+// })
+
+//* Add 1 sec delay to the promise function
+// function makePizza(toppings) {
+//     const pizzaPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings}`), 1000)
+//     })
+//     return pizzaPromise
+// }
+
+// const pepperoniPromise = makePizza(['Pepperoni'])
+// const canadaPromise = makePizza(['Pepperoni', 'mushrooms', 'onion'])
+
+// pepperoniPromise.then((pizza) => {
+//     console.log('Ahh got it!')
+//     console.log(pizza)
+// })
+
+//* Chaining callbacks, log for 'Pepperoni' pizza
+// function makePizza(toppings) {
+//     const pizzaPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings}`), 1000)
+//     })
+//     return pizzaPromise
+// }
+
+// makePizza(['Pepperoni']).then((pizza) => {
+//     console.log(pizza)
+// })
+
+//* Add anoother chain to the callbacks, for 'ham', 'cheese'
+// function makePizza(toppings) {
+//     const pizzaPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings}`), 1000)
+//     })
+//     return pizzaPromise
+// }
+
+// makePizza(['Pepperoni']).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza(['ham', 'cheese'])
+// }).then((pizza) => {
+//     console.log(pizza)
+// })
+
+//* Add anoother chain to the callbacks, for 'hot peppers', 'onion', 'feta'
+// function makePizza(toppings) {
+//     const pizzaPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings}`), 1000)
+//     })
+//     return pizzaPromise
+// }
+
+// makePizza(['Pepperoni']).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza(['ham', 'cheese'])
+// }).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza(['hot peppers', 'onion', 'feta'])
+// }).then((pizza) => {
+//     console.log(pizza)
+// })
+
+//* Lets reduce the code a bit. remove the variable that the promise was in. Than return the promise
+// function makePizza(toppings) {
+//     return new Promise((resolve, reject) => {
+    
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings}`), 1000)
+//     })
+// }
+
+// makePizza(['Pepperoni']).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza(['ham', 'cheese'])
+// }).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza(['hot peppers', 'onion', 'feta'])
+// }).then((pizza) => {
+//     console.log(pizza)
+// })
+
+//* Pizza toppings are separeted by comma's till now. Replace it with space 
+// function makePizza(toppings) {
+//     return new Promise((resolve, reject) => {
+    
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), 1000)
+//     })
+// }
+
+// makePizza(['Pepperoni']).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza(['ham', 'cheese'])
+// }).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza(['hot peppers', 'onion', 'feta'])
+// }).then((pizza) => {
+//     console.log(pizza)
+// })
+
+//* What if someone wants a Pizza with no toppings? Add aditional .5sec of delay for each toppings  
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+    
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// makePizza(['Pepperoni']).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza(['ham', 'cheese'])
+// }).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza(['hot peppers', 'onion', 'feta'])
+// }).then((pizza) => {
+//     console.log(pizza)
+//     return makePizza()
+// }).then(pizza => {
+//     console.log(pizza)
+//     return makePizza(['🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍'])
+// }).then(pizza => {
+//     console.log(pizza)
+// }).then(pizza => console.log(`All done! Here is your last pizza!`))
+
+//* We have been running using single callback till now. How can we run it concurently 
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+    
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// const pizzaPromise1 = makePizza(['Pepperoni'])
+// const pizzaPromise2 = makePizza(['ham', 'cheese'])
+// const pizzaPromise3 = makePizza(['hot peppers', 'onion', 'feta'])
+// const pizzaPromise5 = makePizza()
+// const pizzaPromise4 = makePizza(['🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍'])
+
+// pizzaPromise1.then(pizza => console.log(pizza))
+// pizzaPromise2.then(pizza => console.log(pizza))
+// pizzaPromise3.then(pizza => console.log(pizza))
+// pizzaPromise4.then(pizza => console.log(pizza))
+// pizzaPromise5.then(pizza => console.log(pizza))
+
+//* Log all the promises at once 
+function makePizza(toppings = []) {
+    return new Promise((resolve, reject) => {
+    
+    const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+    setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+    })
+}
+
+const pizzaPromise1 = makePizza(['Pepperoni'])
+const pizzaPromise2 = makePizza(['ham', 'cheese'])
+const pizzaPromise3 = makePizza(['hot peppers', 'onion', 'feta'])
+const pizzaPromise5 = makePizza()
+const pizzaPromise4 = makePizza(['🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍','🍍'])
+
+const dinner = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3, pizzaPromise4])
+
+dinner.then(pizza => console.log(pizza))
+
 //! Throwing & Catching Errors
 //* How can you handle errors when using the getTodos function with promises in JavaScript?
 // const getTodos = async () => {
