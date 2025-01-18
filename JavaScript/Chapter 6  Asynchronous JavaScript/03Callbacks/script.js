@@ -1212,23 +1212,184 @@ const request = new XMLHttpRequest()
 // makeDinner()
 
 //* Reanimate the box animation using async await
-const go = document.querySelector('.go')
-const wait = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms))
+// const go = document.querySelector('.go')
+// const wait = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms))
 
-const animate = async (e) => {
-    const el = e.currentTarget
-    el.textContent = 'GO'
+// const animate = async (e) => {
+//     const el = e.currentTarget
+//     el.textContent = 'GO'
 
-    await wait(2000)
-    el.classList.add('circle')
-    await wait(500)    
-    el.classList.add('danger');
-    await wait(250)
-    el.classList.remove('circle')
-    await wait(300)
-    el.classList.add('purple')
-    await wait(500)
-    el.classList.add('fadeOut')
+//     await wait(2000)
+//     el.classList.add('circle')
+//     await wait(500)
+//     el.classList.add('danger');
+//     await wait(250)
+//     el.classList.remove('circle')
+//     await wait(300)
+//     el.classList.add('purple')
+//     await wait(500)
+//     el.classList.add('fadeOut')
+// }
+
+// go.addEventListener('click', animate)
+
+//* Go back to `makePizza` function. Catch its error using async await.
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// async function go() {
+//     try {
+//         window.addEventListener('click', () => console.log('💥💥'))
+//         const pizza = await makePizza(['melon'])
+//         console.log(pizza)
+//     } catch (error) {
+//         // window.addEventListener('click', () => console.log('💥💥'))
+//         console.log('Ohh Noooo')
+//         console.log(error)
+//     }
+// }
+
+// go()
+
+//* Give the error it's own separete function.
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// function handleError(error) {
+//     console.log('Ohh Noooo')
+//     console.log(error)
+// }
+
+// async function go() {
+//     const pizza = await makePizza(['melon']).catch(handleError)
+//     console.log(pizza)
+// }
+
+// go()
+
+//* Rather than catching the function inside the async function, add it to the function call 
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// function handleError(error) {
+//     console.log('Ohh Noooo')
+//     console.log(error)
+// }
+
+// async function go() {
+//     const pizza = await makePizza(['melon'])
+//     console.log(pizza)
+//     return pizza
+// }
+
+// go().catch(handleError)
+
+//* Complete the callback using then that shows result for both resolve, reject
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// function handleError(error) {
+//     console.log('Ohh Noooo')
+//     console.log(error)
+// }
+
+// async function go() {
+//     const pizza = await makePizza(['melonX'])
+//     return pizza
+// }
+
+// go().then(serve => {
+//     console.log(serve)
+// }).catch(handleError)
+
+//* Insted of callback use a function. Handle error on this functions call
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
+
+// function handleError(error) {
+//     console.log('Ohh Noooo')
+//     console.log(error)
+// }
+
+// async function go() {
+//     const pizza = await makePizza(['melon'])
+//     return pizza
+// }
+
+// async function goGo() {
+//     const result = await go()
+// }
+
+// goGo().catch(handleError)
+
+//* Make a safe function with a Higher order function
+function makePizza(toppings = []) {
+    return new Promise((resolve, reject) => {
+        if (toppings.includes('melon')) {
+            reject('Brav? What is wrong with you?')
+    }
+    const amountOfTimeToBake = 500 + (toppings.length * 500)
+        
+    setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+    })
 }
 
-go.addEventListener('click', animate)
+function handleError(error) {
+    console.log('Ohh Noooo')
+    console.log(error)
+}
+
+async function go() {
+    const pizza = await makePizza(['melon'])
+    return pizza
+}
+
+function makeSafe(fn, errorHandler) {
+    return function () {
+        fn().catch(handleError)
+    }
+}
+
+const safeGo = makeSafe(go, handleError)
+
+safeGo()
