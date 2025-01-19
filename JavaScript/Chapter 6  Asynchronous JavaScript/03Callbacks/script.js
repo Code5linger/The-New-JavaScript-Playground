@@ -1393,3 +1393,5 @@ function makeSafe(fn, errorHandler) {
 const safeGo = makeSafe(go, handleError)
 
 safeGo()
+
+// For the streak
