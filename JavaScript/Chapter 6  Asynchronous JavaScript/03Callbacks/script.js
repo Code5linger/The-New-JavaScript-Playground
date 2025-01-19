@@ -112,6 +112,67 @@
 //     }, 2000)
 // })
 
+//* Create an object with 2 elements. Each with title & body
+// const posts = [
+//     { title: "Post One", body: "This is post one"},
+//     { title: "Post Two", body: "This is post Two"},
+// ]
+
+//* Write a function that wait 1 sec to add both title to page than another 1 sec for the body
+// function getPosts() {
+//     setTimeout(() => {
+//         posts.forEach(function (post) {
+//             const div = document.createElement('div')
+//             div.innerHTML = `<h1><strong>${post.title}</strong></h1>`
+//             setTimeout(() => {
+//                 div.innerHTML += `<p>${post.body}</p>`
+//             }, 1000)
+//             document.querySelector('body').appendChild(div)
+//         })
+//     }, 1000)
+// }
+
+//* Create a function that adds a new element to the object
+// function createPost(post) {
+//     setTimeout(() => {
+//         posts.push(post)
+//     }, 2000)
+// }
+
+// createPost({ title: "Post Three", body: "This is post Three"},)
+
+// getPosts()
+
+//* As you can see, the element is not showing up. Fix it with callbacks
+const posts = [
+    { title: "Post One", body: "This is post one"},
+    { title: "Post Two", body: "This is post Two"},
+]
+
+function getPosts() {
+    setTimeout(() => {
+        posts.forEach(function (post) {
+            const div = document.createElement('div')
+            div.innerHTML = `<h1><strong>${post.title}</strong></h1>`
+            setTimeout(() => {
+                div.innerHTML += `<p>${post.body}</p>`
+            }, 1000)
+            document.querySelector('body').appendChild(div)
+        })
+    }, 1000)
+}
+
+function createPost(post, callback) {
+    setTimeout(() => {
+        posts.push(post)
+        callback()
+    }, 2000)
+}
+
+createPost({ title: "Post Three", body: "This is post Three"}, getPosts)
+
+
+
 //! What are HTTP Requests
 //* Go to `https://jsonplaceholder.typicode.com/` and run the demo script on the site. Than copy the link and visit it
 
@@ -1363,35 +1424,34 @@ const request = new XMLHttpRequest()
 // goGo().catch(handleError)
 
 //* Make a safe function with a Higher order function
-function makePizza(toppings = []) {
-    return new Promise((resolve, reject) => {
-        if (toppings.includes('melon')) {
-            reject('Brav? What is wrong with you?')
-    }
-    const amountOfTimeToBake = 500 + (toppings.length * 500)
+// function makePizza(toppings = []) {
+//     return new Promise((resolve, reject) => {
+//         if (toppings.includes('melon')) {
+//             reject('Brav? What is wrong with you?')
+//     }
+//     const amountOfTimeToBake = 500 + (toppings.length * 500)
         
-    setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
-    })
-}
+//     setTimeout(() => resolve(`Here is your pizza🍕 with toppings ${toppings.join(' ')}`), amountOfTimeToBake)
+//     })
+// }
 
-function handleError(error) {
-    console.log('Ohh Noooo')
-    console.log(error)
-}
+// function handleError(error) {
+//     console.log('Ohh Noooo')
+//     console.log(error)
+// }
 
-async function go() {
-    const pizza = await makePizza(['melon'])
-    return pizza
-}
+// async function go() {
+//     const pizza = await makePizza(['melon'])
+//     return pizza
+// }
 
-function makeSafe(fn, errorHandler) {
-    return function () {
-        fn().catch(handleError)
-    }
-}
+// function makeSafe(fn, errorHandler) {
+//     return function () {
+//         fn().catch(handleError)
+//     }
+// }
 
-const safeGo = makeSafe(go, handleError)
+// const safeGo = makeSafe(go, handleError)
 
-safeGo()
+// safeGo()
 
-// For the streak
