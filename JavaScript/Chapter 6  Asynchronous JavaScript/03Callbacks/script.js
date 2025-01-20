@@ -587,8 +587,8 @@
 //     console.log('O_o')
 // })
 
-//* Log something in the global scope the see that promise is non blocking function 
-console.log('Global Scope')
+//* Log something in the global scope the see that promise is non blocking function
+// console.log('Global Scope')
 
 //* Rather than puting the promise into a variable, than call .than on the variable, put .then on the promise itself
 // new Promise((resolve, reject) => {
@@ -623,22 +623,98 @@ console.log('Global Scope')
 //     .catch((error) => console.log(error))
 
 //* Run some code no matter what
-const getUser = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        let error = true
+// const getUser = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         let error = true
 
-        if (!error) {
-            resolve({ name: 'Sakib', age: 30 })
-        } else {
-            reject('Error: Something went wrong')
-        }
-    }, 1000)
-})
+//         if (!error) {
+//             resolve({ name: 'Sakib', age: 30 })
+//         } else {
+//             reject('Error: Something went wrong')
+//         }
+//     }, 1000)
+// })
     
-getUser
-    .then((user) => console.log(user))
-    .catch((error) => console.log(error))
-    .finally(() => console.log('The promise resolved or Rejected!'))
+// getUser
+//     .then((user) => console.log(user))
+//     .catch((error) => console.log(error))
+//     .finally(() => console.log('The promise resolved or Rejected!'))
+
+
+//* Previously we have created a function that get posts. Refactor just the createPost using promise
+// const posts = [
+//     { title: "Post One", body: "This is post one"},
+//     { title: "Post Two", body: "This is post Two"},
+// ]
+
+// function getPosts() {
+//     setTimeout(() => {
+//         posts.forEach(function (post) {
+//             const div = document.createElement('div')
+//             div.innerHTML = `<h1><strong>${post.title}</strong></h1>`
+//             setTimeout(() => {
+//                 div.innerHTML += `<p>${post.body}</p>`
+//             }, 1000)
+//             document.querySelector('body').appendChild(div)
+//         })
+//     }, 1000)
+// }
+
+// function createPost(post) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             posts.push(post)
+//             resolve()
+//         }, 2000)
+//     })
+    
+// }
+
+// createPost({ title: "Post Three", body: "This is post Three"}).then(getPosts)
+
+//* Inside `createPost` create a dummy error. Catch it at callback with an error handler function
+const posts = [
+    { title: "Post One", body: "This is post one"},
+    { title: "Post Two", body: "This is post Two"},
+]
+
+function getPosts() {
+    setTimeout(() => {
+        posts.forEach(function (post) {
+            const div = document.createElement('div')
+            div.innerHTML = `<h1><strong>${post.title}</strong></h1>`
+            setTimeout(() => {
+                div.innerHTML += `<p>${post.body}</p>`
+            }, 1000)
+            document.querySelector('body').appendChild(div)
+        })
+    }, 1000)
+}
+
+function createPost(post) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let error = true
+
+            if (!error) {
+                posts.push(post)
+                resolve()
+            } else {
+                reject('Error!')
+            }
+        }, 2000)
+    })
+}
+
+function showError(error) {
+    const h3 = document.createElement('h3')
+    h3.innerHTML = `<strong>${error}</strong>`
+    document.querySelector('body').appendChild(h3)
+}
+
+createPost({ title: "Post Three", body: "This is post Three" })
+    .then(getPosts)
+    .catch(showError)
 
 //! Chaining Promises
 
