@@ -548,34 +548,97 @@
 // getData('./todos/m.json')
 // getData('./todos/q.json')
 
-//* As we expected, order of apperince is wracked! Use call beck to organize it 
-function getData(endpoint, callback) {
-    const xhr = new XMLHttpRequest()
+//* As we expected, order of apperince is wracked! Use call beck to organize it
+// function getData(endpoint, callback) {
+//     const xhr = new XMLHttpRequest()
 
-    xhr.open('GET', endpoint)
+//     xhr.open('GET', endpoint)
 
-    xhr.onreadystatechange = function () {
-        if (this.readyState === 4 & this.status === 200) {
-            callback(JSON.parse(this.responseText))
-        }
-    }
+//     xhr.onreadystatechange = function () {
+//         if (this.readyState === 4 & this.status === 200) {
+//             callback(JSON.parse(this.responseText))
+//         }
+//     }
 
+//     setTimeout(() => {
+//         xhr.send()
+//     }, Math.floor(Math.random() * 3000) + 1000)
+// }
+
+// getData('./todos/a.json', (data) => {
+//     console.log(data)
+//     getData('./todos/m.json', (data) => {
+//         console.log(data)
+//         getData('./todos/q.json', (data) => {
+//             console.log(data)
+//         })
+//     })
+// })
+
+//* Create a promise that log `T_T` than while resolve log `O_o`
+// const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         console.log('T_T')
+//         resolve()
+//     }, 1000)
+// })
+
+// promise.then(() => {
+//     console.log('O_o')
+// })
+
+//* Log something in the global scope the see that promise is non blocking function 
+console.log('Global Scope')
+
+//* Rather than puting the promise into a variable, than call .than on the variable, put .then on the promise itself
+// new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         console.log('T_T_T')
+//         resolve()
+//     }, 1000)
+// }).then(() =>console.log('O_o_O'))
+
+//* Return some data on the promise (ex: name: 'Sakib', age: 30 ) then log it
+// new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve({ name: 'Sakib', age: 30 })
+//     }, 1000)
+// }).then((user) => console.log(user))
+
+//* Throw an error inside the promise. Than catch it
+// const getUser = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         let error = true
+
+//         if (!error) {
+//             resolve({ name: 'Sakib', age: 30 })
+//         } else {
+//             reject('Error: Something went wrong')
+//         }
+//     }, 1000)
+// })
+    
+// getUser
+//     .then((user) => console.log(user))
+//     .catch((error) => console.log(error))
+
+//* Run some code no matter what
+const getUser = new Promise((resolve, reject) => {
     setTimeout(() => {
-        xhr.send()
-    }, Math.floor(Math.random() * 3000) + 1000)
-}
+        let error = true
 
-getData('./todos/a.json', (data) => {
-    console.log(data)
-    getData('./todos/m.json', (data) => {
-        console.log(data)
-        getData('./todos/q.json', (data) => {
-            console.log(data)
-        })
-    })
+        if (!error) {
+            resolve({ name: 'Sakib', age: 30 })
+        } else {
+            reject('Error: Something went wrong')
+        }
+    }, 1000)
 })
-// getData()
-// getData()
+    
+getUser
+    .then((user) => console.log(user))
+    .catch((error) => console.log(error))
+    .finally(() => console.log('The promise resolved or Rejected!'))
 
 //! Chaining Promises
 
