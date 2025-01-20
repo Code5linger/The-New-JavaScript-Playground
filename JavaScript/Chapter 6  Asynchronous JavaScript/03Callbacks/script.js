@@ -144,32 +144,32 @@
 // getPosts()
 
 //* As you can see, the element is not showing up. Fix it with callbacks
-const posts = [
-    { title: "Post One", body: "This is post one"},
-    { title: "Post Two", body: "This is post Two"},
-]
+// const posts = [
+//     { title: "Post One", body: "This is post one"},
+//     { title: "Post Two", body: "This is post Two"},
+// ]
 
-function getPosts() {
-    setTimeout(() => {
-        posts.forEach(function (post) {
-            const div = document.createElement('div')
-            div.innerHTML = `<h1><strong>${post.title}</strong></h1>`
-            setTimeout(() => {
-                div.innerHTML += `<p>${post.body}</p>`
-            }, 1000)
-            document.querySelector('body').appendChild(div)
-        })
-    }, 1000)
-}
+// function getPosts() {
+//     setTimeout(() => {
+//         posts.forEach(function (post) {
+//             const div = document.createElement('div')
+//             div.innerHTML = `<h1><strong>${post.title}</strong></h1>`
+//             setTimeout(() => {
+//                 div.innerHTML += `<p>${post.body}</p>`
+//             }, 1000)
+//             document.querySelector('body').appendChild(div)
+//         })
+//     }, 1000)
+// }
 
-function createPost(post, callback) {
-    setTimeout(() => {
-        posts.push(post)
-        callback()
-    }, 2000)
-}
+// function createPost(post, callback) {
+//     setTimeout(() => {
+//         posts.push(post)
+//         callback()
+//     }, 2000)
+// }
 
-createPost({ title: "Post Three", body: "This is post Three"}, getPosts)
+// createPost({ title: "Post Three", body: "This is post Three"}, getPosts)
 
 
 
@@ -178,7 +178,7 @@ createPost({ title: "Post Three", body: "This is post Three"}, getPosts)
 
 //! Making HTTP Requests (XHR)
 //* A Create a new Request Object
-const request = new XMLHttpRequest()
+// const request = new XMLHttpRequest()
 
 //* C In the console's network section we can see we got the response. Now show it in the window. But first log the ready states of the request
 // request.addEventListener('readystatechange', () => {
@@ -526,6 +526,56 @@ const request = new XMLHttpRequest()
 // getTodos('./todos/q.json')
 //     .then(data => console.log(data))
 //     .catch(error => console.log(error))
+
+//* Create a function that logs each of those JSON files at random time using independent function call
+// function getData(endpoint) {
+//     const xhr = new XMLHttpRequest()
+
+//     xhr.open('GET', endpoint)
+
+//     xhr.onreadystatechange = function () {
+//         if (this.readyState === 4 & this.status === 200) {
+//             console.log(JSON.parse(this.responseText))
+//         }
+//     }
+
+//     setTimeout(() => {
+//         xhr.send()
+//     }, Math.floor(Math.random() * 3000) + 1000)
+// }
+
+// getData('./todos/a.json')
+// getData('./todos/m.json')
+// getData('./todos/q.json')
+
+//* As we expected, order of apperince is wracked! Use call beck to organize it 
+function getData(endpoint, callback) {
+    const xhr = new XMLHttpRequest()
+
+    xhr.open('GET', endpoint)
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState === 4 & this.status === 200) {
+            callback(JSON.parse(this.responseText))
+        }
+    }
+
+    setTimeout(() => {
+        xhr.send()
+    }, Math.floor(Math.random() * 3000) + 1000)
+}
+
+getData('./todos/a.json', (data) => {
+    console.log(data)
+    getData('./todos/m.json', (data) => {
+        console.log(data)
+        getData('./todos/q.json', (data) => {
+            console.log(data)
+        })
+    })
+})
+// getData()
+// getData()
 
 //! Chaining Promises
 
