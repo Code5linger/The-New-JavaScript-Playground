@@ -2253,16 +2253,44 @@ function explode() {
 // }
 
 //* Create a function that takes in a number & doubles it. Try to pass a string than catch the error
-function double(number) {
-    if (isNaN(number)) {
-        throw new Error(number + ' is not a number')
-    }
-    return number * 2
+// function double(number) {
+//     if (isNaN(number)) {
+//         throw new Error(number + ' is not a number')
+//     }
+//     return number * 2
+// }
+
+// try {
+//     const y = double('1x')
+//     console.log(y)
+// } catch (error) {
+//     console.log(error)
+// }
+
+//* At try catch block, log something anyway
+// function finallyDemo() {
+//     console.log(x)
+// }
+
+// try {
+//     finallyDemo()
+// } catch (error){
+//     console.log(error)
+// } finally {
+//     console.log('It will run anyway!')
+// }
+
+//* Make sure you get an error. At try block, try to log something before & after calling the function
+function finallyDemo() {
+    console.log(x)
 }
 
 try {
-    const y = double('1x')
-    console.log(y)
-} catch (error) {
+    console.log('I forsee an error')
+    finallyDemo()
+    console.log('It will never run!')
+} catch (error){
     console.log(error)
+} finally {
+    console.log('It will run anyway!')
 }
