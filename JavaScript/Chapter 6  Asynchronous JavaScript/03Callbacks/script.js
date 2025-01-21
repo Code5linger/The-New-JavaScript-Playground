@@ -575,7 +575,129 @@
 //     })
 // })
 
-//* Now insted of callbacks use promise to get the same result 
+//* Now insted of callbacks use promise chaining to get the same result
+// function getData(endpoint) {
+//     return new Promise((resolve, reject) => {
+//         const xhr = new XMLHttpRequest()
+
+//         xhr.open('GET', endpoint)
+
+//         xhr.onreadystatechange = function () {
+//             if (this.readyState === 4) {
+//                 if (this.status === 200) {
+//                     resolve(JSON.parse(this.responseText))
+//                 } else {
+//                     reject()
+//                 }
+//             }
+//         }
+
+//         setTimeout(() => {
+//             xhr.send()
+//         }, Math.floor(Math.random() * 3000) + 1000)
+//     })
+// }
+
+// getData('./todos/a.json')
+//     .then((item) => {console.log(item); return getData('./todos/m.json')})
+//     .then((item) => {console.log(item); return getData('./todos/q.json')})
+//     .then((item) => console.log(item))
+
+//* Now insted of promise chaining use put the promise function call into a variable. Use callback with the variable 
+// function getData(endpoint) {
+//     return new Promise((resolve, reject) => {
+//         const xhr = new XMLHttpRequest()
+
+//         xhr.open('GET', endpoint)
+
+//         xhr.onreadystatechange = function () {
+//             if (this.readyState === 4) {
+//                 if (this.status === 200) {
+//                     resolve(JSON.parse(this.responseText))
+//                 } else {
+//                     reject()
+//                 }
+//             }
+//         }
+
+//         setTimeout(() => {
+//             xhr.send()
+//         }, Math.floor(Math.random() * 3000) + 1000)
+//     })
+// }
+
+// const moviePromise = getData('./todos/a.json')
+// const moviePromiseA = getData('./todos/m.json')
+// const moviePromiseB = getData('./todos/q.json')
+
+// moviePromise.then(item => console.log(item))
+// moviePromiseA.then(item => console.log(item))
+// moviePromiseB.then(item => console.log(item))
+
+//* Now insted of promise chaining use put the promise function call into a variables. use Promise.All to get the same result 
+// function getData(endpoint) {
+//     return new Promise((resolve, reject) => {
+//         const xhr = new XMLHttpRequest()
+
+//         xhr.open('GET', endpoint)
+
+//         xhr.onreadystatechange = function () {
+//             if (this.readyState === 4) {
+//                 if (this.status === 200) {
+//                     resolve(JSON.parse(this.responseText))
+//                 } else {
+//                     reject()
+//                 }
+//             }
+//         }
+
+//         setTimeout(() => {
+//             xhr.send()
+//         }, Math.floor(Math.random() * 3000) + 1000)
+//     })
+// }
+
+// const moviePromise = getData('./todos/a.json')
+// const moviePromiseA = getData('./todos/m.json')
+// const moviePromiseB = getData('./todos/q.json')
+
+// Promise.all([moviePromise, moviePromiseA, moviePromiseB])
+//     .then((data) => {
+//         console.log(data)
+//     })
+
+//* Cause an error Than catch it
+// function getData(endpoint) {
+//     return new Promise((resolve, reject) => {
+//         const xhr = new XMLHttpRequest()
+
+//         xhr.open('GET', endpoint)
+
+//         xhr.onreadystatechange = function () {
+//             if (this.readyState === 4) {
+//                 if (this.status === 200) {
+//                     resolve(JSON.parse(this.responseText))
+//                 } else {
+//                     reject('Something went wrong!')
+//                 }
+//             }
+//         }
+
+//         setTimeout(() => {
+//             xhr.send()
+//         }, Math.floor(Math.random() * 3000) + 1000)
+//     })
+// }
+
+// const moviePromise = getData('./todos/aX.json')
+// const moviePromiseA = getData('./todos/m.json')
+// const moviePromiseB = getData('./todos/q.json')
+
+// Promise.all([moviePromise, moviePromiseA, moviePromiseB])
+//     .then((data) => console.log(data))
+//     .catch((error) => console.log(error))
+
+//* Declare a variable with promise, add the variable to the Promise.all
 function getData(endpoint) {
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest()
@@ -587,7 +709,7 @@ function getData(endpoint) {
                 if (this.status === 200) {
                     resolve(JSON.parse(this.responseText))
                 } else {
-                    reject()
+                    reject('Something went wrong!')
                 }
             }
         }
@@ -598,10 +720,17 @@ function getData(endpoint) {
     })
 }
 
-getData('./todos/a.json')
-    .then((item) => {console.log(item); return getData('./todos/m.json')})
-    .then((item) => {console.log(item); return getData('./todos/q.json')})
-    .then((item) => console.log(item))
+const moviePromise = getData('./todos/a.json')
+const moviePromiseA = getData('./todos/m.json')
+const moviePromiseB = getData('./todos/q.json')
+
+const dummyPromise = new Promise((resolve, reject) => {
+    resolve('Hello World!')
+})
+
+Promise.all([moviePromise, moviePromiseA, moviePromiseB, dummyPromise])
+    .then((data) => console.log(data))
+    .catch((error) => console.log(error))
 
 //* Create a promise that log `T_T` than while resolve log `O_o`
 // const promise = new Promise((resolve, reject) => {
