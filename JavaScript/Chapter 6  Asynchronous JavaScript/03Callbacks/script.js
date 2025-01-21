@@ -258,7 +258,7 @@ function explode() {
 //         document.body.style.color = 'white'
 //     } else {
 //         document.body.style.background = 'white'
-//         document.body.style.color = 'black'   
+//         document.body.style.color = 'black'
 //     }
 // }
 
@@ -273,35 +273,35 @@ function explode() {
 // document.getElementById('dark').addEventListener('click', stopChange)
 
 //* Change the background color the a random color
-let intervalID
+// let intervalID
 
-function startChange() {
-    if (!intervalID) {
-        intervalID = setInterval(changeRandomColor, 1000)
-    }
-}
+// function startChange() {
+//     if (!intervalID) {
+//         intervalID = setInterval(changeRandomColor, 1000)
+//     }
+// }
 
-function changeColor() {
-    if (document.body.style.background !== 'black') {
-        document.body.style.background = 'black'
-        document.body.style.color = 'white'
-    } else {
-        document.body.style.background = 'white'
-        document.body.style.color = 'black'   
-    }
-}
+// function changeColor() {
+//     if (document.body.style.background !== 'black') {
+//         document.body.style.background = 'black'
+//         document.body.style.color = 'white'
+//     } else {
+//         document.body.style.background = 'white'
+//         document.body.style.color = 'black'
+//     }
+// }
 
-function changeRandomColor() {
-    const randomColor = Math.floor(Math.random() * 16777215).toString(16)
-    document.body.style.background = `#${randomColor}`
-}
+// function changeRandomColor() {
+//     const randomColor = Math.floor(Math.random() * 16777215).toString(16)
+//     document.body.style.background = `#${randomColor}`
+// }
 
-function stopChange() {
-    clearInterval(intervalID)
-}
+// function stopChange() {
+//     clearInterval(intervalID)
+// }
 
-document.getElementById('light').addEventListener('click', startChange)
-document.getElementById('dark').addEventListener('click', stopChange)
+// document.getElementById('light').addEventListener('click', startChange)
+// document.getElementById('dark').addEventListener('click', stopChange)
 
 
 //! What are HTTP Requests
@@ -1023,7 +1023,7 @@ document.getElementById('dark').addEventListener('click', stopChange)
 
 // console.log('Test')
 
-//* Inside the async function, insted of logging the data, return it. Declare a variable outside the function that stores that data. Log the variable & see the result 
+//* Inside the async function, insted of logging the data, return it. Declare a variable outside the function that stores that data. Log the variable & see the result
 // async function getTodos() {
 //     const res = await fetch('https://jsonplaceholder.typicode.com/todos')
 //     const data = await(res.json())
@@ -1164,6 +1164,52 @@ document.getElementById('dark').addEventListener('click', stopChange)
 // createPost({ title: "Post Three", body: "This is post Three" })
 //     .then(getPosts)
 //     .catch(showError)
+
+//* Create a promise that log an object after 1sec using then
+// const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve({name: 'John', age: '30' })
+//     }, 1000)
+// })
+
+// promise.then(data => console.log(data))
+
+//* Insted of .then, use async await to log the object
+// async function getPromise() {
+//     const response = await promise;
+//     console.log(response)
+// }
+
+// getPromise()
+
+//* Using async await, log all the users from `https://jsonplaceholder.typicode.com/users` as object
+// async function getUser() {
+//     const res = await fetch('https://jsonplaceholder.typicode.com/users')
+//     const data = await res.json()
+
+//     console.log(data)
+// }
+
+// getUser()
+
+//* Now insted of using async await, use .then to log all the users from `https://jsonplaceholder.typicode.com/users` as object
+// function getUsers() {
+//     fetch('https://jsonplaceholder.typicode.com/users')
+//         .then(res => res.json())
+//         .then(data => console.log(data))
+// }
+
+// getUsers()
+
+//* Using async await but with arrow functions, log all the users from `https://jsonplaceholder.typicode.com/users` as object
+const getUser = async() => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/users')
+    const data = await res.json()
+
+    console.log(data)
+}
+
+getUser()
 
 //! Chaining Promises
 
@@ -2196,3 +2242,4 @@ document.getElementById('dark').addEventListener('click', stopChange)
 
 // safeGo()
 
+//* 
