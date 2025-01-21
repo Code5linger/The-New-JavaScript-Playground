@@ -673,48 +673,48 @@
 // createPost({ title: "Post Three", body: "This is post Three"}).then(getPosts)
 
 //* Inside `createPost` create a dummy error. Catch it at callback with an error handler function
-const posts = [
-    { title: "Post One", body: "This is post one"},
-    { title: "Post Two", body: "This is post Two"},
-]
+// const posts = [
+//     { title: "Post One", body: "This is post one"},
+//     { title: "Post Two", body: "This is post Two"},
+// ]
 
-function getPosts() {
-    setTimeout(() => {
-        posts.forEach(function (post) {
-            const div = document.createElement('div')
-            div.innerHTML = `<h1><strong>${post.title}</strong></h1>`
-            setTimeout(() => {
-                div.innerHTML += `<p>${post.body}</p>`
-            }, 1000)
-            document.querySelector('body').appendChild(div)
-        })
-    }, 1000)
-}
+// function getPosts() {
+//     setTimeout(() => {
+//         posts.forEach(function (post) {
+//             const div = document.createElement('div')
+//             div.innerHTML = `<h1><strong>${post.title}</strong></h1>`
+//             setTimeout(() => {
+//                 div.innerHTML += `<p>${post.body}</p>`
+//             }, 1000)
+//             document.querySelector('body').appendChild(div)
+//         })
+//     }, 1000)
+// }
 
-function createPost(post) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            let error = true
+// function createPost(post) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             let error = true
 
-            if (!error) {
-                posts.push(post)
-                resolve()
-            } else {
-                reject('Error!')
-            }
-        }, 2000)
-    })
-}
+//             if (!error) {
+//                 posts.push(post)
+//                 resolve()
+//             } else {
+//                 reject('Error!')
+//             }
+//         }, 2000)
+//     })
+// }
 
-function showError(error) {
-    const h3 = document.createElement('h3')
-    h3.innerHTML = `<strong>${error}</strong>`
-    document.querySelector('body').appendChild(h3)
-}
+// function showError(error) {
+//     const h3 = document.createElement('h3')
+//     h3.innerHTML = `<strong>${error}</strong>`
+//     document.querySelector('body').appendChild(h3)
+// }
 
-createPost({ title: "Post Three", body: "This is post Three" })
-    .then(getPosts)
-    .catch(showError)
+// createPost({ title: "Post Three", body: "This is post Three" })
+//     .then(getPosts)
+//     .catch(showError)
 
 //! Chaining Promises
 
@@ -730,6 +730,109 @@ createPost({ title: "Post Three", body: "This is post Three" })
 // }).catch(error => {
 //     console.log("Promise Rejected", error)
 // })
+
+//* Previously we have declared a variable that stores a promise. At resolved it return an object, on reject it logged a text. In the promise callback reurn user name on 1st chain, use it in 2nd chain
+// const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         let error = false
+
+//         if (!error) {
+//             resolve({ name: 'Sakib', age: 30 })
+//         } else {
+//             reject('Error: Something went wrong')
+//         }
+//     }, 1000)
+// })
+
+// promise
+//     .then((user) => {
+//         console.log(user)
+//         return user.name
+//     })
+//     .then((name) => {
+//         console.log(name)
+//     }) 
+//     .catch(error => console.log(error))
+
+//* In the promise callback add another chain that logs the length of the text
+// const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         let error = false
+
+//         if (!error) {
+//             resolve({ name: 'Sakib', age: 30 })
+//         } else {
+//             reject('Error: Something went wrong')
+//         }
+//     }, 1000)
+// })
+
+// promise
+//     .then((user) => {
+//         console.log(user)
+//         return user.name
+//     })
+//     .then((name) => {
+//         console.log(name)
+//         return name.length
+//     }) 
+//     .then(length => console.log(length))
+//     .catch(error => console.log(error))
+
+//* Now throw an error inside the promise. After cathing the error, add another callback
+// const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         let error = true
+
+//         if (!error) {
+//             resolve({ name: 'Sakib', age: 30 })
+//         } else {
+//             reject('Error: Something went wrong')
+//         }
+//     }, 1000)
+// })
+
+// promise
+//     .then((user) => {
+//         console.log(user)
+//         return user.name
+//     })
+//     .then((name) => {
+//         console.log(name)
+//         return name.length
+//     }) 
+//     .then(length => console.log(length))
+//     .catch(error => console.log(error))
+//     .then(x => console.log('This will run no matter what!'))
+
+//* Pass a data at error catch. Log the data at final callback
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let error = true
+
+        if (!error) {
+            resolve({ name: 'Sakib', age: 30 })
+        } else {
+            reject('Error: Something went wrong')
+        }
+    }, 1000)
+})
+
+promise
+    .then((user) => {
+        console.log(user)
+        return user.name
+    })
+    .then((name) => {
+        console.log(name)
+        return name.length
+    }) 
+    .then(length => console.log(length))
+    .catch(error => {
+        console.log(error)
+        return 69
+    })
+    .then(x => console.log('This will run no matter what!', x))
 
 //! The Fetch API
 
