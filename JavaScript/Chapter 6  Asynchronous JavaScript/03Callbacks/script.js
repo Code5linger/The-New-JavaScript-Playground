@@ -217,17 +217,92 @@ function explode() {
 // }, 5000)
 
 //* Create a function that adds text to the site after 3 sec
-function changeText() {
-    document.querySelector('.posts').textContent = 'Hello from the Other Side!'
-}
+// function changeText() {
+//     document.querySelector('.posts').textContent = 'Hello from the Other Side!'
+// }
 
-const newTextTimer = setTimeout(() => changeText(), 3000)
+// const newTextTimer = setTimeout(() => changeText(), 3000)
 
 //* Add an event listern to a button that prevent adding new text
-document.querySelector('button').addEventListener('click', () => {
-    console.log('No new text for you!')
-    clearTimeout(newTextTimer)
-})
+// document.querySelector('button').addEventListener('click', () => {
+//     console.log('No new text for you!')
+//     clearTimeout(newTextTimer)
+// })
+
+//* Create a function that log current time every second
+// const intervalID = setInterval(myCallback, 1000)
+
+// function myCallback() {
+//     console.log(Date.now())
+// }
+
+//* Create a button that stop the logging when pressed
+// function stopChange() {
+//     clearInterval(intervalID)
+// }
+
+// document.getElementById('dark').addEventListener('click', stopChange)
+
+//* Change the theme to black & black to white every 3 second
+// let intervalID
+
+// function startChange() {
+//     if (!intervalID) {
+//         intervalID = setInterval(changeColor, 3000)
+//     }
+// }
+
+// function changeColor() {
+//     if (document.body.style.background !== 'black') {
+//         document.body.style.background = 'black'
+//         document.body.style.color = 'white'
+//     } else {
+//         document.body.style.background = 'white'
+//         document.body.style.color = 'black'   
+//     }
+// }
+
+// startChange()
+
+//* Create 2 buttons, pressing 1 will start changing the back, 2nd will stop
+// function stopChange() {
+//     clearInterval(intervalID)
+// }
+
+// document.getElementById('light').addEventListener('click', startChange)
+// document.getElementById('dark').addEventListener('click', stopChange)
+
+//* Change the background color the a random color
+let intervalID
+
+function startChange() {
+    if (!intervalID) {
+        intervalID = setInterval(changeRandomColor, 1000)
+    }
+}
+
+function changeColor() {
+    if (document.body.style.background !== 'black') {
+        document.body.style.background = 'black'
+        document.body.style.color = 'white'
+    } else {
+        document.body.style.background = 'white'
+        document.body.style.color = 'black'   
+    }
+}
+
+function changeRandomColor() {
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16)
+    document.body.style.background = `#${randomColor}`
+}
+
+function stopChange() {
+    clearInterval(intervalID)
+}
+
+document.getElementById('light').addEventListener('click', startChange)
+document.getElementById('dark').addEventListener('click', stopChange)
+
 
 //! What are HTTP Requests
 //* Go to `https://jsonplaceholder.typicode.com/` and run the demo script on the site. Than copy the link and visit it
