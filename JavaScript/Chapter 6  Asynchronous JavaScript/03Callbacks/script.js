@@ -575,6 +575,34 @@
 //     })
 // })
 
+//* Now insted of callbacks use promise to get the same result 
+function getData(endpoint) {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest()
+
+        xhr.open('GET', endpoint)
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if (this.status === 200) {
+                    resolve(JSON.parse(this.responseText))
+                } else {
+                    reject()
+                }
+            }
+        }
+
+        setTimeout(() => {
+            xhr.send()
+        }, Math.floor(Math.random() * 3000) + 1000)
+    })
+}
+
+getData('./todos/a.json')
+    .then((item) => {console.log(item); return getData('./todos/m.json')})
+    .then((item) => {console.log(item); return getData('./todos/q.json')})
+    .then((item) => console.log(item))
+
 //* Create a promise that log `T_T` than while resolve log `O_o`
 // const promise = new Promise((resolve, reject) => {
 //     setTimeout(() => {
@@ -806,33 +834,33 @@
 //     .then(x => console.log('This will run no matter what!'))
 
 //* Pass a data at error catch. Log the data at final callback
-const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        let error = true
+// const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         let error = true
 
-        if (!error) {
-            resolve({ name: 'Sakib', age: 30 })
-        } else {
-            reject('Error: Something went wrong')
-        }
-    }, 1000)
-})
+//         if (!error) {
+//             resolve({ name: 'Sakib', age: 30 })
+//         } else {
+//             reject('Error: Something went wrong')
+//         }
+//     }, 1000)
+// })
 
-promise
-    .then((user) => {
-        console.log(user)
-        return user.name
-    })
-    .then((name) => {
-        console.log(name)
-        return name.length
-    }) 
-    .then(length => console.log(length))
-    .catch(error => {
-        console.log(error)
-        return 69
-    })
-    .then(x => console.log('This will run no matter what!', x))
+// promise
+//     .then((user) => {
+//         console.log(user)
+//         return user.name
+//     })
+//     .then((name) => {
+//         console.log(name)
+//         return name.length
+//     }) 
+//     .then(length => console.log(length))
+//     .catch(error => {
+//         console.log(error)
+//         return 69
+//     })
+//     .then(x => console.log('This will run no matter what!', x))
 
 //! The Fetch API
 
