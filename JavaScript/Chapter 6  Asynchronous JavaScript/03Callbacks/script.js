@@ -874,6 +874,38 @@
 //     console.log('O_o')
 // })
 
+//* Log all 200 JSON object from `https://jsonplaceholder.typicode.com/todos` using fetch
+// fetch('https://jsonplaceholder.typicode.com/todos')
+//     .then(response => response.json())
+//     .then(json => console.log(json))
+
+// console.log('Test')
+
+//* Now, Log all 200 JSON object from `https://jsonplaceholder.typicode.com/todos` but using async await
+// async function getTodos() {
+//     const res = await fetch('https://jsonplaceholder.typicode.com/todos')
+//     const data = await(res.json())
+//     console.log(data)
+// }
+
+// getTodos()
+
+// console.log('Test')
+
+//* Inside the async function, insted of logging the data, return it. Declare a variable outside the function that stores that data. Log the variable & see the result 
+async function getTodos() {
+    const res = await fetch('https://jsonplaceholder.typicode.com/todos')
+    const data = await(res.json())
+    // console.log(data)
+
+    return data;
+}
+
+const todos = getTodos()
+console.log(todos)
+
+// getTodos()
+
 //* Log something in the global scope the see that promise is non blocking function
 // console.log('Global Scope')
 
