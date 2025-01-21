@@ -1202,14 +1202,14 @@ function explode() {
 // getUsers()
 
 //* Using async await but with arrow functions, log all the users from `https://jsonplaceholder.typicode.com/users` as object
-const getUser = async() => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/users')
-    const data = await res.json()
+// const getUser = async() => {
+//     const res = await fetch('https://jsonplaceholder.typicode.com/users')
+//     const data = await res.json()
 
-    console.log(data)
-}
+//     console.log(data)
+// }
 
-getUser()
+// getUser()
 
 //! Chaining Promises
 
@@ -1246,7 +1246,7 @@ getUser()
 //     })
 //     .then((name) => {
 //         console.log(name)
-//     }) 
+//     })
 //     .catch(error => console.log(error))
 
 //* In the promise callback add another chain that logs the length of the text
@@ -1270,7 +1270,7 @@ getUser()
 //     .then((name) => {
 //         console.log(name)
 //         return name.length
-//     }) 
+//     })
 //     .then(length => console.log(length))
 //     .catch(error => console.log(error))
 
@@ -1295,7 +1295,7 @@ getUser()
 //     .then((name) => {
 //         console.log(name)
 //         return name.length
-//     }) 
+//     })
 //     .then(length => console.log(length))
 //     .catch(error => console.log(error))
 //     .then(x => console.log('This will run no matter what!'))
@@ -1321,7 +1321,7 @@ getUser()
 //     .then((name) => {
 //         console.log(name)
 //         return name.length
-//     }) 
+//     })
 //     .then(length => console.log(length))
 //     .catch(error => {
 //         console.log(error)
@@ -2131,7 +2131,7 @@ getUser()
 
 // go()
 
-//* Rather than catching the function inside the async function, add it to the function call 
+//* Rather than catching the function inside the async function, add it to the function call
 // function makePizza(toppings = []) {
 //     return new Promise((resolve, reject) => {
 //         if (toppings.includes('melon')) {
@@ -2242,4 +2242,27 @@ getUser()
 
 // safeGo()
 
-//* 
+//* Try to log a variable that is not declared
+// console.log(x)
+
+//* Catch that error
+// try {
+//     console.log(x)
+// } catch(error) {
+//     console.log('Error ' + error)
+// }
+
+//* Create a function that takes in a number & doubles it. Try to pass a string than catch the error
+function double(number) {
+    if (isNaN(number)) {
+        throw new Error(number + ' is not a number')
+    }
+    return number * 2
+}
+
+try {
+    const y = double('1x')
+    console.log(y)
+} catch (error) {
+    console.log(error)
+}
