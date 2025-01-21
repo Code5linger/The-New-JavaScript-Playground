@@ -171,7 +171,50 @@
 
 // createPost({ title: "Post Three", body: "This is post Three"}, getPosts)
 
+//* Declare a function, call it after 3 sec
+function explode() {
+    console.log('🧨💥💥')
+}
 
+// setTimeout(() => explode(), 3000)
+
+//* Call the function every 2 sec
+// setInterval(explode, 2000)
+
+//* Create a function that takes a function & time. It calls the function immediatly than calls it on repeat based on time given
+// function setImmediateInterval(functionToRun, time) {
+//     functionToRun()
+//     return setInterval(functionToRun, time)
+// }
+
+// setImmediateInterval(explode, 2000)
+
+//* Create a function that replace all the content of the webpage after 5 sec 
+function destroy() {
+    document.body.innerHTML = `<p>The Webpage was Destroyed!</p>`
+}
+
+const bombTimer = setTimeout(destroy, 5000)
+
+//* Create a click event that reset the timer 
+window.addEventListener('click', function () {
+    console.log('Website was saved by an unnamed hero!')
+    this.clearTimeout(bombTimer)
+})
+
+//* Create function that log some text every second
+const party = setInterval(() => {
+    console.log('🎊')
+    console.log('🎉')
+}, 1000)
+
+//* Stop logging the text
+// clearInterval(party)
+
+//* That's a bit sudden. Let's wait 5 sec, then stop
+setTimeout(() => {
+    clearInterval(party)
+}, 5000)
 
 //! What are HTTP Requests
 //* Go to `https://jsonplaceholder.typicode.com/` and run the demo script on the site. Than copy the link and visit it
@@ -893,16 +936,15 @@
 // console.log('Test')
 
 //* Inside the async function, insted of logging the data, return it. Declare a variable outside the function that stores that data. Log the variable & see the result 
-async function getTodos() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/todos')
-    const data = await(res.json())
-    // console.log(data)
+// async function getTodos() {
+//     const res = await fetch('https://jsonplaceholder.typicode.com/todos')
+//     const data = await(res.json())
 
-    return data;
-}
+//     return data;
+// }
 
-const todos = getTodos()
-console.log(todos)
+// const todos = getTodos()
+// console.log(todos)
 
 // getTodos()
 
