@@ -189,32 +189,45 @@ function explode() {
 
 // setImmediateInterval(explode, 2000)
 
-//* Create a function that replace all the content of the webpage after 5 sec 
-function destroy() {
-    document.body.innerHTML = `<p>The Webpage was Destroyed!</p>`
-}
+//* Create a function that replace all the content of the webpage after 5 sec
+// function destroy() {
+//     document.body.innerHTML = `<p>The Webpage was Destroyed!</p>`
+// }
 
-const bombTimer = setTimeout(destroy, 5000)
+// const bombTimer = setTimeout(destroy, 5000)
 
-//* Create a click event that reset the timer 
-window.addEventListener('click', function () {
-    console.log('Website was saved by an unnamed hero!')
-    this.clearTimeout(bombTimer)
-})
+//* Create a click event that reset the timer
+// window.addEventListener('click', function () {
+//     console.log('Website was saved by an unnamed hero!')
+//     this.clearTimeout(bombTimer)
+// })
 
 //* Create function that log some text every second
-const party = setInterval(() => {
-    console.log('🎊')
-    console.log('🎉')
-}, 1000)
+// const party = setInterval(() => {
+//     console.log('🎊')
+//     console.log('🎉')
+// }, 1000)
 
 //* Stop logging the text
 // clearInterval(party)
 
 //* That's a bit sudden. Let's wait 5 sec, then stop
-setTimeout(() => {
-    clearInterval(party)
-}, 5000)
+// setTimeout(() => {
+//     clearInterval(party)
+// }, 5000)
+
+//* Create a function that adds text to the site after 3 sec
+function changeText() {
+    document.querySelector('.posts').textContent = 'Hello from the Other Side!'
+}
+
+const newTextTimer = setTimeout(() => changeText(), 3000)
+
+//* Add an event listern to a button that prevent adding new text
+document.querySelector('button').addEventListener('click', () => {
+    console.log('No new text for you!')
+    clearTimeout(newTextTimer)
+})
 
 //! What are HTTP Requests
 //* Go to `https://jsonplaceholder.typicode.com/` and run the demo script on the site. Than copy the link and visit it
