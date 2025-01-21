@@ -603,7 +603,7 @@
 //     .then((item) => {console.log(item); return getData('./todos/q.json')})
 //     .then((item) => console.log(item))
 
-//* Now insted of promise chaining use put the promise function call into a variable. Use callback with the variable 
+//* Now insted of promise chaining use put the promise function call into a variable. Use callback with the variable
 // function getData(endpoint) {
 //     return new Promise((resolve, reject) => {
 //         const xhr = new XMLHttpRequest()
@@ -634,7 +634,7 @@
 // moviePromiseA.then(item => console.log(item))
 // moviePromiseB.then(item => console.log(item))
 
-//* Now insted of promise chaining use put the promise function call into a variables. use Promise.All to get the same result 
+//* Now insted of promise chaining use put the promise function call into a variables. use Promise.All to get the same result
 // function getData(endpoint) {
 //     return new Promise((resolve, reject) => {
 //         const xhr = new XMLHttpRequest()
@@ -698,39 +698,169 @@
 //     .catch((error) => console.log(error))
 
 //* Declare a variable with promise, add the variable to the Promise.all
-function getData(endpoint) {
-    return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest()
+// function getData(endpoint) {
+//     return new Promise((resolve, reject) => {
+//         const xhr = new XMLHttpRequest()
 
-        xhr.open('GET', endpoint)
+//         xhr.open('GET', endpoint)
 
-        xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if (this.status === 200) {
-                    resolve(JSON.parse(this.responseText))
-                } else {
-                    reject('Something went wrong!')
-                }
-            }
-        }
+//         xhr.onreadystatechange = function () {
+//             if (this.readyState === 4) {
+//                 if (this.status === 200) {
+//                     resolve(JSON.parse(this.responseText))
+//                 } else {
+//                     reject('Something went wrong!')
+//                 }
+//             }
+//         }
 
-        setTimeout(() => {
-            xhr.send()
-        }, Math.floor(Math.random() * 3000) + 1000)
-    })
-}
+//         setTimeout(() => {
+//             xhr.send()
+//         }, Math.floor(Math.random() * 3000) + 1000)
+//     })
+// }
 
-const moviePromise = getData('./todos/a.json')
-const moviePromiseA = getData('./todos/m.json')
-const moviePromiseB = getData('./todos/q.json')
+// const moviePromise = getData('./todos/a.json')
+// const moviePromiseA = getData('./todos/m.json')
+// const moviePromiseB = getData('./todos/q.json')
 
-const dummyPromise = new Promise((resolve, reject) => {
-    resolve('Hello World!')
-})
+// const dummyPromise = new Promise((resolve, reject) => {
+//     resolve('Hello World!')
+// })
 
-Promise.all([moviePromise, moviePromiseA, moviePromiseB, dummyPromise])
-    .then((data) => console.log(data))
-    .catch((error) => console.log(error))
+// Promise.all([moviePromise, moviePromiseA, moviePromiseB, dummyPromise])
+//     .then((data) => console.log(data))
+//     .catch((error) => console.log(error))
+
+//* Insted of Promise.all use async await
+// function getData(endpoint) {
+//     return new Promise((resolve, reject) => {
+//         const xhr = new XMLHttpRequest()
+
+//         xhr.open('GET', endpoint)
+
+//         xhr.onreadystatechange = function () {
+//             if (this.readyState === 4) {
+//                 if (this.status === 200) {
+//                     resolve(JSON.parse(this.responseText))
+//                 } else {
+//                     reject('Something went wrong!')
+//                 }
+//             }
+//         }
+
+//         setTimeout(() => {
+//             xhr.send()
+//         }, Math.floor(Math.random() * 3000) + 1000)
+//     })
+// }
+
+// const moviePromise = getData('./todos/a.json')
+// const moviePromiseA = getData('./todos/m.json')
+// const moviePromiseB = getData('./todos/q.json')
+
+// const dummyPromise = new Promise((resolve, reject) => {
+//     resolve('Hello World!')
+// })
+
+// async function getAllData() {
+//     const A = await getData('./todos/a.json')
+//     console.log(A)
+//     const M = await getData('./todos/m.json')
+//     console.log(M)
+//     const Q = await getData('./todos/q.json')
+//     console.log(Q)
+// }
+
+// getAllData()
+
+//* Inside async await function, add a non async await console log to see how it works
+// function getData(endpoint) {
+//     return new Promise((resolve, reject) => {
+//         const xhr = new XMLHttpRequest()
+
+//         xhr.open('GET', endpoint)
+
+//         xhr.onreadystatechange = function () {
+//             if (this.readyState === 4) {
+//                 if (this.status === 200) {
+//                     resolve(JSON.parse(this.responseText))
+//                 } else {
+//                     reject('Something went wrong!')
+//                 }
+//             }
+//         }
+
+//         setTimeout(() => {
+//             xhr.send()
+//         }, Math.floor(Math.random() * 3000) + 1000)
+//     })
+// }
+
+// const moviePromise = getData('./todos/a.json')
+// const moviePromiseA = getData('./todos/m.json')
+// const moviePromiseB = getData('./todos/q.json')
+
+// const dummyPromise = new Promise((resolve, reject) => {
+//     resolve('Hello World!')
+// })
+
+// async function getAllData() {
+//     const A = await getData('./todos/a.json')
+//     console.log(A)
+//     const M = await getData('./todos/m.json')
+//     console.log(M)
+//     const Q = await getData('./todos/q.json')
+//     console.log(Q)
+
+//     console.log(123)
+// }
+
+// getAllData()
+
+//* Log all the JSON files using fetch
+// async function getAllDataWithFetch() {
+//     const dataRes = await fetch('./todos/a.json')
+//     const data = await dataRes.json()
+
+//     const dataResA = await fetch('./todos/m.json')
+//     const dataA = await dataResA.json()
+
+//     const dataResB = await fetch('./todos/q.json')
+//     const dataB = await dataResB.json()
+
+//     console.log(data, dataA, dataB)
+// }
+
+// getAllDataWithFetch()
+
+//* Log all the JSON files using Promise.All
+// async function getAllDataWithPromiseAll() {
+//     const [dataRes, dataResA, dataResB] = await Promise.all([
+//         fetch('./todos/a.json'),
+//         fetch('./todos/m.json'),
+//         fetch('./todos/q.json'),
+//     ])
+//     const data = await dataRes.json()
+//     const dataA = await dataResA.json()
+//     const dataB = await dataResB.json()
+
+//     console.log(data, dataA, dataB)
+// }
+
+// getAllDataWithPromiseAll()
+
+//* Insted of creating variable to convert the response to json, put it inside the fetch using then
+// async function getAllDataWithPromiseAll() {
+//     const [dataRes, dataResA, dataResB] = await Promise.all([
+//         fetch('./todos/a.json').then(res => res.json()),
+//         fetch('./todos/m.json').then(res => res.json()),
+//         fetch('./todos/q.json').then(res => res.json()),
+//     ])
+//     console.log(dataRes, dataResA, dataResB)
+// }
+
+// getAllDataWithPromiseAll()
 
 //* Create a promise that log `T_T` than while resolve log `O_o`
 // const promise = new Promise((resolve, reject) => {
