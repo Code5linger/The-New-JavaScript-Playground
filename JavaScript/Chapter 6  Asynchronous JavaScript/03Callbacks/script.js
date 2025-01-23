@@ -2281,16 +2281,46 @@ function explode() {
 // }
 
 //* Make sure you get an error. At try block, try to log something before & after calling the function
-function finallyDemo() {
-    console.log(x)
+// function finallyDemo() {
+//     console.log(x)
+// }
+
+// try {
+//     console.log('I forsee an error')
+//     finallyDemo()
+//     console.log('It will never run!')
+// } catch (error){
+//     console.log(error)
+// } finally {
+//     console.log('It will run anyway!')
+// }
+
+//* After catching an errorn, Insted of logging just a string log an object. ex: Custom Error: Division failed because x is not defined - Error Type: CustomError
+function throwError() {
+    try {
+        failedDivision()
+    } catch (error) {
+        console.log(error.message + " - Error Type: " + error.name)
+    }
 }
 
-try {
-    console.log('I forsee an error')
-    finallyDemo()
-    console.log('It will never run!')
-} catch (error){
-    console.log(error)
-} finally {
-    console.log('It will run anyway!')
+function failedDivision() {
+    let result
+
+    try {
+        // Intentionally using an undefined variable to trigger an error
+        result = x / 10;
+    } catch (error) {
+        // Throw a custom error object
+        throw {
+            message: "Custom Error: Division failed because " + error.message,
+            name: "CustomError"
+        };
+    }
 }
+
+throwError();
+
+
+// Call throwError to demonstrate the process
+
