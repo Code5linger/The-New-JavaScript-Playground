@@ -2321,6 +2321,94 @@ function failedDivision() {
 
 throwError();
 
+//* Create switch cases for the following cases : Reference Error, Range Error, Type Error, URI Error, Syntax Error, Evaluation Error & default. 
 
-// Call throwError to demonstrate the process
+function handleError(error) {
+    switch (error.name) {
+        case 'ReferenceError':
+            console.log("Reference Error " + error.message);
+            break;
+        case 'RangeError':
+            console.log("Range Error " + error.message);
+            break;
+        case 'TypeError':
+            console.log("Type Error " + error.message);
+            break;
+        case 'URIError':
+            console.log("URI Error " + error.message);
+            break;
+        case 'SyntaxError':
+            console.log("Syntax Error " + error.message);
+            break;
+        case 'EvalError':
+            console.log("Evaluation Error " + error.message);
+            break;
+        default:
+            console.log("Error Type: " + error.name + " - Message: " + error.message);
+            break
+    }
+}
 
+//* Write Test cases for handleError(error) & log them
+function testHandleError() {
+    // Case 1: ReferenceError
+    try {
+        nonExistentFunction();
+    } catch (error) {
+        handleError(error); // Expected output: "Reference Error <message>"
+    }
+
+    // Case 2: RangeError
+    try {
+        new Array(-1); // Invalid array length
+    } catch (error) {
+        handleError(error); // Expected output: "Range Error <message>"
+    }
+
+    // Case 3: TypeError
+    try {
+        null.someFunction(); // Attempting to call a method on null
+    } catch (error) {
+        handleError(error); // Expected output: "Type Error <message>"
+    }
+
+    // Case 4: URIError
+    try {
+        decodeURIComponent('%'); // Invalid URI component
+    } catch (error) {
+        handleError(error); // Expected output: "URI Error <message>"
+    }
+
+    // Case 5: SyntaxError
+    try {
+        eval('invalid code'); // Syntax error in eval
+    } catch (error) {
+        handleError(error); // Expected output: "Syntax Error <message>"
+    }
+
+    // Case 6: EvalError
+    try {
+        throw new EvalError("Evaluation failed"); // Manually throwing an EvalError
+    } catch (error) {
+        handleError(error); // Expected output: "Evaluation Error <message>"
+    }
+
+    // Case 7: Custom Error
+    try {
+        throw {
+            name: "CustomError",
+            message: "This is a custom error message"
+        };
+    } catch (error) {
+        handleError(error); // Expected output: "Error Type: CustomError - Message: This is a custom error message"
+    }
+
+    // Case 8: Generic Error
+    try {
+        throw new Error("This is a generic error");
+    } catch (error) {
+        handleError(error); // Expected output: "Error Type: Error - Message: This is a generic error"
+    }
+}
+
+testHandleError();
