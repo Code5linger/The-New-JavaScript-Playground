@@ -2413,14 +2413,29 @@ function testHandleError() {
 
 // testHandleError();
 
+//! AJAX
+
 //* Send a request to 'https://api.github.com/users/code5linger' & log the data using XMLHttpRequest
-const githubAPI = new XMLHttpRequest()
+// const githubAPI = new XMLHttpRequest()
 
-githubAPI.addEventListener('readystatechange', (response) => {
-    if (response.target.status === 200) {
-        console.log(response.target.response);
-    }
-})
+// githubAPI.addEventListener('readystatechange', (response) => {
+//     if (response.target.status === 200) {
+//         console.log(response.target.response);
+//     }
+// })
 
-githubAPI.open('GET', 'https://api.github.com/users/code5linger')
-githubAPI.send()
+// githubAPI.open('GET', 'https://api.github.com/users/code5linger')
+// githubAPI.send()
+
+//* Fetch data from 'https://api.github.com/users/code5linger' & log the data as object using fetch
+// fetch('https://api.github.com/users/code5linger')
+//     .then((response) => { return response.json() })
+//     .then((data) => console.log(data))
+
+//* Inside the fetch function log the current status 
+fetch('https://api.github.com/users/code5linger')
+    .then((response) => {
+        console.log(response.status);
+        return response.json()
+    })
+    .then((data) => console.log(data))
