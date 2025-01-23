@@ -2319,7 +2319,7 @@ function failedDivision() {
     }
 }
 
-throwError();
+// throwError();
 
 //* Create switch cases for the following cases : Reference Error, Range Error, Type Error, URI Error, Syntax Error, Evaluation Error & default. 
 
@@ -2411,4 +2411,16 @@ function testHandleError() {
     }
 }
 
-testHandleError();
+// testHandleError();
+
+//* Send a request to 'https://api.github.com/users/code5linger' & log the data using XMLHttpRequest
+const githubAPI = new XMLHttpRequest()
+
+githubAPI.addEventListener('readystatechange', (response) => {
+    if (response.target.status === 200) {
+        console.log(response.target.response);
+    }
+})
+
+githubAPI.open('GET', 'https://api.github.com/users/code5linger')
+githubAPI.send()
