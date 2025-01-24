@@ -2432,10 +2432,35 @@ function testHandleError() {
 //     .then((response) => { return response.json() })
 //     .then((data) => console.log(data))
 
-//* Inside the fetch function log the current status 
-fetch('https://api.github.com/users/code5linger')
-    .then((response) => {
-        console.log(response.status);
-        return response.json()
-    })
-    .then((data) => console.log(data))
+//* Inside the fetch function log the current status
+// fetch('https://api.github.com/users/code5linger')
+//     .then((response) => {
+//         console.log(response.status);
+//         return response.json()
+//     })
+//     .then((data) => console.log(data))
+
+//* Create a json file that has 10 objects, each objects has a name & inoffice stats. Add all those name in the page as ul li. Give each li red or green bg based on there inoffice stats  
+const xhr = new XMLHttpRequest()
+
+xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+        let employees = JSON.parse(xhr.responseText)
+        let statusHTML = `<ul class='bulleted'>`
+
+        for (let i = 0; i < employees.length; i += 1) {
+            if (employees[i].inoffice === true) {
+                statusHTML += '<li class="in">'
+            } else {
+                statusHTML += '<li class="out">'
+            }
+            statusHTML += employees[i].name;
+            statusHTML += '</li>'
+        }
+        statusHTML += '</ul>'
+        document.getElementById('empList').innerHTML = statusHTML
+    }
+}
+
+xhr.open('GET', 'employees.json')
+xhr.send()

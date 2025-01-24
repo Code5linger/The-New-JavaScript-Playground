@@ -44,3 +44,16 @@ button {
     opacity: 0;
     transition: all .5s ease-in-out;
 }
+
+.out {
+    padding: .5rem;
+    margin: .25rem;
+    background: crimson;
+
+}
+
+.in {
+    background: #228B22;
+    padding: .5rem;
+    margin: .25rem;
+}

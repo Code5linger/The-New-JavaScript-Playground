@@ -1,0 +1,39 @@
+[
+    {
+        "name": "Aimee" ,
+        "inoffice": false
+    },
+    {
+        "name": "Andrew" ,
+        "inoffice": true
+    },
+    {
+        "name": "Ben",
+        "inoffice": true
+    },
+    {
+        "name": "Aimee" ,
+        "inoffice": false
+    },
+    {
+        "name": "Andrew" ,
+        "inoffice": true
+    },
+    {
+        "name": "Ben",
+        "inoffice": true
+    },
+    {
+        "name": "Aimee" ,
+        "inoffice": false
+    },
+    {
+        "name": "Andrew" ,
+        "inoffice": true
+    },
+    {
+        "name": "Ben",
+        "inoffice": true
+    }
+
+]
