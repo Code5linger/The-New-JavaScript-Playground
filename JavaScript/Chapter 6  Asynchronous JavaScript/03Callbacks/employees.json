@@ -1,37 +1,46 @@
 [
-    {
+    {   
+        "room": 101,
         "name": "Aimee" ,
         "inoffice": false
     },
-    {
+    {   
+        "room": 102,
         "name": "Andrew" ,
         "inoffice": true
     },
-    {
+    {   
+        "room": 103,
         "name": "Ben",
         "inoffice": true
     },
-    {
+    {   
+        "room": 104,
         "name": "Aimee" ,
         "inoffice": false
     },
-    {
+    {   
+        "room": 105,
         "name": "Andrew" ,
         "inoffice": true
     },
-    {
+    {   
+        "room": 106,
         "name": "Ben",
         "inoffice": true
     },
-    {
+    {   
+        "room": 107,
         "name": "Aimee" ,
         "inoffice": false
     },
-    {
+    {   
+        "room": 108,
         "name": "Andrew" ,
         "inoffice": true
     },
-    {
+    {   
+        "room": 109,
         "name": "Ben",
         "inoffice": true
     }

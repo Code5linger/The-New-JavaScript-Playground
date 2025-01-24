@@ -2440,27 +2440,52 @@ function testHandleError() {
 //     })
 //     .then((data) => console.log(data))
 
-//* Create a json file that has 10 objects, each objects has a name & inoffice stats. Add all those name in the page as ul li. Give each li red or green bg based on there inoffice stats  
-const xhr = new XMLHttpRequest()
+//* Create a json file that has 10 objects, each objects has a name & inoffice stats. Add all those name in the page as ul li. Give each li red or green bg based on there inoffice stats
+// const xhr = new XMLHttpRequest()
 
-xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4) {
-        let employees = JSON.parse(xhr.responseText)
-        let statusHTML = `<ul class='bulleted'>`
+// xhr.onreadystatechange = () => {
+//     if (xhr.readyState === 4) {
+//         let employees = JSON.parse(xhr.responseText)
+//         let statusHTML = `<ul class='bulleted'>`
 
-        for (let i = 0; i < employees.length; i += 1) {
-            if (employees[i].inoffice === true) {
-                statusHTML += '<li class="in">'
-            } else {
-                statusHTML += '<li class="out">'
-            }
-            statusHTML += employees[i].name;
-            statusHTML += '</li>'
-        }
-        statusHTML += '</ul>'
-        document.getElementById('empList').innerHTML = statusHTML
-    }
-}
+//         for (let i = 0; i < employees.length; i += 1) {
+//             if (employees[i].inoffice === true) {
+//                 statusHTML += '<li class="in">'
+//             } else {
+//                 statusHTML += '<li class="out">'
+//             }
+//             statusHTML += employees[i].name;
+//             statusHTML += '</li>'
+//         }
+//         statusHTML += '</ul>'
+//         document.getElementById('empList').innerHTML = statusHTML
+//     }
+// }
 
-xhr.open('GET', 'employees.json')
-xhr.send()
+// xhr.open('GET', 'employees.json')
+// xhr.send()
+
+//* Add 'room' item to each objcts with random numbers. Than log them
+// const roomRequest = new XMLHttpRequest()
+
+// roomRequest.onreadystatechange = () => {
+//     if (roomRequest.readyState === 4) {
+//         let room = JSON.parse(roomRequest.responseText)
+//         let statusHTML = `<ul class='rooms'>`
+
+//         for (let i = 0; i < room.length; i += 1) {
+//             if (room[i].inoffice === true) {
+//                 statusHTML += '<li class="in">'
+//             } else {
+//                 statusHTML += '<li class="out">'
+//             }
+//             statusHTML += room[i].room;
+//             statusHTML += '</li>'
+//         }
+//         statusHTML += '</ul>'
+//         document.getElementById('empList').innerHTML = statusHTML
+//     }
+// }
+
+// roomRequest.open('GET', 'employees.json')
+// roomRequest.send()
