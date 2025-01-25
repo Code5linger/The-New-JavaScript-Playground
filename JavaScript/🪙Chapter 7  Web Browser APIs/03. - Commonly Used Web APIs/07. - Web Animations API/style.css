@@ -1,0 +1,21 @@
+section {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border: none;
+    color: white;
+    background: #8d8d8d;
+
+    transition: background .5s ease-out;
+}
+
+button:hover {
+    background: #000000;
+    transition: all .5s ease-out;
+}
