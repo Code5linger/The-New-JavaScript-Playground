@@ -1,0 +1,12 @@
+body {
+    background: rgb(54, 54, 54);
+}
+
+svg {
+    /* background: white; */
+    border: 1px solid white;
+}
+
+rect {
+    background: white;
+}
