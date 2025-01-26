@@ -7,7 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="localStorage">
+        <p>
+            <button onclick="setLocalStorage('username', 'Alpha')">Set Username to localStorage</button>
+        </p>
+        <p>
+            <button onclick="getLocalStorage('username')">Get Username from localStorage</button>
+        </p>
+        <p>
+            <button onclick="removeLocalStorage('username')">removeLocalStorage</button>
+        </p>
+        <p>
+            <button onclick="clearLocalStorage()">clearLocalStorage</button>
+        </p>
+    </div>
+
+    <div class="sessionStorage">
+
+            <button onclick="setSessionStorage('username', 'Omega')">Set Username to localStorage</button>
+            <button onclick="getSessionStorage('username')">Get Username from localStorage</button>
+            <button onclick="removeLocalStorage('username')">Remove Username from localStorage</button>
+            <button onclick="clearLocalStorage()">Remove Username from localStorage</button>
+    </div>
     <!-- JS -->
      <script src="./script.js"></script>
 </body>
