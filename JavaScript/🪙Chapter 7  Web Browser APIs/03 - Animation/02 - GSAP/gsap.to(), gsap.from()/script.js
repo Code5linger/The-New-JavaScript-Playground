@@ -13,8 +13,8 @@ gsap.from('h1', {
 })
 
 gsap.to(progress, {
-    height: '100%',
+    height: '100vh',
     top: 0,
     delay: 2,
-    background: 'white'
+    background: '#2864ff'
 })

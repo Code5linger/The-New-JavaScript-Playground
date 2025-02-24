@@ -6,19 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
-    <h1>BORING</h1>
-    <div class="progress">
-
+    <div class="container">
+        <p>luxury</p>
     </div>
-    <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-    <script src="./script.js">
 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        const container = document.querySelector('.container')
+
+        let tween = gsap.to(container, {
+            borderRadius: '2%',
+            width: '20vw',
+            height: '28vw',
+            paused: true
+        })
+
+        let tweenText = gsap.to('p', {
+            fontSize: 'clamp(5rem, 5vw, 10rem)',
+            x: 0,
+            paused: true
+        })
+
+        container.addEventListener('mouseenter', () => {
+            tween.play()
+            tweenText.play()
+        })
+
+        container.addEventListener('mouseleave', () => {
+            tween.reverse()
+            tweenText.reverse()
+        })
     </script>
 </body>
 
 </html>
+
+<!-- .container {
+border-radius: 50%;
+background: #ce5700;
+width: 16vw;
+height: 16vw;
+
+display: grid;
+place-content: center;
+cursor: pointer;
+}
+
+/* .container {
+border-radius: 2%;
+width: 20vw;
+height: 28vw;
+} */ -->

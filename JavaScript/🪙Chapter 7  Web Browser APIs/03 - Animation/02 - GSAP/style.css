@@ -1,22 +1,30 @@
 body {
     margin: 0;
     height: 100vh;
-    background: #2864ff;
-    color: white;
+    background: #f0f0ce;
+    color: #f0f6ce;
+    display: grid;
+    place-content: center;
 }
 
-h1 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 30rem;
-    text-align: center;
-    opacity: 0.1;
-    margin: 18% 0 0 0;
+.container {
+    border-radius: 50%;
+    background: #ce5700;
+    width: 16vw;
+    height: 16vw;
+
+    display: grid;
+    place-content: center;
+    cursor: pointer;
 }
 
-.progress {
-    background: #A1BCFF;
-    height: 3px;
-    width: 0%;
-    position: absolute;
-    top: 50%;
+/* .container {
+    border-radius: 2%;
+    width: 20vw;
+    height: 28vw;
+} */
+
+p {
+    font-size: clamp(10rem, 5vw, 17rem);
+    transform: translateX(30%);
 }
