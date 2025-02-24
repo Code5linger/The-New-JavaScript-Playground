@@ -1,0 +1,44 @@
+body {
+    margin: 0 auto;
+}
+
+section {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+button {
+    background: black;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+nav {
+    min-height: 10vh;
+    background: black;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all .5s ease-out;
+}
+
+.navSlide {
+    transform: translateY(-100%);
+    /* opacity: 0; */
+}
+
+
+p {
+    opacity: 1;
+    transition: opacity .5s ease-out 0.5s;
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 0s ease-out -0.5s;
+}
