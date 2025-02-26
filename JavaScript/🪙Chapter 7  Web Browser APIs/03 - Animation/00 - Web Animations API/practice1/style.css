@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background: plum;
+}
+
+.container {
+    background: purple;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: .5rem .75rem;
+    background: black;
+    color: white;
+}
+
+.navbar {
+    background: crimson;
+    text-align: center;
+    padding: 1.5rem 0;
+    transition: all .5s ease-out .5s;
+}
+
+.hidden {
+    transform: translateY(-100%);
+}
+
+h1 {
+    transition: all .5s ease-out 1s;
+    opacity: 1;
+}
+
+.fade {
+    opacity: 0;
+}
