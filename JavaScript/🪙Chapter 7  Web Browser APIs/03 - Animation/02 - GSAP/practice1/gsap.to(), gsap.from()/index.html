@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <h1>Boring</h1>
+    </section>
+    <div class="progress"></div>
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        const progress = document.querySelector('.progress')
+        gsap.to(progress, {
+            width: "100%",
+            duration: 2,
+            ease: 'power1.inOut'
+        })
+
+        gsap.from("h1", {
+            y: -200,
+            duration: 2,
+            ease: 'elastic.out(1, 0.3)'
+        })
+
+        gsap.to(progress, {
+            height: '100%',
+            background: 'royalblue',
+            top: 0,
+            delay: 2,
+            // ease: 'power1.inOut',
+        })
+
+        gsap.to("body", {
+            background: 'white',
+            delay: 2,
+        })
+    </script>
+</body>
+
+</html>

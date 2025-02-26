@@ -1,0 +1,30 @@
+body {
+    background: royalblue;
+    margin: 0;
+
+}
+
+h1 {
+    font-size: 20rem;
+    text-align: center;
+    color: white;
+    opacity: .1;
+    /* line-height: 0; */
+}
+
+section {
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.progress {
+    position: absolute;
+    height: 3px;
+    background: white;
+    width: 00%;
+    top: 50%;
+}
