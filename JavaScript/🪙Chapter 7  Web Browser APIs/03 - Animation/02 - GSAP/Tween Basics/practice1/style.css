@@ -1,0 +1,32 @@
+body {
+    background: beige;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    color: beige;
+    font-size: clamp(10rem, 5rem, 10rem);
+    background: #cf5601;
+    height: 20vh;
+    width: 20vh;
+    border-radius: 50%;
+    font-weight: 100;
+
+    transition: all 1s ease-in-out;
+}
+
+.hover {
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 30vh;
+    border-radius: 5%;
+    font-size: clamp(6rem, 5rem, 10rem);
+    text-align: center;
+    transition: all 1s ease-in-out;
+}
