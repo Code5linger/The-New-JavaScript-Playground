@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="container">
+        <h1>luxury</h1>
+    </section>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        const container = document.querySelector(".container")
+
+        let tween = gsap.to(".container", {
+            borderRadius: "2%",
+            width: "20vw",
+            height: "28vw",
+            paused: true
+        })
+
+        let text = gsap.to("h1", {
+            fontSize: 'clamp(4rem, 5vw, 10rem)',
+            x: 0,
+            paused: true
+        })
+
+        container.addEventListener('mouseenter', () => {
+            tween.play()
+            text.play()
+        })
+
+        container.addEventListener('mouseleave', () => {
+            tween.reverse()
+            text.reverse()
+        })
+
+    </script>
+</body>
+
+</html>
