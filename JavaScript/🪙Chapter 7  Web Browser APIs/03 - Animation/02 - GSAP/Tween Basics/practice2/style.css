@@ -1,0 +1,24 @@
+body {
+    background: burlywood;
+    color: burlywood;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    place-content: center;
+
+    background: maroon;
+    height: 20vw;
+    width: 20vw;
+    border-radius: 50%;
+}
+
+h1 {
+    display: grid;
+    place-content: center;
+    font-size: clamp(8.8rem, 5vh, 17rem);
+    transform: translateX(30%);
+}
