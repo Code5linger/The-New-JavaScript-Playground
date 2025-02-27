@@ -20,9 +20,12 @@
     <h1>Welcome to the Sandbox</h1>
     <p>Let's play with Greensock</p>
 
+    <button class="btn">VALIDATE</button>
+
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-    <script>
+    <!-- gsap.to() -->
+    <!-- <script>
         gsap.to('.cat', {
             x: 380,
             y: 0,
@@ -37,6 +40,18 @@
             background: 'red',
             rotate: "360deg",
             duration: 3,
+        })
+    </script> -->
+    <!-- gsap.from() -->
+    <script>
+        document.querySelector('.btn').addEventListener("click", () => {
+            gsap.from(".fuji", {
+                x: -380,
+                // opacity: 0,
+                autoAlpha: 0,
+                duration: 2,
+                scale: .5,
+            })
         })
     </script>
 </body>

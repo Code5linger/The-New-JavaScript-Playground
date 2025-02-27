@@ -16,3 +16,8 @@ img {
     flex-shrink: 1;
     margin: 20px;
 }
+
+.fuji {
+    /* opacity: 1; */
+    visibility: hidden;
+}
