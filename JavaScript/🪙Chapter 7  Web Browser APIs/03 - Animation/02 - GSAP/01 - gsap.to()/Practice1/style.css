@@ -1,0 +1,23 @@
+body {
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 50px 0;
+}
+
+img {
+    width: 30%;
+    height: auto;
+    flex-shrink: 1;
+    margin: 20px;
+}
+
+.fuji {
+    visibility: hidden;
+}
