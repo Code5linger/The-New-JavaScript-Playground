@@ -155,8 +155,18 @@
         //     gsap.effects.testAnnimation('.iceCream', { duration: 1 })
         // })
 
-        gsap.set('.cat', { opacity: 0 })
+        // gsap.set('.cat', { opacity: 0 })
+        const tween = gsap.to('.cat', { y: 200, duration: 5, paused: true })
 
+
+        setTimeout(() => {
+            tween.resume()
+        }, 2000)
+
+        // tween.kill()
+
+        // tween.delay(1)
+        // tween.duration(5)
     </script>
 </body>
 
