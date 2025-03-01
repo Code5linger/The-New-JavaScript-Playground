@@ -43,7 +43,7 @@
         })
     </script> -->
     <!-- gsap.from() -->
-    <script>
+    <!-- <script>
         document.querySelector('.btn').addEventListener("click", () => {
             gsap.fromTo(".fuji", {
                 autoAlpha: 0,
@@ -56,7 +56,7 @@
                 scale: 1,
             })
         })
-    </script>
+    </script> -->
     <!-- gsap.fromTo() -->
     <!-- <script>
         document.querySelector('.btn').addEventListener("click", () => {
@@ -69,6 +69,20 @@
             })
         })
     </script> -->
+
+    <script>
+        addEventListener('load', () => {
+            gsap.from(".cat", {
+                autoAlpha: 0,
+                y: -100,
+                rotation: 90,
+                duration: 2,
+                ease: "steps(12)",
+            })
+        })
+
+
+    </script>
 </body>
 
 </html>
