@@ -19,5 +19,22 @@ img {
 
 .fuji {
     /* opacity: 1; */
-    visibility: hidden;
+    /* visibility: hidden; */
+}
+
+.btns {
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 1rem;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
 }
