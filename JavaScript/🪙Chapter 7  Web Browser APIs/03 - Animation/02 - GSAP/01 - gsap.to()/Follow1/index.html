@@ -134,28 +134,28 @@
         //     })
         // })
 
-        gsap.registerEffect({
-            name: "testAnnimation",
-            effect: (targets, config) => {
-                return gsap.to(targets, {
-                    duration: config.duration,
-                    y: 200,
-                    scale: 1.4,
-                    rotation: 360
-                })
-            },
-            defaults: {
-                duration: 2
-            }
-        })
+        // gsap.registerEffect({
+        //     name: "testAnnimation",
+        //     effect: (targets, config) => {
+        //         return gsap.to(targets, {
+        //             duration: config.duration,
+        //             y: 200,
+        //             scale: 1.4,
+        //             rotation: 360
+        //         })
+        //     },
+        //     defaults: {
+        //         duration: 2
+        //     }
+        // })
 
-        addEventListener("load", () => {
-            gsap.effects.testAnnimation('.cat', { duration: 5 })
-            gsap.effects.testAnnimation('.fuji', { duration: 3 })
-            gsap.effects.testAnnimation('.iceCream', { duration: 1 })
-        })
+        // addEventListener("load", () => {
+        //     gsap.effects.testAnnimation('.cat', { duration: 5 })
+        //     gsap.effects.testAnnimation('.fuji', { duration: 3 })
+        //     gsap.effects.testAnnimation('.iceCream', { duration: 1 })
+        // })
 
-
+        gsap.set('.cat', { opacity: 0 })
 
     </script>
 </body>
