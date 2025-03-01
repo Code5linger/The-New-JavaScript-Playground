@@ -104,13 +104,57 @@
         // })
 
 
-        gsap.to(".cat", {
-            keyframes: [
-                { duration: 0.3, x: 100 },
-                { duration: 0.3, y: 100 },
-                { duration: 0.3, x: 200 },
-            ]
+        // gsap.to(".cat", {
+        //     keyframes: [
+        //         { duration: 0.3, x: 100 },
+        //         { duration: 0.3, y: 100 },
+        //         { duration: 0.3, x: 200 },
+        //     ]
+        // })
+
+        // addEventListener('load', () => {
+        //     gsap.to('.cat', {
+        //         x: 100,
+        //         duration: 1,
+        //         repeat: 1,
+        //         onComplete: () => console.log("Complete"),
+        //         onStart: () => console.log("Start"),
+        //         onUpdate: () => console.log("Update"),
+        //         onRepeat: () => console.log("Repeat"),
+        //     })
+        // })
+
+        // addEventListener('load', () => {
+        //     gsap.from('.cat', {
+        //         autoAlpha: 0,
+        //         y: -100,
+        //         rotation: 90,
+        //         ease: 'bounce',
+        //         duration: 2
+        //     })
+        // })
+
+        gsap.registerEffect({
+            name: "testAnnimation",
+            effect: (targets, config) => {
+                return gsap.to(targets, {
+                    duration: config.duration,
+                    y: 200,
+                    scale: 1.4,
+                    rotation: 360
+                })
+            },
+            defaults: {
+                duration: 2
+            }
         })
+
+        addEventListener("load", () => {
+            gsap.effects.testAnnimation('.cat', { duration: 5 })
+            gsap.effects.testAnnimation('.fuji', { duration: 3 })
+            gsap.effects.testAnnimation('.iceCream', { duration: 1 })
+        })
+
 
 
     </script>
