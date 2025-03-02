@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
@@ -168,14 +168,32 @@
         // tween.delay(1)
         // tween.duration(5)
 
-        const TL = gsap.timeline()
+        const TL = gsap.timeline({
+            defaults: {
+                duration: .5,
+                ease: "power4.inOut"
+            },
+            onStart: () => console.log('START'),
+            onComplete: () => console.log('COMPLETE'),
+        })
 
         TL
-            .from('.cat', { autoAlpha: 0, y: -50, duration: 1 },)
-            .from('.fuji', { autoAlpha: 0, y: -50, duration: 1 }, '>')
-            .from('.iceCream', { autoAlpha: 0, y: -50, duration: 1 },)
-            .from('h1', { autoAlpha: 0, y: -50, duration: 1 },)
-            .from('p', { autoAlpha: 0, y: -50, duration: 1 },)
+            .from('.cat', { autoAlpha: 0, y: -50, },)
+            .from('.fuji', { autoAlpha: 0, y: -50, },)
+            .from('.iceCream', { autoAlpha: 0, y: -50, ease: 'bounce', duration: 2, },)
+            .add(() => console.log('End of Image Tween!'))
+            .from('h1', { autoAlpha: 0, y: -50, },)
+            .from('p', { autoAlpha: 0, y: -50, })
+
+        // TL.seek('ImageAnimationEnd')
+        // TL.play()
+
+        // setTimeout(() => {
+        //     TL.seek('ImageAnimationEnd')
+        //     TL.play()
+        // }, 1000)
+
+
     </script>
 </body>
 
