@@ -20,7 +20,7 @@
     <h1>Welcome to the Sandbox</h1>
     <p>Let's play with Greensock</p>
 
-    <div class="btns">
+    <!-- <div class="btns">
         <button class="btn">VALIDATE</button>
         <button class="btn">VALIDATE</button>
         <button class="btn">VALIDATE</button>
@@ -31,7 +31,7 @@
         <button class="btn">VALIDATE</button>
         <button class="btn">VALIDATE</button>
         <button class="btn">VALIDATE</button>
-    </div>
+    </div> -->
 
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
@@ -156,17 +156,26 @@
         // })
 
         // gsap.set('.cat', { opacity: 0 })
-        const tween = gsap.to('.cat', { y: 200, duration: 5, paused: true })
+        // const tween = gsap.to('.cat', { y: 200, duration: 5, paused: true })
 
 
-        setTimeout(() => {
-            tween.resume()
-        }, 2000)
+        // setTimeout(() => {
+        //     tween.resume()
+        // }, 2000)
 
         // tween.kill()
 
         // tween.delay(1)
         // tween.duration(5)
+
+        const TL = gsap.timeline()
+
+        TL
+            .from('.cat', { autoAlpha: 0, y: -50, duration: 1 })
+            .from('.fuji', { autoAlpha: 0, y: -50, duration: 1 })
+            .from('.iceCream', { autoAlpha: 0, y: -50, duration: 1 })
+            .from('h1', { autoAlpha: 0, y: -50, duration: 1 })
+            .from('p', { autoAlpha: 0, y: -50, duration: 1 })
     </script>
 </body>
 
