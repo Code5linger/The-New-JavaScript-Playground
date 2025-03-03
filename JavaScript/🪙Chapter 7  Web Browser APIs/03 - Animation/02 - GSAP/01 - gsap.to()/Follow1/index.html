@@ -33,6 +33,12 @@
         <button class="btn">VALIDATE</button>
     </div> -->
 
+    <nav>
+        <button id="play">Play</button>
+        <button id="pause">Pause</button>
+        <button id="reverse">Reverse</button>
+        <button id="restart">Restart</button>
+    </nav>
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <!-- GSAP -->
@@ -47,9 +53,16 @@
             // gsap.to(".cat", { duration: 3, y: 400, delay: 1, ease: 'back(6)' })
             // gsap.to(".fuji", { duration: 3, y: 400, delay: 1, ease: 'linear' })
 
-            gsap.to('img', { y: 300, delay: 1, stagger: { each: 2, from: 'edges' } })
-        })
+            // gsap.to('img', { y: 300, delay: 1, stagger: { each: 2, from: 'edges' } })
 
+
+            const TL = gsap.to('img', { duration: 3, delay: .5, y: 250, ease: 'linear', paused: true })
+
+            document.getElementById('play').addEventListener('click', () => TL.play())
+            document.getElementById('pause').addEventListener('click', () => TL.pause())
+            document.getElementById('reverse').addEventListener('click', () => TL.reverse())
+            document.getElementById('restart').addEventListener('click', () => TL.restart())
+        })
 
     </script>
 </body>

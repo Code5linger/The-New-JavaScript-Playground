@@ -41,6 +41,15 @@ img {
     border: 1px solid white;
 }
 
+nav button {
+    padding: .5rem 1rem;
+}
+
+button:hover {
+    background: black;
+    color: aliceblue;
+}
+
 h1,
 p {
     /* visibility: hidden; */
