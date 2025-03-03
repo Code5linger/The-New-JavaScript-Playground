@@ -16,7 +16,7 @@ img {
     flex-shrink: 1;
     margin: 20px;
 
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .fuji {
@@ -43,5 +43,5 @@ img {
 
 h1,
 p {
-    visibility: hidden;
+    /* visibility: hidden; */
 }
