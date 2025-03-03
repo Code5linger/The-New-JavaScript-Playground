@@ -71,8 +71,15 @@
 
         gsap.timeline()
             .from('h1', { duration: 1, autoAlpha: 0, scale: 0, ease: "back" })
-            .from('img', { duration: 1, autoAlpha: 0, scale: 0, stagger: .5, ease: "back" })
-            .from('p', { duration: 1, autoAlpha: 0, x: "100vw", ease: "back" })
+            .from('img', { duration: 1, autoAlpha: 0, scale: 0, stagger: .5, ease: "back" },)
+            .from('p', { duration: 1, autoAlpha: 0, x: "100vw", ease: "back" }, 1)
+
+        // const animation = gsap.timeline()
+
+        // animation
+        //     .to('.cat', { duration: 1, y: 250 })
+        //     .to('.fuji', { duration: 5, y: 250 }, "+=1")
+        //     .to('.iceCream', { duration: 1, y: 250 }, "<")
 
     </script>
 </body>
