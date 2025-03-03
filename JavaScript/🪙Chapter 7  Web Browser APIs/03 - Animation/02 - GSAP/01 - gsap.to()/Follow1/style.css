@@ -43,6 +43,7 @@ img {
 
 nav button {
     padding: .5rem 1rem;
+    visibility: hidden;
 }
 
 button:hover {
@@ -50,7 +51,48 @@ button:hover {
     color: aliceblue;
 }
 
-h1,
-p {
+h1 {
     /* visibility: hidden; */
+}
+
+
+* {
+    position: relative;
+}
+
+
+
+
+
+.button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkblue;
+    border: 1vmin solid black;
+
+}
+
+.circle {
+    width: 50vmin;
+    height: 50vmin;
+    border-radius: 50%;
+
+    /* visibility: hidden; */
+    display: none;
+}
+
+.circle span {
+    color: white;
+    font-weight: 800;
+    font-family: sans-serif;
+    font-size: 13vmin;
+}
+
+.bg {
+    position: absolute;
+    background: white;
+    opacity: 0.3;
+    will-change: transform;
 }

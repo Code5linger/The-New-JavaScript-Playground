@@ -15,10 +15,12 @@
         <img class="iceCream" src="./assets/ice-cream.svg" alt="">
     </div>
 
-    <h1>Welcome to the Sandbox</h1>
-    <h1>Welcome to the Sandbox</h1>
-    <h1>Welcome to the Sandbox</h1>
-    <p>Let's play with Greensock</p>
+    <section>
+        <h1>Welcome to the Sandbox</h1>
+        <!-- <h1>Welcome to the Sandbox</h1>
+        <h1>Welcome to the Sandbox</h1> -->
+        <p>Let's play with Greensock</p>
+    </section>
 
     <!-- <div class="btns">
         <button class="btn">VALIDATE</button>
@@ -32,6 +34,13 @@
         <button class="btn">VALIDATE</button>
         <button class="btn">VALIDATE</button>
     </div> -->
+    <div class="contaienr">
+        <div class="circle button ">
+            <div class="circle bg"></div>
+            <span>hover<span>
+        </div>
+    </div>
+
 
     <nav>
         <button id="play">Play</button>
@@ -43,26 +52,27 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <!-- GSAP -->
     <script>
-        addEventListener('DOMContentLoaded', () => {
-            // gsap.to('.cat', { x: 400, y: 200, scale: 2, duration: 3 })
-            // gsap.fromTo('.cat', { x: 700, y: 400, opacity: 0 }, { x: 400, y: 200, duration: 3, opacity: 1 })
-            // gsap.to('.cat', { y: 200, duration: 1, repeat: -1, yoyo: true })
-            // gsap.to('.fuji', { y: 200, duration: 1, delay: 1 })
-            // gsap.to('.iceCream', { y: 200, duration: 1, delay: 2 })
+        // gsap.to('h1', { delay: 2, autoAlpha: 1, scale: 2, duration: 1 })
 
-            // gsap.to(".cat", { duration: 3, y: 400, delay: 1, ease: 'back(6)' })
-            // gsap.to(".fuji", { duration: 3, y: 400, delay: 1, ease: 'linear' })
+        // gsap.from('.cat', { delay: 3, scale: 0 })
+        // gsap.to('.cat', { autoAlpha: 1, duration: 1 })
 
-            // gsap.to('img', { y: 300, delay: 1, stagger: { each: 2, from: 'edges' } })
+        // gsap.from('.fuji', { delay: 4, scale: 0 })
+        // gsap.to('.fuji', { autoAlpha: 1, duration: 1 })
 
+        // gsap.from('.iceCream', { delay: 5, scale: 0 })
+        // gsap.to('.iceCream', { autoAlpha: 1, duration: 1 })
 
-            const TL = gsap.to('img', { duration: 3, delay: .5, y: 250, ease: 'linear', paused: true })
+        // gsap.from('p', { delay: 6, x: "100vw", autoAlpha: 1, duration: 1 })
 
-            document.getElementById('play').addEventListener('click', () => TL.play())
-            document.getElementById('pause').addEventListener('click', () => TL.pause())
-            document.getElementById('reverse').addEventListener('click', () => TL.reverse())
-            document.getElementById('restart').addEventListener('click', () => TL.restart())
-        })
+        // gsap.from('h1', { delay: 1, duration: 1, autoAlpha: 0, scale: 0 })
+        // gsap.from('img', { delay: 2, duration: 1, autoAlpha: 0, scale: 0, stagger: .5 })
+        // gsap.from('p', { delay: 3.5, duration: 1, autoAlpha: 0, x: "100vw" })
+
+        gsap.timeline()
+            .from('h1', { duration: 1, autoAlpha: 0, scale: 0, ease: "back" })
+            .from('img', { duration: 1, autoAlpha: 0, scale: 0, stagger: .5, ease: "back" })
+            .from('p', { duration: 1, autoAlpha: 0, x: "100vw", ease: "back" })
 
     </script>
 </body>
