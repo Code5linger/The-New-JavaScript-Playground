@@ -1,0 +1,117 @@
+body,
+html {
+    color: white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    background: #C1D1EA;
+    font-family: Kanit, sans-serif;
+}
+
+svg {
+    width: 900px;
+}
+
+#nav {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    background: #333;
+}
+
+
+#nav div {
+    align-self: center;
+    font-size: 22px;
+}
+
+#progressSlider {
+    width: 600px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+button {
+    border-radius: 10px;
+    background: #ffc34c;
+    color: #444;
+    font-size: 14px;
+    margin: 10px;
+    font-weight: 700;
+    width: 5em;
+}
+
+#time {
+    width: 80px;
+}
+
+
+.st0 {
+    fill: #E4ECF9;
+}
+
+.st1 {
+    fill: none;
+    stroke: #006699;
+    stroke-width: 20;
+    stroke-linejoin: round;
+    stroke-miterlimit: 2.5837;
+}
+
+.st2 {
+    fill: #0A5A90;
+}
+
+.st3 {
+    font-family: 'Kanit-ExtraBold';
+}
+
+.st4 {
+    font-size: 12px;
+}
+
+.st5 {
+    fill: #D00059;
+}
+
+.st6 {
+    opacity: 0;
+    fill: #F90B0B;
+}
+
+.st7 {
+    fill: #D87727;
+}
+
+.st8 {
+    fill: #31B7DB;
+}
+
+.st9 {
+    fill: #208E86;
+}
+
+.st10 {
+    fill: #FFFFFF;
+}
+
+.st11 {
+    fill: #6699FF;
+}
+
+.st12 {
+    fill: none;
+    stroke: #0A5A90;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-miterlimit: 2.5837;
+}
+
+.st13 {
+    fill: #6598FD;
+}
