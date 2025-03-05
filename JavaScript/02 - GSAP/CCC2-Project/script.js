@@ -1,8 +1,5 @@
 gsap.registerPlugin(MotionPathPlugin);
 
-// let select = e => document.querySelector(e);
-// let selectAll = e => document.querySelectorAll(e);
-
 // let progressSlider = select("#progressSlider");
 // let time = select("#time");
 // let pause = select("#pause");
@@ -39,12 +36,20 @@ let animation = gsap.to('#herman', {
     }
 })
 
-pause.addEventListener("click", () => {
-    animation.paused(!animation.paused())
-    if (animation.paused()) {
-        pause.innerHTML = 'play'
-    } else {
-        pause.innerHTML = 'pause'
-    }
-})
+// pause.addEventListener("click", () => {
+//     animation.paused(!animation.paused())
+//     if (animation.paused()) {
+//         pause.innerHTML = 'play'
+//     } else {
+//         pause.innerHTML = 'pause'
+//     }
+// })
 // console.log(animation.paused());
+
+pause.addEventListener("click", ()=> {
+  animation.paused(!animation.paused());
+  if (animation.progress() === 1) {
+    animation.restart();
+  }
+  pause.innerHTML = animation.paused() ? "play" : "pause";
+});
