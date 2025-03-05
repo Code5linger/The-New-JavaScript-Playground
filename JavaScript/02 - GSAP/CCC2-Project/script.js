@@ -39,13 +39,12 @@ let animation = gsap.to('#herman', {
     }
 })
 
-// animation.pause()
+pause.addEventListener("click", () => {
+    animation.paused(!animation.paused())
+    if (animation.paused()) {
+        pause.innerHTML = 'play'
+    } else {
+        pause.innerHTML = 'pause'
+    }
+})
 // console.log(animation.paused());
-
-animation.progress(.69).pause()
-// console.log(animation.progress());
-
-// console.log(animation.time(3));
-// console.log(animation.duration(3));
-// console.log(animation.timeScale(3));
-console.log(animation.reversed(true));
