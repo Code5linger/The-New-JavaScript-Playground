@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: #252525;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            position: relative;
+            width: 800px;
+            height: 410px;
+            border: 1px solid #333;
+        }
+
+        img {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="banner">
+        <img id="green" src="./(A).ico">
+        <img id="blue" src="./(B).ico">
+        <!-- <img id="red" src="./(C).ico"> -->
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        gsap.set("#banner", { opacity: 1, })
+        gsap.defaults({ duration: 1 })
+
+        const tween = gsap.timeline({ id: "tween" })
+        tween.from('#green', { opacity: 0 })
+            // animates from opacity 0 to opacity 1. 
+            .from('#blue', { opacity: 0 })
+            .from('#green', { opacity: 0, immediateRender: false })
+        // animates from opacity 0 to opacity 0
+    </script>
+</body>
+
+</html>
