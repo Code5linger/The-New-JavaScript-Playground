@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: Kanit;
+            color: white;
+            margin: 0;
+            font-size: 19px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            background: #1d1d1d;
+            overflow: hidden;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .wrapper {
+            height: 15%;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .perspective {
+            perspective: 400px;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        h3 {
+            font-size: 1.1em;
+            font-weight: 300;
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #ccc;
+        }
+
+        .box {
+            width: 8vw;
+            height: 8vw;
+            margin: 1vw;
+            border-radius: 2vw;
+            background: #f69;
+        }
+
+        body {
+            overflow: hidden;
+
+            hr {
+                width: 80%;
+                border: 0;
+                height: 2px;
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(150, 150, 150, 0.5), rgba(0, 0, 0, 0));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,600&display=swap" rel="stylesheet">
+    <h2>perspective on .wrapper</h2>
+    <h3>each box shares the vanishing point of it's parent</h3>
+    <div class="wrapper perspective">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <hr><br>
+
+    <h2>transformPerspective on each .box</h2>
+    <h3>each box has it's own vanishing point</h3>
+    <div class="wrapper noPerspective">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        gsap.set(".noPerspective .box", { transformPerspective: "200" })
+
+        let animation = gsap.timeline()
+
+        animation.to(".box", {
+            rotationY: 360,
+            duration: 8,
+            ease: "none",
+            transformOrigin: "50% 50%"
+        })
+    </script>
+</body>
+
+</html>
