@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            display: grid;
+            place-content: center;
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+
+        svg {
+            width: 300px;
+            height: 300px;
+            background-color: black;
+        }
+
+        path {
+            stroke: red;
+            stroke-width: 5px;
+        }
+
+        #demo {
+            width: 800px;
+            height: 500px;
+            background: grey;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            background: white;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <svg id="grid" viewBox="0 0 500 500"></svg>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        let svgNS = "http://www.w3.org/2000/svg";
+        //chuck a bunch of square <rects> in the svg
+        function grid() {
+            let svg = document.getElementById("grid")
+            let rows = 10;
+            let cols = 10
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    let rect = document.createElementNS(svgNS, "rect");
+                    gsap.set(rect, { attr: { fill: "pink", width: 49, height: 49, x: c * 50, y: r * 50 } });
+                    svg.appendChild(rect)
+                }
+            }
+        }
+        grid();
+
+        function weightedRandom(collection, ease) {
+            return gsap.utils.pipe(
+                Math.random,            //random number between 0 and 1
+                gsap.parseEase(ease),   //apply the ease
+                gsap.utils.mapRange(0, 1, -0.5, collection.length - 0.5), //map to the index range of the array, stretched by 0.5 each direction because we'll round and want to keep distribution (otherwise linear distribution would be center-weighted slightly)
+                gsap.utils.snap(1),     //snap to the closest integer
+                i => collection[i]      //return that element from the array
+            );
+        }
+
+        let colors = ["red", "white", "blue"];
+        let randomColor = weightedRandom(colors, "power4")
+
+        gsap.to("rect", {
+            fill: randomColor
+        });
+
+
+    </script>
+</body>
+
+</html>
