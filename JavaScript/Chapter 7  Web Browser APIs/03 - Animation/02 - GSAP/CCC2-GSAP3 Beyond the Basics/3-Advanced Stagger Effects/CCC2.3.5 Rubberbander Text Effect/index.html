@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #131313;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+        }
+
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #demo {
+
+
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        h1 {
+            color: white;
+            font-size: 60px;
+            font-weight: 400;
+        }
+
+        @media only screen and (max-width: 540px) {
+            h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Kanit:200,400,500&display=swap" rel="stylesheet">
+    <div id="demo">
+        <h1>RUBBERBANDER<h1>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        function customSplitText(selector, type = "chars") {
+            const element = document.querySelector(selector);
+            if (!element) return [];
+
+            const text = element.innerText;
+            element.innerHTML = ""; // Clear the original text
+
+            if (type === "chars") {
+                text.split("").forEach(char => {
+                    const span = document.createElement("span");
+                    span.innerText = char;
+                    element.appendChild(span);
+                });
+            }
+
+            return element.querySelectorAll("span");
+        }
+
+        let mySplit = customSplitText("h1", "chars");
+
+        let scaleDistributor = gsap.utils.distribute({
+            base: 0.2,
+            amount: 1.5,
+            from: "center",
+            ease: "power1"
+        });
+
+        let distanceDistributor = gsap.utils.distribute({
+            base: -200,
+            amount: 400,
+            ease: "none"
+        });
+
+        gsap.from(mySplit, {  // Corrected to use 'mySplit' instead of 'customSplitText.chars'
+            scale: scaleDistributor,
+            x: distanceDistributor,
+            opacity: 0,
+            repeat: 50,
+            yoyo: true,
+            stagger: {
+                each: 0.01,
+                from: "center"
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
