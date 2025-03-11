@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,600&display=swap" rel="stylesheet">
+    <div class="wrapper">
+        <style>
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                font-family: Kanit;
+                color: white;
+                margin: 0;
+                font-size: 19px;
+            }
+
+            body {
+                display: flex;
+                justify-content: center;
+                background: #1d1d1d;
+                overflow: hidden;
+            }
+
+            .wrapper {
+                width: 90%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+
+
+            p {
+
+                font-size: 42px;
+            }
+
+
+            body {
+                overflow: hidden;
+            }
+
+            .nav {
+                position: fixed;
+                height: 50px;
+                background: rgba(0, 0, 0, 0.4);
+                bottom: 0;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .sliderGroup {
+                display: flex;
+                align-items: left;
+                width: 300px;
+                justify-content: start;
+            }
+
+            svg {
+
+                position: fixed;
+                bottom: 50px;
+                left: 0;
+                overflow: visible;
+            }
+
+            path {
+                stroke-weight: 3px;
+                stroke: white;
+                fill: none;
+            }
+        </style>
+</head>
+
+<body>
+
+    <p>Creativity Is Intelligence Having Fun</p>
+    </div>
+
+    <div class="nav">
+
+        <div class="sliderGroup">
+            duration
+            <input id="durationSlider" type="range" min="0.5" max="5" value="0" step="0.05" />
+            <div id="durationDisplay">0.00</div>
+        </div>
+
+        <div class="sliderGroup">amplitude
+            <input id="amplitudeSlider" type="range" min="0.5" max="4" value="0" step="0.5" />
+            <div id="amplitudeDisplay">0.00</div>
+        </div>
+
+        <div class="sliderGroup">frequency
+            <input id="frequencySlider" type="range" min="0" max="1" value="0" step="0.01" />
+            <div id="frequencyDisplay">0.00</div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+        <script>
+            //https://www.gradientmagic.com/collection/simpleangular
+
+            //get more awesome demos when you join: https://courses.snorkl.tv/bundles/creative-coding-club
+
+            let select = e => document.querySelector(e)
+            let selectAll = e => document.querySelectorAll(e)
+            let svg
+            let svgSize = 200
+            let animation = gsap.timeline()
+            let chars
+            let duration = 4
+            let amplitude = 1
+            let frequency = 0.5
+            let ease
+            let durationSlider = select("#durationSlider")
+            let durationDisplay = select("#durationDisplay")
+            let amplitudeSlider = select("#amplitudeSlider")
+            let amplitudeDisplay = select("#amplitudeDisplay")
+            let frequencySlider = select("#frequencySlider")
+            let frequencyDisplay = select("#frequencyDisplay")
+
+            function updateAnimation() {
+                duration = durationSlider.value
+                amplitude = amplitudeSlider.value
+                frequency = frequencySlider.value
+                console.log("updateAnimation")
+                animation.progress(0).clear()
+                gsap.set(chars.chars, { clearProps: "y,opacity" })
+
+                animation.from(chars.chars, { y: 50, duration: duration, stagger: 0.03, ease: `elastic(${amplitude}, ${frequency})` })
+                animation.from(chars.chars, { opacity: 0, duration: 0.2, stagger: 0.03 }, 0)
+                animation.restart()
+                CustomEase.getSVGData(`elastic(${amplitude}, ${frequency})`, { width: svgSize, height: svgSize, path: "#easePath" })
+
+            }
+
+            function createVisualizer(size) {
+                let svgNS = "http://www.w3.org/2000/svg";
+                svg = document.createElementNS(svgNS, "svg");
+                let visualizer = document.createElementNS(svgNS, "g");
+                let rect = document.createElementNS(svgNS, "rect");
+                let path = document.createElementNS(svgNS, "path");
+                let dot = document.createElementNS(svgNS, "circle");
+                svg.setAttribute('width', size)
+                svg.setAttribute('height', size)
+                path.setAttribute('d', "M0," + size + " " + size + ", 0")
+                path.setAttribute('id', "easePath")
+                rect.setAttribute('width', size)
+                rect.setAttribute('height', size)
+                rect.setAttribute('fill', 'rgba(0, 0, 0, 0.1)')
+                visualizer.append(rect)
+                visualizer.appendChild(path)
+                svg.appendChild(visualizer)
+                document.body.appendChild(svg)
+                svg.addEventListener("click", () => gsap.to(svg, { opacity: 1 }))
+            }
+
+
+
+
+            function init() {
+                durationSlider.value = duration
+                durationDisplay.textContent = duration
+                amplitudeSlider.value = amplitude
+                amplitudeDisplay.value = amplitude
+                frequencySlider.value = frequency
+                frequencySlider.value = frequency
+                chars = new SplitText("p", { type: "chars" })
+                createVisualizer(svgSize)
+                updateAnimation()
+
+            }
+
+            durationSlider.addEventListener("input", function () {
+                durationDisplay.textContent = this.value
+            });
+
+            durationSlider.addEventListener("change", function () {
+                updateAnimation()
+            });
+
+            amplitudeSlider.addEventListener("input", function () {
+                amplitudeDisplay.textContent = this.value
+            });
+
+            amplitudeSlider.addEventListener("change", function () {
+                updateAnimation()
+            });
+
+            frequencySlider.addEventListener("input", function () {
+                frequencyDisplay.textContent = this.value
+            });
+
+            frequencySlider.addEventListener("change", function () {
+                updateAnimation()
+            });
+
+
+
+            window.addEventListener("load", function (event) {
+                init(); //do stuff
+            });
+        </script>
+    </div>
+</body>
+
+</html>
