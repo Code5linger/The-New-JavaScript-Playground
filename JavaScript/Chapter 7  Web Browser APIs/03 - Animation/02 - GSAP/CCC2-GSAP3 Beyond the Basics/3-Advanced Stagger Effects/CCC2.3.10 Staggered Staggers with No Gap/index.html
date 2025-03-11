@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            font-family: sans-serif;
+            background: #ffcc33;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .demo {
+            perspective: 400px;
+            visibility: hidden;
+            height: 100%;
+        }
+
+        .demo div {
+            position: absolute;
+            display: inline-block;
+            left: 50%;
+            top: 50%;
+            font-weight: 800;
+            font-size: 60px;
+            color: #1C70A7;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+
+        @media only screen and (max-width: 900px) {
+            .demo div {
+                font-size: 36px;
+            }
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <div>item 1</div>
+        <div>item 2</div>
+        <div>item 3</div>
+        <div>item 4</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        let animation = gsap.timeline({ repeat: 20 })
+        let targets = document.querySelectorAll(".demo div")
+        let numberOfTargets = targets.length
+
+        let duration = .2
+        let pause = 1
+        let stagger = duration + pause
+        let repeatDelay = (stagger * (numberOfTargets - 1) + pause)
+
+        function init() {
+            gsap.set(".demo", { autoAlpha: 1 })
+            animation.from(targets, {
+                y: 80,
+                duration: duration,
+                opacity: 0,
+                stagger: {
+                    each: stagger,
+                    repeat: -1,
+                    repeatDelay: repeatDelay
+                }
+            })
+                .to(targets, {
+                    y: -80, duration: duration, opacity: 0, stagger: {
+                        each: stagger,
+                        repeat: -1,
+                        repeatDelay: repeatDelay
+                    }
+                }, stagger)
+        }
+
+        window.addEventListener('click', () => animation.pause())
+        init()
+    </script>
+</body>
+
+</html>
