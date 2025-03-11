@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .demo {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: left;
+            align-items: center;
+        }
+
+        .box {
+            height: 100px;
+            width: 100px;
+            min-width: 50px;
+            min-height: 50px;
+            background: green;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        let tween = gsap.to(".box", {
+            opacity: .3, scale: .2, stagger: {
+                each: 0.5,
+                onStart: function () {
+                    let target = this.targets()[0]
+                    if (target.getAttribute("data-name") === 'stop') {
+                        tween.pause(this.startTime()),
+                            tween.reverse()
+                        console.log(tween.time(), this.startTime());
+                    }
+                },
+            }
+        })
+
+        document.querySelector(".demo").addEventListener("click", function (event) {
+            if (event.target.matches('.box')) {
+                event.target.setAttribute("data-name", "stop")
+                gsap.to(event.target, { backgroundColor: "red", duration: 0.2 })
+            }
+        })
+
+        // let tween = gsap.to(".box", {
+        //     opacity: 0.5, scale: 0.2, stagger: {
+        //         each: 0.5,
+        //         onStart: function () {
+        //             let target = this.targets()[0]
+        //             if (target.getAttribute("data-name") === "stop") {
+        //                 tween.pause(this.startTime())
+        //                 console.log(tween.time(), this.startTime())
+        //             }
+        //         }
+        //     }
+        // })
+
+
+    </script>
+</body>
+
+</html>
