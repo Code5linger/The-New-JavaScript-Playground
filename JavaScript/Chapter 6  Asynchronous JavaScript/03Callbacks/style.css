@@ -1,10 +1,15 @@
 body {
-    background: black;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    overflow: hidden;
 
+    background: black;
     color: whitesmoke;
 }
 
 button {
+
     padding: .75rem;
     margin: 1rem;
     background: black;
@@ -16,6 +21,8 @@ button {
 }
 
 .go {
+    display: grid;
+    place-content: center;
     display: inline-block;
     min-width: 5rem;
     min-height: 5rem;
@@ -28,6 +35,8 @@ button {
 }
 
 .circle {
+    display: grid;
+    place-content: center;
     border-radius: 50%;
     transition: all .5s ease-in-out;
 }
