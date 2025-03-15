@@ -1,6 +1,3 @@
-
-
-//! Throwing & Catching Errors
 //* How can you handle errors when using the getTodos function with promises in JavaScript?
 // const getTodos = async () => {
 //     const response = await fetch('./todos/a.json')
