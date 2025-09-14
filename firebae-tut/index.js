@@ -7,50 +7,47 @@ const appSettings = {
 
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
-const booksInDB = ref(database, "books")
+const shoppingListInDB = ref(database, "shoppingList")
 
-const booksEl = document.getElementById("books")
+const inputFieldEl = document.getElementById("input-field")
+const addButtonEl = document.getElementById("add-button")
+const shoppingListEl = document.getElementById("shopping-list")
 
-function appendBookToBooksListEl(bookValue) {
-    booksEl.innerHTML += `<li>${bookValue}</li>`
-}
-
-function clearBooksListEl() {
-    booksEl.innerHTML = ""
-}
-
-onValue(booksInDB, function (snapshot) {
-    clearBooksListEl()
-
-    let bookArray = Object.values(snapshot.val())
-
-    // bookArray.map(book => {
-    //     console.log(book);
-    // })
-
-    for (let i = 0; i < bookArray.length; i++) {
-        console.log(bookArray[i]);
-        appendBookToBooksListEl(bookArray[i])
-    }
-
-    console.log(bookArray)
+addButtonEl.addEventListener("click", function() {
+    let inputValue = inputFieldEl.value
+    
+    push(shoppingListInDB, inputValue)
+    
+    clearInputFieldEl()
 })
 
+onValue(shoppingListInDB, function (snapshot) {  
+        const dataArray = Object.values(snapshot.val())
+        shoppingListEl.innerHTML = ""
+        
+        for (let i = 0; i < dataArray.length; i++) {
+            appendItemToShoppingListEl(dataArray[i])
+        }
+    } )
+
+// onValue(shoppingListInDB, function(snapshot) {
+//     const dataArray = Object.values(snapshot.val())
+//     shoppingListEl.innerHTML = ""
+    
+//     for (let i = 0; i < dataArray.length; i++) {
+//         appendItemToShoppingListEl(dataArray[i])
+//     }
+// })
+
+function clearInputFieldEl() {
+    inputFieldEl.value = ""
+}
+
+function appendItemToShoppingListEl(itemValue) {
+    shoppingListEl.innerHTML += `<li>${itemValue}</li>`
+}
 
 
-
-
-// const app = initializeApp(appSettings)
-// const database = getDatabase(app)
-// const shoppingListInDB = ref(database, "shoppingList")
-
-// const inputFieldEl = document.getElementById("input-field")
-// const addButtonEl = document.getElementById("add-button")
-// const shoppingListEl = document.getElementById("shopping-list")
-
-// const formReset = () => {
-//      inputFieldEl.value = ""
-// }
 
 // const addValue = (shoppingListEl, inputValue) => {
 //     const li = document.createElement("li")
