@@ -41,3 +41,33 @@
 // console.log(y++);
 // console.log(++y);
 
+'use strict'
+
+var msg = 'Welcome to JS'
+
+console.log(msg);
+
+let firstName = 'Sakib'
+let lastName = 'Ahamed'
+
+let numYearsEmployed = 5
+let dateBirth = new Date('August 26, 1994')
+
+numYearsEmployed = 7
+
+var dog = '🐕'
+
+console.log(dog);
+
+var scopeTest = 10
+
+function scopeTestFunc() {
+    var scopeTest = 20
+    console.log('O_o', scopeTest);
+}   
+
+console.log(scopeTest);
+scopeTestFunc()
+console.log(scopeTest);
+
+// 
