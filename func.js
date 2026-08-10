@@ -200,3 +200,17 @@ const MethodDemo = {
 
 // MethodDemo.greetings(); // {} | Cause Arrow Function's scope
 // MethodDemo.greetingsAlt(); //{ name: 'Sakib', greetings: [Function: greetings], greetingsAlt: Function: greetingsAlt]} | Function scope
+
+// MethodDemo.greetings(); // Arrow function's this gets its value from the lexical scope, in this case which is {}
+// MethodDemo.greetingsAlt(); // Function statement's this has wider scope and it can retun the complete object
+
+const fn = MethodDemo.greetingsAlt();
+const fnAlt = MethodDemo.greetingsAlt;
+// fn; // fn here will return the complete object (odDemo ) as it is returned by this of greetingsAlt(). fn just calling the method greetingsAlt(). fn is function call
+
+// fnAlt(); // this returns the Object + <ref *1> Object [global] {} don't know why? fn vs fnAlt() whats the difference?
+
+const bound = MethodDemo.greetingsAlt.bind(MethodDemo); // What is going on here?
+// bound();
+
+// ## first-class functions
