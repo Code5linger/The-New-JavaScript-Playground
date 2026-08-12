@@ -6,7 +6,12 @@
 // Functions are a reference data types in js.
 
 // - What makes functions first-class?
-// Other programming languages have class, module, prototype, tect. JS have functions, so that makes it so powerfull. Thats why
+// ❌❌❌ Other programming languages have class, module, prototype, tect. JS have functions, so that makes it so powerfull. Thats why
+
+// A thing is first class when the language treats it like an ordinary value
+// For JS functions, this means they can be stored in a variable, object, array, passed as an argument and returned from a function
+
+// JS functions are first-class values because function can be assigned to variables, stored in data structure like object and arrays, passed as arguments (fn(fnA())) and returned from other functions.
 
 // - Function declaration vs expression?
 // Function Declaration
@@ -70,6 +75,7 @@
 
 // - What is a callback?
 // When a function retunrs a function
+// A callback is a function passed to another function so that the receiving code can invoke it at the appropriate time, ex setTimeout(fuc(), 1000) here fuc() is the callback
 
 // - Why pass functions around?
 // For the ease of use
@@ -204,13 +210,27 @@ const MethodDemo = {
 // MethodDemo.greetings(); // Arrow function's this gets its value from the lexical scope, in this case which is {}
 // MethodDemo.greetingsAlt(); // Function statement's this has wider scope and it can retun the complete object
 
-const fn = MethodDemo.greetingsAlt();
-const fnAlt = MethodDemo.greetingsAlt;
+// const fn = MethodDemo.greetingsAlt();
+// const fnAlt = MethodDemo.greetingsAlt;
 // fn; // fn here will return the complete object (odDemo ) as it is returned by this of greetingsAlt(). fn just calling the method greetingsAlt(). fn is function call
 
 // fnAlt(); // this returns the Object + <ref *1> Object [global] {} don't know why? fn vs fnAlt() whats the difference?
 
-const bound = MethodDemo.greetingsAlt.bind(MethodDemo); // What is going on here?
+// const bound = MethodDemo.greetingsAlt.bind(MethodDemo); // What is going on here?
 // bound();
 
 // ## first-class functions
+
+let name = 'O_o';
+
+const obj = {
+  name: 'Sakib',
+  demo: 'O_o',
+
+  greet() {
+    console.log(this.name);
+  },
+  demoX: 'O_oX',
+};
+
+obj.greet();
