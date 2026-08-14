@@ -139,4 +139,25 @@ function mergeSortedArrays(arrayA, arrayB) {
   return mergeArray;
 }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+
+// Function Expression
+// Functions that are assigned as a value. In JS functions can passed as arguments to other function, returned from functions. It is also called first class value. IT is a value that can be passed around.
+
+// Function Expression have two types
+// Anonymous function
+// More common
+const Expression = function () {};
+
+// Named function
+// Preferred | Recommended
+const ExpressionX = function named() {};
+
+var age = 39;
+
+age = 2 + age * 2;
+
+console.log(age);
+
+const convertToLiters = new Function('gallons', 'return gallons * 3.785');
+
