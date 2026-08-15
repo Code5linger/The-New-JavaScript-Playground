@@ -161,3 +161,41 @@ console.log(age);
 
 const convertToLiters = new Function('gallons', 'return gallons * 3.785');
 
+function getRandomNumber(upper) {
+  var randomNumber = Math.floor(Math.random() * upper) + 1;
+  return randomNumber;
+}
+
+// getRandomNumber(6);
+
+function calculateBill(bill, taxRate) {
+  console.log('Calculating Bill...');
+  return bill * 1 + taxRate;
+}
+
+// Function Call
+console.log(`Total: ${calculateBill(100, 0.13)}`);
+console.log(`Total: ${calculateBill(200, 0.26)}`);
+
+const total = calculateBill(300, 0.39);
+console.log(total);
+
+function sayHiTo(firstName) {
+  return `Hello! ${firstName}`;
+}
+
+console.log(sayHiTo('Sakib'));
+
+function engineered(name) {
+  return `Dr. ${name}, Ph.D`;
+}
+
+function announce(name) {
+  return `Introducing, ${name}`;
+}
+
+console.log(sayHiTo('Sakib'));
+console.log(engineered('Sakib'));
+console.log(announce('Sakib'));
+console.log(announce(engineered('Sakib')));
+console.log(sayHiTo(announce(engineered('Sakib'))));
