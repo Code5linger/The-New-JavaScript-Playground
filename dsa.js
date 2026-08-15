@@ -157,7 +157,7 @@ var age = 39;
 
 age = 2 + age * 2;
 
-console.log(age);
+// console.log(age);
 
 const convertToLiters = new Function('gallons', 'return gallons * 3.785');
 
@@ -168,34 +168,39 @@ function getRandomNumber(upper) {
 
 // getRandomNumber(6);
 
-function calculateBill(bill, taxRate) {
-  console.log('Calculating Bill...');
-  return bill * 1 + taxRate;
+function isOdd(v) {
+  return v % 2 == 1;
 }
 
-// Function Call
-console.log(`Total: ${calculateBill(100, 0.13)}`);
-console.log(`Total: ${calculateBill(200, 0.26)}`);
-
-const total = calculateBill(300, 0.39);
-console.log(total);
-
-function sayHiTo(firstName) {
-  return `Hello! ${firstName}`;
+function isEven(v) {
+  return !isOdd(v);
 }
 
-console.log(sayHiTo('Sakib'));
+// console.log(isEven(4));
+// console.log(isEven(13));
 
-function engineered(name) {
-  return `Dr. ${name}, Ph.D`;
+('use strict');
+
+let output = console.log.bind(console);
+
+function printIf(shouldPrintIt) {
+  return function (msg) {
+    if (shouldPrintIt(msg)) {
+      output(msg);
+    }
+  };
 }
 
-function announce(name) {
-  return `Introducing, ${name}`;
+function isShortEnough(str) {
+  return str.length <= 5;
 }
 
-console.log(sayHiTo('Sakib'));
-console.log(engineered('Sakib'));
-console.log(announce('Sakib'));
-console.log(announce(engineered('Sakib')));
-console.log(sayHiTo(announce(engineered('Sakib'))));
+function not(fn) {
+  return function negated(...args) {
+    return !fn(...args);
+  };
+}
+
+let isLongEnough = not(isShortEnough);
+
+let msg1 = 'Hello';
